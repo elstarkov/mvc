@@ -1,0 +1,20 @@
+
+{% extends "base.html.twig" %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+    <h1>Home</h1>
+    <p>Hej och välkommen till min report-sida i kursen MVC.</p>
+    <p>
+        Detta är den sista svängen med kurser innan sommaren.
+        Hade någon frågat mig i höstas när vi höll på med kalendern i Webtec om jag skulle
+        vara kvar på samma uppgift om ett halvår så hade jag svarat "ja". Lyckligtvis blev det inte så.
+    </p>
+    <p>
+        Jag heter Samuel, är 28 år gammal och kommer från Nyköping men är för tillfället bosatt i
+        Norge.
+    </p>
+    <br>
+    <img src="{{ asset('img/me.jpg') }}" alt="">
+{% endblock %}

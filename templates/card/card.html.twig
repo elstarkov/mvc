@@ -1,0 +1,51 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Cards{% endblock %}
+
+{% block body %}
+    <br>
+    <br>
+    <h2>
+        Välkommen till samlingssidan för "card".
+        Klicka på en länk för att utforska sidan.
+    </h2>
+    <br>
+    <div class ="card">
+        <a href="{{ path('deck') }}"> - Deck</a>
+        <br>
+        <a href="{{ path('shuffle') }}"> - Shuffle</a>
+        <br>
+        <a href="{{ path('draw') }}"> - Draw</a>
+        <br>
+        <a href="{{ path('draw_number', {num: 5}) }}"> - Draw 5 cards</a>
+    </div>
+
+    <h2>Klasser och UML</h2>
+    <p>
+        Här finner du ett UML-diagram med de klasser som kortleken använder.
+    </p>
+    <p>
+        Kortleken består av fyra klasser. Den första klassen som skapades var "Card".
+        Cards huvudsakliga uppgift är att dra ett nummer mellan 0 och 51.
+        Det valda talet motsvarar ett index i kortleken. När kortet valts tas
+        det talet bort från arrayen så att det inte kan väljas igen.
+    </p>
+    <p>
+        "Cardgrahic" ärver från "Card" och motsvarar också ett kort i kortleken men
+        har som huvudsaklig uppgift att rita ut kortet. Klassen använder metoder från
+        Card men har också sina egna metoder för att sortera efter färger och sort.
+    </p>
+    <p>
+        Vad gäller "DeckOfCards" och "CardHand" så har bedömningen gjorts att detta är
+        kompositionsrelaterade klasser till Card/CardGraphic. Både en kortlek och en
+        korthand behöver kort för att kunna existera och har således en starkt beroende
+        koppling till kort-klasserna. DeckOfCards består av 52 kort och innehåller metoder
+        för att blanda kortleken och ta bort dragna kort ur den. CardHand i sin tur håller
+        reda på dragna kort.
+    </p>
+
+    <h2>UML-diagram</h2>
+
+    <img src="{{ asset('img/cardgame.png') }}" alt="uml">
+
+{% endblock %}

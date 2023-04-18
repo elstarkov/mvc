@@ -1,0 +1,42 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Cards{% endblock %}
+
+{% block body %}
+    <br>
+    <br>
+    <h2>
+        Välkommen till samlingssidan för JSON API.
+    </h2>
+    <p>
+        Sidorna visar upp innehåll i JSON API-format.
+        Testa att klicka på "Quote" för att få dagens datum
+        och ett djupt citat. Om du hellre vill dra ett kort från kortleken
+        kan du klicka på någon av knapparna med "Draw". Om du vill återställa
+        kortleken, välj "shuffle".
+    </p>
+    <br>
+    <div class ="card">
+        <a href="{{ path('quote') }}"> - Quote API</a>
+        <br>
+        <a href="{{ path('a_deck') }}"> - Deck API</a>
+        <br>
+        <a href="{{ path('api_shuffle') }}"> - Shuffle API</a>
+        <br>
+        <form method="post" action="">
+            <p>
+                <input type="submit" name="draw" value="Draw 1 card"
+                    onClick="this.form.action='{{ path('a_draw') }}';"
+                >
+            </p>
+        </form>
+        <form method="post" action="">
+            <p>
+                <input type="submit" value="Draw 5 cards"
+                    onClick="this.form.action='{{ path('a_draw_number', {num: 5}) }}';"
+                >
+            </p>
+        </form>
+        <br>
+    </div>
+{% endblock %}

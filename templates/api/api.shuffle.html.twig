@@ -1,0 +1,23 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Shuffle JSON{% endblock %}
+
+{% block body %}
+
+<h2>Shuffle</h2>
+
+<p>
+    Klicka på knappen för att returnera ett JSON API med en blandad kortlek.
+</p>
+
+<form method="post" action="">
+    <p>
+        <input type="submit" name="shuffle" value="Shuffle"
+            onClick="this.form.action='{{ path('a_shuffle') }}';"
+        >
+    </p>
+</form>
+
+
+
+{% endblock %}

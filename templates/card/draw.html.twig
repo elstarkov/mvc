@@ -1,0 +1,19 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Draw{% endblock %}
+
+{% block body %}
+<br>
+<br>
+<h2>
+    Uppdatera sidan för att dra ett kort ur leken.
+</h2>
+    <div class="card">
+        <p>{{ cards }}</p>
+        <p><p>Kort i leken: {{ count }}</p>
+    </div>
+        <p>
+            Tips: Lägg till en siffra i URLen för att dra
+            flera kort samtidigt. Ex "/card/deck/draw/5".
+        </p>
+{% endblock %}

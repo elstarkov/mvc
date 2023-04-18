@@ -1,0 +1,20 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Draw Number{% endblock %}
+
+{% block body %}
+<br>
+<br>
+<h2>
+    På den här sidan kan du dra flera kort ur leken samtidigt.
+</h2>
+    <div class="card">
+        {{ include('flash.html.twig') }}
+        {% for recent in recently %}
+            <li>{{ recent }}</li>
+        {% endfor %}
+            <p>{{ cards }}</p>
+        </ul>
+        <p>Kort i leken: {{ numCards }}</p>
+    </div>
+{% endblock %}

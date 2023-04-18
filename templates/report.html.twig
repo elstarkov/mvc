@@ -1,0 +1,115 @@
+
+{% extends "base.html.twig" %}
+
+{% block title %}Report{% endblock %}
+
+{% block body %}
+
+    <h1>Report</h1>
+
+    <section>
+        <section id="kmom01">
+        <h2>Kmom 01</h2>
+        <p>
+            Mina tidigare erfarenheter kring objektorienterad programmering är ganska färska. Vi jobbade en hel del med klasser i Python och det kändes väldigt
+            förvirrande till en början men det blev lite mer naturligt när man testat en stund. Känslan är dock fortfarande att det kan vara förvirrande när
+            klasserna ärver från varandra och skapas i flera led. Då blir det fort mycket att försöka hålla koll på och som nybörjare kan man bli bortfintad.
+        </p>
+        <p>
+            Objektorienterad programmering i PHP utgår ifrån klasser som skapar objekt. Ett objekt är en instans av en klass och tilldelas unika egenskaper
+            som "properties" och metoder, dvs funktioner som är kopplade till objektet. Kort kan man säga att metoder är objektets funktionalitet och
+            beskriver vad det kan göra. Properties är precis som det låter, egenskaper. En klass som skapar bilar kan ha egenskaper som "röd" eller
+            "fyra hjul". Klasserna fungerar därmed som en mall för objekten som skapas.
+        </p>
+        <p>
+            Kodbasen som används i me/report är ganska omfattande. Än så länge har vi bara skapat en me-sida med några få router men ändå är mappar
+            och undermappar välfyllda. Det känns kanske som onödigt mycket för så lite innehåll men det verkar som att detta är de mappar som behöver
+            finnas, oavsett hur många router och hur mycket material som sidan innehåller. Att installera och sätta upp Symfony med tillbehör var
+            mer omfattande än de miljöer vi arbetat med tidigare. Detta känns dock nyttigt för man börjar skaffa sig en generell bild om hur olika
+            webbplatser kan vara uppbyggda.
+        </p>
+        <p>
+            Jag har lite svårt för att välja ut det allra viktigaste från sidan. Generellt tycker jag att själva syftet med hela sidan är väldigt bra,
+            dvs att sidan är skapad för att ge en översiktlig och lättsam guide då mycket av informationen om PHP på nätet är utdaterad. Ska jag välja
+            någon del jag är lite nyfiken på så är det väl kanske hur man kan använda PHP tillsammans med SQL och databaser. Eftersom vi precis har
+            avslutat en kurs i databaser så är det något jag kan relatera till och kanske kommer kunna förstå ännu bättre när jag får en annan
+            infallsvinkel.
+        </p>
+        <p>
+            Momentets TIL för det första kursmomentet i varje kurs är ofta svårt eftersom allt egentligen är en enda stor TIL. Det är mycket nytt
+            som ska introduceras och hjärnan får sig en genomkörare. Måste jag välja någon detalj så var det kanske hur man kunde ange en tidzon för
+            att anpassa klockslaget till aktuell tid. Det visste jag inte sedan tidigare, men som sagt, det var väldigt många andra nya saker i det
+            här momentet och detta endast en detalj i mängden.
+        </p>
+    </section>
+
+    <section>
+        <section id="kmom02">
+        <h2>Kmom 02</h2>
+        <p>
+            I objektorienterad programmering innebär arv att klassen äger egenskaper från en förälder-klass. I min kortlek så är CardGraphic en
+            underklass till Card. Det betyder att man i CardGraphic kan komma åt metoder som skapats i Card-klassen. På det sättet slipper man
+            skriva om samma kod igen för en klass som avser att verka på liknande sätt som en tidigare klass. För att underlätta kan man tänka
+            att om klasserna har in "is a"-relation så bör det fungera med arv. "CardGraphic is a Card", ja, det finns det grund för att påstå.
+        </p>
+        <p>
+            Komposition behandlar "has a"-relationer och i mitt kortspel är både DeckOfCards och CardHand relaterade till Card/CardGraphic på
+            det sättet. DeckOfCards har kort och detsamma gäller för CardHand som också har kort. För att en relation ska klassas som komposition
+            och inte aggregation så ska klasserna inte kunna existera på egen hand. Med det sagt, så gjorde jag bedömningen att en kortlek inte
+            kan existera om korten förstörs och en korthand kan inte hålla några kort om det inte finns några kort att hålla. Hade det däremot handlat
+            om ett hyreshus med flera lägenheter så kan en lägenhet fortfarande existera även om den som bor där flyttar ut.
+        </p>
+        <p>
+            Trait påminner om arv och används för att skapa ytterligare funktionalitet för en klass. Ett trait kan vara en bit kod som flera klasser
+            har nytta av men den kan inte existera på egen hand. Den måste implementeras i en klass och sedan användas vidare därifrån. Om jag har
+            förstått det rätt så används traits för att man ska slippa skriva ny kod för klasser som har nytta av en annans klass funktionalitet
+            men där klasshiarkin inte lämpar sig för att använda arv.
+        <p>
+            Interface är ett slags kontrakt som mellan klassen och andra delar av koden som kräver att vissa metoder implementeras. Interfacet i sig
+            innehåller ingen kod utan bara bestämmelser om vilka metoder som ska återfinnas i klassen. På det sättet vet utvecklaren vad hen kan förvänta
+            sig av klassen och vilken funktionalitet den kommer att ha.
+        </p>
+        <p>
+            I stora delar har jag nog återgett hur jag implementerade mina klasser i uppgiften. Jag är hyfsat nöjd med implementationen. Jag försökte
+            att låta min CardHand innehålla en samling av CardGraphic-objekt likt fallet från övningen med "add"-metoden men fick det inte helt att
+            fungera som förväntat. Då fick jag göra det lite enklare och låta min "add"-metod skapa en array med kortens värde och innehåll istället
+            för hela CardGraphic-objekt.
+        </p>
+        <p>
+            Uppgiften var utmanade och det kräver alltid extra tankeverksamhet när något ska fungera i flera steg och över flera sidor. Min PHP-kunskap
+            känns någorlunda rostig sedan kursen i höstas och detta gör hela fenomenet med objektorientering ännu mastigare att ta in. Däremot känns det
+            bra att ha genomfört OOP-kursen i Python. Det gör att man har lättare för att greppa helheten men som vanligt måste man verkligen sätta sig
+            ner och testa sig fram för att skapa den djupare förståelse. Den här uppgiften kändes som en bra genomkörare och grund för mer avancerade
+            applikationer eller spel.
+        </p>
+        <p>
+            Min TIL för det här momentet är nog introduktionen och kontakten i sin allmänhet med objektorienterad programmering i PHP.
+        </p>
+    </section>
+
+    <section>
+        <section id="kmom03">
+        <h2>Kmom 03</h2>
+    </section>
+
+    <section>
+        <section id="kmom04">
+        <h2>Kmom 04</h2>
+    </section>
+
+    <section>
+        <section id="kmom05">
+        <h2>Kmom 05</h2>
+    </section>
+
+    <section>
+        <section id="kmom06">
+        <h2>Kmom 06</h2>
+    </section>
+
+    <section>
+        <section id="kmom07-10">
+        <h2>Kmom 07-10</h2>
+    </section>
+
+{% endblock %}

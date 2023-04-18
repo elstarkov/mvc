@@ -1,0 +1,27 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Deck{% endblock %}
+
+{% block body %}
+<br>
+<br>
+<h2>
+    Här hittar du kortleken sorterad på färg och sort.
+</h2>
+    <div class="card">
+        <h6>Spader</h6>
+        <p>{{ spades }}</p>
+
+        <hr>
+        <h6>Klöver</h6>
+        <p>{{ clubs }}</p>
+
+        <hr>
+        <h6>Hjärter</h6>
+        <p>{{ hearts }}</p>
+
+        <hr>
+        <h6>Ruter</h6>
+        <p>{{ diamonds }}</p>
+    </div>
+{% endblock %}
