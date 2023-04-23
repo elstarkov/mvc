@@ -1,0 +1,43 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Card game{% endblock %}
+
+{% block body %}
+    <br>
+    <br>
+    <h2>
+        Välkommen till samlingssidan för "game".
+    </h2>
+    <p>
+        Här kan du spela kortspelet "21".
+    </p>
+    <p>
+        <a href="{{ path('doc') }}"> - Dokumentation</a>
+    </p>
+    <h3>
+        Regler
+    </h3>
+    <p>
+        Spelet går ut på att dra kort från kortleken och hamna så nära 
+        eller lika med talet 21 som möjligt. Varje kort är värda sin siffra
+        i poäng. Knekt är värd 11 poäng, dam 12 poäng, kung 13 poäng och
+        ess är värt 14 eller 1 poäng, det är upp till spelaren att bestämma
+        efter behov. Spelaren spelar mot banken och det är spelaren som börjar
+        med att dra ett kort. Spelaren kan sedan dra ytterligare ett kort
+        eller stanna. Om spelaren stannar är det bankens tur. Banken plockar
+        kort tills den stannar eller har över 21. Om banken får över 21 vinner
+        spelaren och om spelaren får över 21 vinner banken. Vid lika eller om banken
+        har fler poäng än spelaren så vinner banken.
+    </p>
+    <h3>
+        Klicka på knappen för att starta spelet.
+    </h3>
+    <br>
+        <form method="post" action="">
+            <p>
+                <input type="submit" value="Starta spel"
+                    onClick="this.form.action=''"
+                >
+        </p>
+    <br>
+{% endblock %}

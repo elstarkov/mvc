@@ -1,0 +1,140 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Game documentation{% endblock %}
+
+{% block body %}
+    <br>
+    <br>
+    <h2>
+        Game documentation
+    </h2>
+
+    <p>
+        Nedanstående avsnitt är skrivna före implementeringen av koden
+        för kortspelet. Texterna bör ses som ett första utkast och planeringen
+        kan skilja sig mot det slutgiltiga resultatet.
+    </p>
+
+    <h3>
+        Flödesschema
+    </h3>
+    <p>
+        En grundläggande översikt för tanken bakom spelets flöde.
+    </p>
+    <img src="{{ asset('img/flow.png') }}" alt="uml">
+
+    <h3>
+        Psuedokod
+    </h3>
+    <p>
+        Det här avsnittet beskriver hur koden för flödet skulle kunna se ut.
+        Texten kommer att skrivas på engelska för att stämma bättre överens
+        med den riktiga koden.
+    </p>
+
+    <h3>
+        START
+    </h3>
+    <p>
+        Player draws card from deck.
+    </p>
+    <p class="bold">
+        If total points is equal or greater than 21:
+    </p>
+    <p>
+        Game ends. Bank wins.
+    </p>
+    <p class="bold">
+        Else
+    </p>
+    <p>
+        Continue to next condition ->
+    </p>
+    <p>
+        Player can choose to stop or draw another card from deck.
+    </p>
+    <p class="bold">
+        If player draws another card:
+    </p>
+    <p>
+        Repeat code flow. Check if total points is greater or equal to 21.
+    </p>
+    <p class="bold">
+        Else
+    </p>
+    <p>
+        Bank draws a card.
+    </p>
+    <p class="bold">
+        If total points is equal or greater than 21:
+    </p>
+    <p>
+        Game ends. Player wins.
+    </p>
+    <p class="bold">
+        Else
+    </p>
+    <p>
+        Continue to next condition ->
+    </p>
+    <p>
+        Bank can choose to stop or draw another card from deck.
+    </p>
+    <p class="bold">
+        If bank draws another card:
+    </p>
+    <p>
+        Repeat code flow. Check if total points is greater or equal to 21.
+    </p>
+    <p class="bold">
+        Else
+    </p>
+    <p>
+        Start from beginning -> Player draws card.
+    </p>
+
+    <hr>
+    <h3>
+        Klasser
+    </h3>
+    <p>
+        Här finns en sammanfattning av vilka klasser som kortspelet med stor
+        sannolikhet kommer att implementera.
+    </p>
+
+    <p class="bold">
+        Card
+    </p>
+    <p>
+        Den första klassen är "Card". Den här klassen innehåller siffror mellan 0 och 51.
+        Dessa siffror motsvarar ett korts index-värde i en kortlek. När ett kort blivit
+        draget tas siffran bort för att inte samma kort ska kunna dras på nytt.
+    </p>
+
+    <p class="bold">
+        CardGrahpic
+    </p>
+    <p>
+        Den här klassen har för avsikt att representera varje enskilt korts utseende.
+        Klassen ärver från "Card" som renderar ett index-värde som används av "CardGraphic"
+        för att ge kortet ett utseende.
+    </p>
+
+    <p class="bold">
+        DeckOfCards
+    </p>
+    <p>
+        "DeckOfCards" är namnet på klassen som ansvarar för kortleken. Klassen håller från början
+        52 kort som klassen kan blanda, skriva ut eller återställa vid behov. "DeckOfCards" används också
+        för att hålla koll på hur många kort som finns kvar när ett eller flera kort har dragits.
+    </p>
+
+    <p class="bold">
+        CardHand
+    </p>
+    <p>
+        "CardHand" motsvarar en korthand som sparar spelaren och bankens dragna kort. Den bör få
+        en central roll i spelet för att poängräkning ska vara möjligt.
+    </p>
+
+{% endblock %}
