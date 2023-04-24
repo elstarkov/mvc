@@ -1,0 +1,21 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Card game{% endblock %}
+
+{% block body %}
+    <br>
+    <br>
+    <h1>
+        Spelet är över!
+    </h1>
+    <p>
+        Spelare " " vann. Klicka på knappen för att starta en ny omgång.
+    </p>
+    <br>
+        <form method="post" action="{{ path('game_post') }}">
+            <p>
+                <input type="submit" name="play_now" value="Nytt spel">
+            </p>
+        </form>
+    <br>
+{% endblock %}
