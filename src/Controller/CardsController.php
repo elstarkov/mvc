@@ -65,13 +65,13 @@ class CardsController extends AbstractController
         SessionInterface $session
     ): Response {
         $deck = $session->get("deck"); //new DeckOfCards();
-        if ($deck === null) {
+        if (!isset($deck)) {
             $deck = new DeckOfCards();
             $session->set("deck", $deck);
         }
 
         $hand = $session->get("hand"); //new CardHand();
-        if ($hand === null) {
+        if (!isset($hand)) {
             $hand = new CardHand();
             $session->set("hand", $hand);
         }
@@ -112,16 +112,14 @@ class CardsController extends AbstractController
             throw new Exception("Can't draw more than 52 cards!");
         }
 
-        if ($session->has("deck")) {
-            $deck = $session->get("deck"); //new DeckOfCards();
-        } else {
+        $deck = $session->get("deck");
+        if (!isset($deck)) {
             $deck = new DeckOfCards();
             $session->set("deck", $deck);
         }
 
-        if ($session->has("hand")) {
-            $hand = $session->get("hand"); //new CardHand();
-        } else {
+        $hand = $session->get("hand"); //new CardHand();
+        if (!isset($hand)) {
             $hand = new CardHand();
             $session->set("hand", $hand);
         }
@@ -134,11 +132,8 @@ class CardsController extends AbstractController
             $card->getRandCard();
             $val = $card->getAsString();
             $remain = $deck->getRemain();
-            //var_dump($val);
 
-            if (in_array($val, $hand->getHand()) || in_array($val, $getCards)) {
-                continue;
-            } else {
+            if (!in_array($val, $hand->getHand()) && !in_array($val, $getCards)) {
                 $deck->modifyDeck($val);
                 $getCards[] = $val;
                 $hand->add($val);

@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use App\Card\CardGraphic;
 use App\Card\CardHand;
 use App\Card\DeckOfCards;
+use Exception;
 
 class ControllerJson extends AbstractController
 {
@@ -81,19 +82,17 @@ class ControllerJson extends AbstractController
         SessionInterface $session
     ): Response {
         if ($num > 52) {
-            throw new \Exception("Can draw more than 52 cards!");
+            throw new Exception("Can draw more than 52 cards!");
         }
 
-        if ($session->has("apiDeck")) {
-            $deck = $session->get("apiDeck"); //new DeckOfCards();
-        } else {
+        $deck = $session->get("apiDeck"); //new DeckOfCards();
+        if (!isset($deck)) {
             $deck = new DeckOfCards();
             $session->set("apiDeck", $deck);
         }
 
-        if ($session->has("apiHand")) {
-            $hand = $session->get("apiHand"); //new CardHand();
-        } else {
+        $hand = $session->get("apiHand"); //new CardHand();
+        if (!isset($hand)) {
             $hand = new CardHand();
             $session->set("apiHand", $hand);
         }
@@ -106,11 +105,8 @@ class ControllerJson extends AbstractController
             $card->getRandCard();
             $val = $card->getAsString();
             $remain = $deck->getRemain();
-            //var_dump($val);
 
-            if (in_array($val, $hand->getHand()) || in_array($val, $getCards)) {
-                continue;
-            } else {
+            if (!in_array($val, $hand->getHand()) && !in_array($val, $getCards)) {
                 $deck->modifyDeck($val);
                 $getCards[] = $val;
                 $hand->add($val);
@@ -144,16 +140,14 @@ class ControllerJson extends AbstractController
     public function postApiDraw(
         SessionInterface $session
     ): Response {
-        if ($session->has("apiDeck")) {
-            $deck = $session->get("apiDeck"); //new DeckOfCards();
-        } else {
+        $deck = $session->get("apiDeck"); //new DeckOfCards();
+        if (!isset($deck)) {
             $deck = new DeckOfCards();
             $session->set("apiDeck", $deck);
         }
 
-        if ($session->has("apiHand")) {
-            $hand = $session->get("apiHand"); //new CardHand();
-        } else {
+        $hand = $session->get("apiHand"); //new CardHand();
+        if (!isset($hand)) {
             $hand = new CardHand();
             $session->set("apiHand", $hand);
         }
@@ -163,9 +157,7 @@ class ControllerJson extends AbstractController
             $card->getRandCard();
             $val = $card->getAsString();
 
-            if (in_array($val, $hand->getHand())) {
-                continue;
-            } else {
+            if (!in_array($val, $hand->getHand())) {
                 $deck->modifyDeck($val);
                 $hand->add($val);
                 break;
@@ -199,15 +191,21 @@ class ControllerJson extends AbstractController
 
         $today = date('Y-m-d H:i');
 
-        if ($number == 0) {
-            $message = "The only true wisdom is knowing that you know nothing.";
-        } elseif ($number == 1) {
-            $message = "The road to success and the road to failure are almost exactly the same.";
-        } elseif ($number == 2) {
-            $message = "Do what you can, with what you have, where you are.";
-        } else {
-            $message = "Either you run the day, or the day runs you.";
+        switch($number) {
+            case 0:
+                $message = "The only true wisdom is knowing that you know nothing.";
+                break;
+            case 1:
+                $message = "The road to success and the road to failure are almost exactly the same.";
+                break;
+            case 2:
+                $message = "Do what you can, with what you have, where you are.";
+                break;
+            case 3:
+                $message = "Either you run the day, or the day runs you.";
         }
+
+        var_dump($number);
 
         $data = [
             'today' => $today,
@@ -219,7 +217,6 @@ class ControllerJson extends AbstractController
             $response->getEncodingOptions() | JSON_PRETTY_PRINT
         );
         return $response;
-        //return new JsonResponse($data);
     }
 
     #[Route("/game/api", name: "api_game", methods: ['GET'])]
