@@ -102,7 +102,7 @@ class GameController extends AbstractController
         $session->set("playerHand", $playerHand);
         $session->set("bankHand", $bankHand);
 
-        $session->set("deck", $deck);
+        $session->set("gameDeck", $deck);
 
         return $this->redirectToRoute('game_play');
     }
@@ -112,7 +112,7 @@ class GameController extends AbstractController
         SessionInterface $session
     ): Response {
 
-        $deck = $session->get("deck");
+        $deck = $session->get("gameDeck");
         $playerHand = $session->get("playerHand");
         $bankHand = $session->get("bankHand");
         $playerPoints = $session->get("playerPoints");
@@ -139,7 +139,7 @@ class GameController extends AbstractController
     public function drawCard(
         SessionInterface $session
     ): Response {
-        $deck = $session->get("deck");
+        $deck = $session->get("gameDeck");
         $playerHand = $session->get("playerHand");
         $bankHand = $session->get("bankHand");
         $playerPoints = $session->get("playerPoints");
@@ -168,7 +168,7 @@ class GameController extends AbstractController
     public function stay(
         SessionInterface $session
     ): Response {
-        $deck = $session->get("deck");
+        $deck = $session->get("gameDeck");
         $bankHand = $session->get("bankHand");
         $playerHand = $session->get("playerHand");
         $bankPoints = $session->get("bankPoints");

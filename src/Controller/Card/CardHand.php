@@ -14,6 +14,7 @@ class CardHand
         $this->hand[] = $cardValue;
     }
 
+    /** @return mixed[] */
     public function getHand(): array
     {
         return $this->hand;

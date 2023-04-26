@@ -4,6 +4,7 @@ namespace App\Card;
 
 class DeckOfCards
 {
+    /** @var array<mixed> */
     private $deck = [
             "[A \xE2\x99\xA0]",
             "[2 \xE2\x99\xA0]", "[3 \xE2\x99\xA0]",
@@ -50,25 +51,18 @@ class DeckOfCards
         shuffle($this->deck);
     }
 
-    public function getCardFromVal($val): string
+    public function getCardFromVal(int $val): string
     {
         $res = $this->deck[$val - 1];
         return $res;
     }
 
-    public function modifyDeck($remove): void
+    public function modifyDeck(string $remove): void
     {
-        // echo '<pre>';
-        // var_dump($this->deck);
-        // echo '<pre>';
-
         if (in_array($remove, $this->deck)) {
             $key = array_search($remove, $this->deck);
             unset($this->deck[$key]);
         }
-        // echo '<pre>';
-        // var_dump($this->deck);
-        // echo '<pre>';
     }
 
     public function getRemain(): int
