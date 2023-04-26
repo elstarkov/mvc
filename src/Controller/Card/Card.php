@@ -4,12 +4,14 @@ namespace App\Card;
 
 class Card
 {
-    protected $value;
-    public $numbers;
+    protected int $value;
+
+    /** @var array<mixed> */
+    public array $numbers;
 
     public function __construct()
     {
-        $this->value = null;
+        $this->value = 0;
         $this->numbers = range(0, 51);
     }
 

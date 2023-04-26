@@ -4,7 +4,8 @@ namespace App\Card;
 
 class CardGraphic extends Card
 {
-    private $deck = [
+    /** @var array<mixed> */
+    private array $deck = [
         "[A \xE2\x99\xA0]",
         "[2 \xE2\x99\xA0]", "[3 \xE2\x99\xA0]",
         "[4 \xE2\x99\xA0]", "[5 \xE2\x99\xA0]",
@@ -38,7 +39,8 @@ class CardGraphic extends Card
         "[Q \xE2\x99\xA6]", "[K \xE2\x99\xA6]",
     ];
 
-    private $cardValues = [
+    /** @var array<mixed> */
+    private array $cardValues = [
         "[A \xE2\x99\xA0]" => 0,
         "[2 \xE2\x99\xA0]" => 2, "[3 \xE2\x99\xA0]"  => 3,
         "[4 \xE2\x99\xA0]"  => 4, "[5 \xE2\x99\xA0]"  => 5,
@@ -106,7 +108,7 @@ class CardGraphic extends Card
         return $this->deck[$this->value];
     }
 
-    public function convertToPoints($card): int
+    public function convertToPoints(string $card): int
     {
         foreach ($this->cardValues as $key => $value) {
             if ($key === $card) {

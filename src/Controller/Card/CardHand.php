@@ -6,6 +6,7 @@ namespace App\Card;
 
 class CardHand
 {
+    /** @var array<mixed> */
     private $hand = [];
 
     public function add(string $cardValue): void
