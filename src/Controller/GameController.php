@@ -8,6 +8,7 @@ use App\Card\DeckOfCards;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -19,17 +20,75 @@ class GameController extends AbstractController
         return $this->render('game/game.html.twig');
     }
 
+    #[Route("/game/ace", name: "ace", methods: ['GET'])]
+    public function acePoints(
+        SessionInterface $session,
+    ): Response {
+        $data = [
+            "playerP" => $session->get("playerPoints"),
+        ];
+
+        return $this->render('game/ace.html.twig', $data);
+    }
+
+    #[Route("/game/ace/post", name: "post_ace", methods: ['POST'])]
+    public function postAcePoints(
+        SessionInterface $session,
+        Request $request
+    ): Response {
+        $playerPoints = $session->get("playerPoints");
+        $ace = $request->request->get('points');
+
+        $session->set("playerPoints", $playerPoints + intval($ace));
+
+        if ($playerPoints + intval($ace) > 21) {
+            return $this->redirectToRoute('new_game');
+        } else {
+            return $this->redirectToRoute('game_play');
+        }
+    }
+
     #[Route("/game/new", name: "new_game", methods: ['GET'])]
-    public function NewGame(): Response
+    public function NewGame(
+        SessionInterface $session
+    ): Response {
+
+        $playerPoints = $session->get("playerPoints");
+        $bankPoints = $session->get("bankPoints");
+        $bankHand = $session->get("bankHand");
+        $playerHand = $session->get("playerHand");
+
+        if ($playerPoints > 21) {
+            $winner = "BANK";
+        } elseif ($bankPoints > 21) {
+            $winner = "SPELARE";
+        } elseif (abs(21 - $playerPoints) < abs(21 - $bankPoints)) {
+            $winner = "SPELARE";
+        } else {
+            $winner = "BANK";
+        }
+
+        $data = [
+            "playerP" => $playerPoints,
+            "bankP" => $bankPoints,
+            "winner" => $winner,
+            "bankHand" => $bankHand->printHand(),
+            "playerHand" => $playerHand->printHand(),
+        ];
+
+        return $this->render('game/new.html.twig', $data);
+    }
+
+    #[Route("/game/new", name: "post_new_game", methods: ['POST'])]
+    public function postNewGame(): Response
     {
-        return $this->render('game/new.html.twig');
+        return $this->redirectToRoute('new_game');
     }
 
     #[Route("/game", name: "game_post", methods: ['POST'])]
     public function gamePost(
         SessionInterface $session
-    ): Response
-    {
+    ): Response {
 
         $deck = new DeckOfCards();
 
@@ -50,19 +109,21 @@ class GameController extends AbstractController
     #[Route("/game/play", name: "game_play", methods: ['GET'])]
     public function gamePlay(
         SessionInterface $session
-    ): Response
-    {
+    ): Response {
 
         $deck = $session->get("deck");
         $playerHand = $session->get("playerHand");
         $bankHand = $session->get("bankHand");
+        $playerPoints = $session->get("playerPoints");
+        $bankPoints = $session->get("bankPoints");
 
-        if ($deck->getRemain() == 0) {
-            $session->remove("deck");
-            $session->remove("playerHand");
-            $session->remove("bankHand");
-            $session->remove("playerPoints");
-            $session->remove("bankPoints");
+        // if ($deck->getRemain() === 51) {
+        //     return $this->redirectToRoute('draw_card');
+        // }
+
+        if ($playerPoints > 21) {
+            return $this->redirectToRoute('new_game');
+        } elseif ($bankPoints > 21) {
             return $this->redirectToRoute('new_game');
         } else {
             $data = [
@@ -72,6 +133,7 @@ class GameController extends AbstractController
                 "print" => $playerHand->printHand(),
                 "playerHand" =>$playerHand->getHand(),
                 "printBank" => $bankHand->printHand(),
+                "playerCard" => $session->get("drawnCard"),
             ];
 
             return $this->render('game/play.html.twig', $data);
@@ -81,8 +143,7 @@ class GameController extends AbstractController
     #[Route("/game/play/draw", name: "draw_card", methods: ['POST'])]
     public function drawCard(
         SessionInterface $session
-    ): Response
-    {
+    ): Response {
         $deck = $session->get("deck");
         $playerHand = $session->get("playerHand");
         $bankHand = $session->get("bankHand");
@@ -101,26 +162,28 @@ class GameController extends AbstractController
                 $deck->modifyDeck($val);
                 $playerHand->add($val);
                 $pointsToAdd = $playerCard->convertToPoints($val);
-                $playerPoints += $pointsToAdd;
-                $session->set("playerPoints", $playerPoints);
-                break;
+                if ($pointsToAdd === 0) {
+                    return $this->redirectToRoute('ace');
+                } else {
+                    $playerPoints += $pointsToAdd;
+                    $session->set("playerPoints", $playerPoints);
+                    break;
+                }
             }
         }
-
         return $this->redirectToRoute('game_play');
     }
 
     #[Route("/game/play/stay", name: "stay", methods: ['POST'])]
     public function stay(
         SessionInterface $session
-    ): Response
-    {
+    ): Response {
         $deck = $session->get("deck");
         $bankHand = $session->get("bankHand");
         $playerHand = $session->get("playerHand");
         $bankPoints = $session->get("bankPoints");
 
-        while (true) {
+        while ($bankPoints <= 17) {
             $bankCard = new CardGraphic();
             $bankCard->getRandCard();
             $val = $bankCard->getAsString();
@@ -133,13 +196,16 @@ class GameController extends AbstractController
                 $deck->modifyDeck($val);
                 $bankHand->add($val);
                 $pointsToAdd = $bankCard->convertToPoints($val);
+                if (($pointsToAdd === 0) && ($bankPoints <= 7)) {
+                    $pointsToAdd = 14;
+                } elseif (($pointsToAdd === 0) && ($bankPoints > 7)) {
+                    $pointsToAdd = 1;
+                }
                 $bankPoints += $pointsToAdd;
                 $session->set("bankPoints", $bankPoints);
-                break;
             }
         }
-
-        return $this->redirectToRoute('game_play');
+        return $this->redirectToRoute('new_game');
     }
 
     #[Route("/game/doc", name: "doc")]

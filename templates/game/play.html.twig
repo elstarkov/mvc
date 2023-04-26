@@ -5,35 +5,30 @@
 {% block body %}
 <h1>Card Game</h1>
 
+<h2>Bank</h2>
 <p>Bank: {{ bankP }} poäng</p>
 <p>Bankhand: {{ printBank }}</p>
+<hr>
 
-<p>Remain: {{ remain }}</p>
-
+<h2>Spelare</h2>
 <p>Spelare: {{ playerP }} poäng</p>
 <p>Spelarhand: {{ print }}</p>
+<hr>
 
 <form method="post" action="">
-    {% for card in playerHand %}
-        {% if 'A' in card %}
-            <label for="points">Välj poäng för ess</label>
-                <select name="points" id="points">
-                    <option value="1">1</option>
-                    <option value="14">14</option>
-                </select>
-                {# <input type="radio" name="ace" value="1" checked>1
-                <input type="radio" name="ace" value="14">14 #}
-        {% endif %}
-    {% endfor %}
-
     <p>
         <input type="submit" name="draw" value="Draw Card"
-            onClick="this.form.action='{{ path('draw_card') }}';"
+        onClick="this.form.action='{{ path('draw_card') }}';"
         >
+
         <br>
-        <input type="submit" name="stay" value="Stay"
-        onClick="this.form.action='{{ path('stay') }}';"
-        >
+        {% if remain == 52 %}
+            <p></p>
+        {% else %}
+            <input type="submit" name="stay" value="Stay"
+            onClick="this.form.action='{{ path('stay') }}';"
+            >
+        {% endif %}
     </p>
 </form>
 

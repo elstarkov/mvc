@@ -1,0 +1,27 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Ace{% endblock %}
+
+{% block body %}
+<h1>Ess</h1>
+
+<p>Du fick ett ess. Hur många poäng vill du ha?</p>
+
+<p>Nuvarande poäng: {{ playerP }}</p>
+
+<form method="post" action="">
+    <label for="points">Välj poäng för ess:</label>
+        <br>
+        <br>
+        <select name="points" id="points">
+            <option value="1">1</option>
+            <option value="14">14</option>
+        </select>
+    <p>
+        <input type="submit" name="ace" value="Score"
+            onClick="this.form.action='{{ path('post_ace') }}';"
+        >
+    </p>
+</form>
+
+{% endblock %}

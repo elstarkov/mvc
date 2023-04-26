@@ -8,8 +8,35 @@
     <h1>
         Spelet är över!
     </h1>
+
+    <br>
+    <h2>
+        Bank
+    </h2>
     <p>
-        Spelare " " vann. Klicka på knappen för att starta en ny omgång.
+        {{ bankP }} poäng
+    </p>
+    <p>
+        Bankens hand: {{ bankHand }}
+    </p>
+    <br>
+
+    <h2>
+        Spelare
+    </h2>
+    <p>
+        {{ playerP }} poäng
+    </p>
+    <p>
+        Spelarens hand: {{ playerHand }}
+    </p>
+    <br>
+
+    <hr>
+    <br>
+    <p>
+        Vinnaren är {{ winner }}! Klicka på knappen för att
+        starta ett nytt spel.
     </p>
     <br>
         <form method="post" action="{{ path('game_post') }}">
