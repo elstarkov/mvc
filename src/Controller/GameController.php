@@ -7,6 +7,7 @@ use App\Card\CardHand;
 use App\Card\DeckOfCards;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -117,10 +118,6 @@ class GameController extends AbstractController
         $playerPoints = $session->get("playerPoints");
         $bankPoints = $session->get("bankPoints");
 
-        // if ($deck->getRemain() === 51) {
-        //     return $this->redirectToRoute('draw_card');
-        // }
-
         if ($playerPoints > 21) {
             return $this->redirectToRoute('new_game');
         } elseif ($bankPoints > 21) {
@@ -206,6 +203,28 @@ class GameController extends AbstractController
             }
         }
         return $this->redirectToRoute('new_game');
+    }
+
+    #[Route("/game/api", name: "api_game", methods: ['GET'])]
+    public function gameApiPlay(
+        SessionInterface $session
+    ): Response {
+
+        $playerHand = $session->get("playerHand");
+        $bankHand = $session->get("bankHand");
+
+        $data = [
+            "bankPoints" => $session->get("bankPoints"),
+            "bankCards" => $bankHand->printHand(),
+            "playerPoints" => $session->get("playerPoints"),
+            "playerCards" => $playerHand->printHand(),
+        ];
+
+        $response = new JsonResponse($data);
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT
+        );
+        return $response;
     }
 
     #[Route("/game/doc", name: "doc")]
