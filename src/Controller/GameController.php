@@ -205,28 +205,6 @@ class GameController extends AbstractController
         return $this->redirectToRoute('new_game');
     }
 
-    #[Route("/game/api", name: "api_game", methods: ['GET'])]
-    public function gameApiPlay(
-        SessionInterface $session
-    ): Response {
-
-        $playerHand = $session->get("playerHand");
-        $bankHand = $session->get("bankHand");
-
-        $data = [
-            "bankPoints" => $session->get("bankPoints"),
-            "bankCards" => $bankHand->printHand(),
-            "playerPoints" => $session->get("playerPoints"),
-            "playerCards" => $playerHand->printHand(),
-        ];
-
-        $response = new JsonResponse($data);
-        $response->setEncodingOptions(
-            $response->getEncodingOptions() | JSON_PRETTY_PRINT
-        );
-        return $response;
-    }
-
     #[Route("/game/doc", name: "doc")]
     public function doc(): Response
     {

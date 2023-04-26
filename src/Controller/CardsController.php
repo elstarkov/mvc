@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Card\CardGraphic;
 use App\Card\CardHand;
 use App\Card\DeckOfCards;
+use Exception;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,7 +17,6 @@ class CardsController extends AbstractController
     #[Route("/card", name: "card")]
     public function card(): Response
     {
-
         return $this->render('card/card.html.twig');
     }
 
@@ -64,16 +64,14 @@ class CardsController extends AbstractController
     public function deckDraw(
         SessionInterface $session
     ): Response {
-        if ($session->has("deck")) {
-            $deck = $session->get("deck"); //new DeckOfCards();
-        } else {
+        $deck = $session->get("deck"); //new DeckOfCards();
+        if ($deck === null) {
             $deck = new DeckOfCards();
             $session->set("deck", $deck);
         }
 
-        if ($session->has("hand")) {
-            $hand = $session->get("hand"); //new CardHand();
-        } else {
+        $hand = $session->get("hand"); //new CardHand();
+        if ($hand === null) {
             $hand = new CardHand();
             $session->set("hand", $hand);
         }
@@ -83,16 +81,12 @@ class CardsController extends AbstractController
             $card->getRandCard();
             $val = $card->getAsString();
 
-            if (in_array($val, $hand->getHand())) {
-                continue;
-            //$remain = $deck->getRemain();
-            } else {
+            if (!in_array($val, $hand->getHand())) {
                 $deck->modifyDeck($val);
                 $hand->add($val);
                 break;
             }
         }
-        //var_dump($hand->getHand());
 
         $remain = $deck->getRemain();
 
@@ -115,7 +109,7 @@ class CardsController extends AbstractController
         SessionInterface $session
     ): Response {
         if ($num > 52) {
-            throw new \Exception("Can draw more than 52 cards!");
+            throw new Exception("Can't draw more than 52 cards!");
         }
 
         if ($session->has("deck")) {

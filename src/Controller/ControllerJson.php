@@ -50,19 +50,19 @@ class ControllerJson extends AbstractController
     public function postApiShuffle(
         SessionInterface $session
     ): Response {
-        if ($session->has("deck")) {
-            $session->remove("deck");
+        if ($session->has("apiDeck")) {
+            $session->remove("apiDeck");
         }
 
-        if ($session->has("hand")) {
-            $session->remove("hand");
+        if ($session->has("apiHand")) {
+            $session->remove("apiHand");
         }
 
         $deck = new DeckOfCards();
         $hand = new CardHand();
 
-        $session->set("deck", $deck);
-        $session->set("hand", $hand);
+        $session->set("apiDeck", $deck);
+        $session->set("apiHand", $hand);
 
         $data = [
             "newDeck" => $deck->shuffleDeck(),
@@ -75,13 +75,6 @@ class ControllerJson extends AbstractController
         return $response;
     }
 
-    // #[Route("/api/deck/draw/{num<\d+>}", name: "api_draw_number", methods: ['GET'])]
-    // public function getApiDrawNumber(
-    // ): Response
-    // {
-    //     return $this->render('api/api.draw.number.html.twig');
-    // }
-
     #[Route("/api/deck/draw/{num<\d+>}", name: "a_draw_number", methods: ['POST'])]
     public function postApiDrawNumber(
         int $num,
@@ -91,18 +84,18 @@ class ControllerJson extends AbstractController
             throw new \Exception("Can draw more than 52 cards!");
         }
 
-        if ($session->has("deck")) {
-            $deck = $session->get("deck"); //new DeckOfCards();
+        if ($session->has("apiDeck")) {
+            $deck = $session->get("apiDeck"); //new DeckOfCards();
         } else {
             $deck = new DeckOfCards();
-            $session->set("deck", $deck);
+            $session->set("apiDeck", $deck);
         }
 
-        if ($session->has("hand")) {
-            $hand = $session->get("hand"); //new CardHand();
+        if ($session->has("apiHand")) {
+            $hand = $session->get("apiHand"); //new CardHand();
         } else {
             $hand = new CardHand();
-            $session->set("hand", $hand);
+            $session->set("apiHand", $hand);
         }
 
         $getCards = [];
@@ -123,8 +116,8 @@ class ControllerJson extends AbstractController
                 $hand->add($val);
                 $remain = $deck->getRemain();
                 if ($remain == 0) {
-                    $session->remove("deck");
-                    $session->remove("hand");
+                    $session->remove("apiDeck");
+                    $session->remove("apiHand");
                     $this->addFlash(
                         'notice',
                         'All cards have been drawn from the deck!'
@@ -151,18 +144,18 @@ class ControllerJson extends AbstractController
     public function postApiDraw(
         SessionInterface $session
     ): Response {
-        if ($session->has("deck")) {
-            $deck = $session->get("deck"); //new DeckOfCards();
+        if ($session->has("apiDeck")) {
+            $deck = $session->get("apiDeck"); //new DeckOfCards();
         } else {
             $deck = new DeckOfCards();
-            $session->set("deck", $deck);
+            $session->set("apiDeck", $deck);
         }
 
-        if ($session->has("hand")) {
-            $hand = $session->get("hand"); //new CardHand();
+        if ($session->has("apiHand")) {
+            $hand = $session->get("apiHand"); //new CardHand();
         } else {
             $hand = new CardHand();
-            $session->set("hand", $hand);
+            $session->set("apiHand", $hand);
         }
 
         while (true) {
@@ -172,20 +165,18 @@ class ControllerJson extends AbstractController
 
             if (in_array($val, $hand->getHand())) {
                 continue;
-            //$remain = $deck->getRemain();
             } else {
                 $deck->modifyDeck($val);
                 $hand->add($val);
                 break;
             }
         }
-        //var_dump($hand->getHand());
 
         $remain = $deck->getRemain();
 
         if ($remain == 0) {
-            $session->remove("deck");
-            $session->remove("hand");
+            $session->remove("apiDeck");
+            $session->remove("apiHand");
         }
 
         $data = [
@@ -229,5 +220,27 @@ class ControllerJson extends AbstractController
         );
         return $response;
         //return new JsonResponse($data);
+    }
+
+    #[Route("/game/api", name: "api_game", methods: ['GET'])]
+    public function gameApiPlay(
+        SessionInterface $session
+    ): Response {
+
+        $playerHand = $session->get("playerHand");
+        $bankHand = $session->get("bankHand");
+
+        $data = [
+            "bankPoints" => $session->get("bankPoints"),
+            "bankCards" => $bankHand->printHand(),
+            "playerPoints" => $session->get("playerPoints"),
+            "playerCards" => $playerHand->printHand(),
+        ];
+
+        $response = new JsonResponse($data);
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT
+        );
+        return $response;
     }
 }
