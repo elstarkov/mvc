@@ -44,13 +44,13 @@ class GameController extends AbstractController
 
         if ($playerPoints + intval($ace) > 21) {
             return $this->redirectToRoute('new_game');
-        } else {
-            return $this->redirectToRoute('game_play');
         }
+
+        return $this->redirectToRoute('game_play');
     }
 
     #[Route("/game/new", name: "new_game", methods: ['GET'])]
-    public function NewGame(
+    public function newGame(
         SessionInterface $session
     ): Response {
 
@@ -59,14 +59,14 @@ class GameController extends AbstractController
         $bankHand = $session->get("bankHand");
         $playerHand = $session->get("playerHand");
 
+        $winner = "BANK";
+
         if ($playerPoints > 21) {
             $winner = "BANK";
         } elseif ($bankPoints > 21) {
             $winner = "SPELARE";
         } elseif (abs(21 - $playerPoints) < abs(21 - $bankPoints)) {
             $winner = "SPELARE";
-        } else {
-            $winner = "BANK";
         }
 
         $data = [
@@ -118,23 +118,21 @@ class GameController extends AbstractController
         $playerPoints = $session->get("playerPoints");
         $bankPoints = $session->get("bankPoints");
 
-        if ($playerPoints > 21) {
+        if ($playerPoints > 21 || $bankPoints > 21) {
             return $this->redirectToRoute('new_game');
-        } elseif ($bankPoints > 21) {
-            return $this->redirectToRoute('new_game');
-        } else {
-            $data = [
-                "playerP" => $session->get("playerPoints"),
-                "bankP" => $session->get("bankPoints"),
-                "remain" => $deck->getRemain(),
-                "print" => $playerHand->printHand(),
-                "playerHand" =>$playerHand->getHand(),
-                "printBank" => $bankHand->printHand(),
-                "playerCard" => $session->get("drawnCard"),
-            ];
-
-            return $this->render('game/play.html.twig', $data);
         }
+
+        $data = [
+            "playerP" => $session->get("playerPoints"),
+            "bankP" => $session->get("bankPoints"),
+            "remain" => $deck->getRemain(),
+            "print" => $playerHand->printHand(),
+            "playerHand" =>$playerHand->getHand(),
+            "printBank" => $bankHand->printHand(),
+            "playerCard" => $session->get("drawnCard"),
+        ];
+
+        return $this->render('game/play.html.twig', $data);
     }
 
     #[Route("/game/play/draw", name: "draw_card", methods: ['POST'])]
@@ -151,21 +149,16 @@ class GameController extends AbstractController
             $playerCard->getRandCard();
             $val = $playerCard->getAsString();
 
-            if (in_array($val, $playerHand->getHand())) {
-                continue;
-            } elseif (in_array($val, $bankHand->getHand())) {
-                continue;
-            } else {
+            if (!in_array($val, $playerHand->getHand()) && !in_array($val, $bankHand->getHand())) {
                 $deck->modifyDeck($val);
                 $playerHand->add($val);
                 $pointsToAdd = $playerCard->convertToPoints($val);
                 if ($pointsToAdd === 0) {
                     return $this->redirectToRoute('ace');
-                } else {
-                    $playerPoints += $pointsToAdd;
-                    $session->set("playerPoints", $playerPoints);
-                    break;
                 }
+                $playerPoints += $pointsToAdd;
+                $session->set("playerPoints", $playerPoints);
+                break;
             }
         }
         return $this->redirectToRoute('game_play');
@@ -185,11 +178,7 @@ class GameController extends AbstractController
             $bankCard->getRandCard();
             $val = $bankCard->getAsString();
 
-            if (in_array($val, $bankHand->getHand())) {
-                continue;
-            } elseif (in_array($val, $playerHand->getHand())) {
-                continue;
-            } else {
+            if (!in_array($val, $bankHand->getHand()) && !in_array($val, $playerHand->getHand())) {
                 $deck->modifyDeck($val);
                 $bankHand->add($val);
                 $pointsToAdd = $bankCard->convertToPoints($val);

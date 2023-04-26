@@ -190,6 +190,7 @@ class ControllerJson extends AbstractController
         date_default_timezone_set('Europe/Stockholm');
 
         $today = date('Y-m-d H:i');
+        $message = "";
 
         switch($number) {
             case 0:
@@ -204,8 +205,6 @@ class ControllerJson extends AbstractController
             case 3:
                 $message = "Either you run the day, or the day runs you.";
         }
-
-        var_dump($number);
 
         $data = [
             'today' => $today,
