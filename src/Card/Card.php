@@ -13,7 +13,7 @@ class Card
     protected int $value;
 
     /**
-     * @var array<mixed> 
+     * @var array<mixed>
     */
     public array $numbers;
 
