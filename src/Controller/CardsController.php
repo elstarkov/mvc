@@ -12,15 +12,25 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
+/**
+ * This is the controller for all routes that belongs
+ * to 'card'
+ */
 class CardsController extends AbstractController
 {
     #[Route("/card", name: "card")]
+    /**
+     * Renders the base URL for 'card'
+     */
     public function card(): Response
     {
         return $this->render('card/card.html.twig');
     }
 
     #[Route("/card/deck", name: "deck")]
+    /**
+     * Renders the URL for 'deck'
+     */
     public function deck(): Response
     {
 
@@ -37,6 +47,10 @@ class CardsController extends AbstractController
 
 
     #[Route("/card/deck/shuffle", name: "shuffle")]
+    /**
+     * Renders the URL for 'shuffle'
+     * @param mixed $session - Stores values needed to remember drawn cards etc
+     */
     public function randomizedDeck(
         SessionInterface $session
     ): Response {
@@ -61,6 +75,10 @@ class CardsController extends AbstractController
     }
 
     #[Route("/card/deck/draw", name: "draw")]
+    /**
+     * Renders the URL for 'draw'
+     * @param mixed $session - Stores values needed to remember drawn cards etc
+     */
     public function deckDraw(
         SessionInterface $session
     ): Response {
@@ -104,6 +122,12 @@ class CardsController extends AbstractController
     }
 
     #[Route("/card/deck/draw/{num<\d+>}", name: "draw_number")]
+    /**
+     * Renders the URL for 'draw *number*
+     * @param int $num - Used to decide how many cards should be drawn
+     * @param mixed $session - Stores values needed to remember drawn cards etc
+     * @throws Exception When more than 52 cards are passed to $num
+     */
     public function drawDeckNumbers(
         int $num,
         SessionInterface $session

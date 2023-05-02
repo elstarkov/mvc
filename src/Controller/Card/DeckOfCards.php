@@ -2,9 +2,14 @@
 
 namespace App\Card;
 
+/**
+ * Class represents a deck of cards
+ */
 class DeckOfCards
 {
-    /** @var array<mixed> */
+    /**
+     * @var array<mixed>
+    */
     private $deck = [
             "[A \xE2\x99\xA0]",
             "[2 \xE2\x99\xA0]", "[3 \xE2\x99\xA0]",
@@ -39,6 +44,9 @@ class DeckOfCards
             "[Q \xE2\x99\xA6]", "[K \xE2\x99\xA6]",
         ];
 
+    /**
+     * Shuffles the deck and prints it
+     */
     public function shuffleDeck(): string
     {
         $newDeck = $this->deck;
@@ -46,17 +54,29 @@ class DeckOfCards
         return implode(", ", $newDeck);
     }
 
+    /**
+     * Shuffles the deck
+     */
     public function shuffleNoPrint(): void
     {
         shuffle($this->deck);
     }
 
+    /**
+     * Get a card with a specific index
+     * @param int $val - Index value used to get a card
+     * @return string $res - The card with index value of $val
+     */
     public function getCardFromVal(int $val): string
     {
         $res = $this->deck[$val - 1];
         return $res;
     }
 
+    /**
+     * Remove a card from the deck so it can't be drawn again
+     * @param string $remove - Card to remove
+     */
     public function modifyDeck(string $remove): void
     {
         if (in_array($remove, $this->deck)) {
@@ -65,6 +85,9 @@ class DeckOfCards
         }
     }
 
+    /**
+     * Count the cards remaining in deck
+     */
     public function getRemain(): int
     {
         return count($this->deck);

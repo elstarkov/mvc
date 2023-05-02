@@ -13,18 +13,26 @@ use App\Card\CardHand;
 use App\Card\DeckOfCards;
 use Exception;
 
+/**
+ * Controller for handling api routes
+ */
 class ControllerJson extends AbstractController
 {
     #[Route("/api", name: "api")]
+    /**
+     * Renders base URL for api
+     */
     public function api(): Response
     {
         return $this->render('api/api.html.twig');
     }
 
     #[Route("/api/deck", name: "a_deck", methods: ['GET'])]
+    /**
+     * Renders base URL for api 'deck'
+     */
     public function apiDeck(): Response
     {
-
         $card = new CardGraphic();
 
         $data = [
@@ -42,12 +50,19 @@ class ControllerJson extends AbstractController
     }
 
     #[Route("/api/deck/shuffle", name: "api_shuffle", methods: ['GET'])]
+    /**
+     * Renders base URL for api 'shuffle'
+     */
     public function getApiShuffle(
     ): Response {
         return $this->render('api/api.shuffle.html.twig');
     }
 
     #[Route("/api/deck/shuffle", name: "a_shuffle", methods: ['POST'])]
+    /**
+     * Handles the actual shuffle
+     * @param mixed $session - Values stored in session to keep track of new deck values
+     */
     public function postApiShuffle(
         SessionInterface $session
     ): Response {
@@ -77,6 +92,12 @@ class ControllerJson extends AbstractController
     }
 
     #[Route("/api/deck/draw/{num<\d+>}", name: "a_draw_number", methods: ['POST'])]
+    /**
+     * Draws cards from the deck and returns the values
+     * @param mixed $session - Values stored in session to keep track of new deck values
+     * @param int $num - Number of cards to draw
+     * @throws Exception - When more than 52 cards are drawn
+     */
     public function postApiDrawNumber(
         int $num,
         SessionInterface $session
@@ -137,6 +158,10 @@ class ControllerJson extends AbstractController
     }
 
     #[Route("/api/deck/draw", name: "a_draw", methods: ['POST'])]
+    /**
+     * Draws a card from the deck and returns the new values
+     * @param mixed $session - Keeps track of values stored in session
+     */
     public function postApiDraw(
         SessionInterface $session
     ): Response {
@@ -184,6 +209,9 @@ class ControllerJson extends AbstractController
     }
 
     #[Route("/api/quote", name: "quote")]
+    /**
+     * Renders a random quote in api style
+     */
     public function jsonNumber(): Response
     {
         $number = random_int(0, 3);
@@ -219,6 +247,10 @@ class ControllerJson extends AbstractController
     }
 
     #[Route("/game/api", name: "api_game", methods: ['GET'])]
+    /**
+     * Renders the current scoring of the game
+     * @param mixed $session - Contains values connected to the game
+     */
     public function gameApiPlay(
         SessionInterface $session
     ): Response {

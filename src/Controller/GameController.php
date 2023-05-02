@@ -13,15 +13,26 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * Controller for game routes
+ */
 class GameController extends AbstractController
 {
     #[Route("/game", name: "game", methods: ['GET'])]
+    /**
+     * Renders base url for game
+     */
     public function game(): Response
     {
         return $this->render('game/game.html.twig');
     }
 
     #[Route("/game/ace", name: "ace", methods: ['GET'])]
+    /**
+     * Handles when a player scores an ace and can
+     * decide how many points he/she wants
+     * @param mixed $session - Keeps track of scores, value of cards, card hands and remaining cards
+     */
     public function acePoints(
         SessionInterface $session,
     ): Response {
@@ -33,6 +44,11 @@ class GameController extends AbstractController
     }
 
     #[Route("/game/ace/post", name: "post_ace", methods: ['POST'])]
+    /**
+     * Gives ace 14 or 1 point depending on user input
+     * @param mixed $session - Keeps track of scores, value of cards, card hands and remaining cards
+     * @param mixed $request - Gets user input for ace points
+     */
     public function postAcePoints(
         SessionInterface $session,
         Request $request
@@ -50,6 +66,10 @@ class GameController extends AbstractController
     }
 
     #[Route("/game/new", name: "new_game", methods: ['GET'])]
+    /**
+     * Renders url for starting a new game
+     * @param mixed $session - Keeps track of scores, value of cards, card hands and remaining cards
+     */
     public function newGame(
         SessionInterface $session
     ): Response {
@@ -81,12 +101,20 @@ class GameController extends AbstractController
     }
 
     #[Route("/game/new", name: "post_new_game", methods: ['POST'])]
+    /**
+     * Passes values from the current game to render at new game (winner, scores)
+     */
     public function postNewGame(): Response
     {
         return $this->redirectToRoute('new_game');
     }
 
     #[Route("/game", name: "game_post", methods: ['POST'])]
+    /**
+     * Initiates sessions holding scores, cards and hands
+     * Redirects to actual game url
+     * @param mixed $session - Keeps track of scores, value of cards, card hands and remaining cards
+     */
     public function gamePost(
         SessionInterface $session
     ): Response {
@@ -108,6 +136,10 @@ class GameController extends AbstractController
     }
 
     #[Route("/game/play", name: "game_play", methods: ['GET'])]
+    /**
+     * Renders the game
+     * @param mixed $session - Keeps track of scores, value of cards, card hands and remaining cards
+     */
     public function gamePlay(
         SessionInterface $session
     ): Response {
@@ -136,6 +168,10 @@ class GameController extends AbstractController
     }
 
     #[Route("/game/play/draw", name: "draw_card", methods: ['POST'])]
+    /**
+     * Handles the draw function in the game
+     * @param mixed $session - Keeps track of scores, value of cards, card hands and remaining cards
+     */
     public function drawCard(
         SessionInterface $session
     ): Response {
@@ -165,6 +201,10 @@ class GameController extends AbstractController
     }
 
     #[Route("/game/play/stay", name: "stay", methods: ['POST'])]
+    /**
+     * Handles when a player wants to stay and pass the turn to bank
+     * @param mixed $session - Keeps track of scores, value of cards, card hands and remaining cards
+     */
     public function stay(
         SessionInterface $session
     ): Response {
@@ -195,6 +235,9 @@ class GameController extends AbstractController
     }
 
     #[Route("/game/doc", name: "doc")]
+    /**
+     * Renders the documentation for game
+     */
     public function doc(): Response
     {
         return $this->render('game/doc.html.twig');

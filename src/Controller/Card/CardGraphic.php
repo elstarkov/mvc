@@ -2,9 +2,14 @@
 
 namespace App\Card;
 
+/**
+ * Class represents the graphic values of a card
+ */
 class CardGraphic extends Card
 {
-    /** @var array<mixed> */
+    /**
+     * @var array<mixed>
+     */
     private array $deck = [
         "[A \xE2\x99\xA0]",
         "[2 \xE2\x99\xA0]", "[3 \xE2\x99\xA0]",
@@ -39,7 +44,9 @@ class CardGraphic extends Card
         "[Q \xE2\x99\xA6]", "[K \xE2\x99\xA6]",
     ];
 
-    /** @var array<mixed> */
+    /**
+     * @var array<mixed>
+     */
     private array $cardValues = [
         "[A \xE2\x99\xA0]" => 0,
         "[2 \xE2\x99\xA0]" => 2, "[3 \xE2\x99\xA0]"  => 3,
@@ -79,35 +86,58 @@ class CardGraphic extends Card
         parent::__construct();
     }
 
+    /**
+     * Print all spades from the deck
+     */
     public function getSpades(): string
     {
         $spades = array_slice($this->deck, 0, 13);
         return implode(' ', $spades);
     }
 
+        /**
+     * Print all clubs from the deck
+     */
     public function getClubs(): string
     {
         $clubs = array_slice($this->deck, 13, 13);
         return implode(' ', $clubs);
     }
 
+    /**
+     * Print all hearts from the deck
+     */
     public function getHearts(): string
     {
         $hearts = array_slice($this->deck, 26, 13);
         return implode(' ', $hearts);
     }
 
+    /**
+     * Print all diamonds from the deck
+     */
     public function getDiamonds(): string
     {
         $diamonds = array_slice($this->deck, 39, 13);
         return implode(' ', $diamonds);
     }
 
+    /**
+     * Convert value of card to actual graphic
+     * @return string - A card in graphic
+     */
     public function getAsString(): string
     {
         return $this->deck[$this->value];
     }
 
+    /**
+     * Convert graphic card to amount of points it's
+     * worth.
+     * @param string $card - A card to convert to points
+     * @return int If return is 0, code knows it's an ace
+     * and will be handled differently.
+     */
     public function convertToPoints(string $card): int
     {
         foreach ($this->cardValues as $key => $value) {
