@@ -13,7 +13,7 @@ class CardHandTest extends TestCase
      * Construct object and verify that the object has the expected
      * properties, use no arguments.
      */
-    public function testCreateHand()
+    public function testCreateHand(): void
     {
         $hand = new CardHand();
 

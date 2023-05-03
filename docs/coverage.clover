@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1683117425">
-  <project timestamp="1683117425">
+<coverage generated="1683117893">
+  <project timestamp="1683117893">
     <file name="/home/elstarkov/dbwebb-kurser/mvc/me/report/src/Card/Card.php">
       <class name="App\Card\Card" namespace="global">
         <metrics complexity="4" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="7" elements="11" coveredelements="11"/>
@@ -20,7 +20,7 @@
     </file>
     <file name="/home/elstarkov/dbwebb-kurser/mvc/me/report/src/Card/CardGraphic.php">
       <class name="App\Card\CardGraphic" namespace="global">
-        <metrics complexity="9" methods="7" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="13" coveredstatements="13" elements="20" coveredelements="20"/>
+        <metrics complexity="9" methods="7" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="13" elements="21" coveredelements="19"/>
       </class>
       <line num="84" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="1"/>
       <line num="86" type="stmt" count="1"/>
@@ -38,11 +38,12 @@
       <line num="122" type="stmt" count="1"/>
       <line num="129" type="method" name="getAsString" visibility="public" complexity="1" crap="1" count="1"/>
       <line num="131" type="stmt" count="1"/>
-      <line num="141" type="method" name="convertToPoints" visibility="public" complexity="3" crap="3" count="1"/>
+      <line num="141" type="method" name="convertToPoints" visibility="public" complexity="3" crap="3.14" count="1"/>
       <line num="143" type="stmt" count="1"/>
       <line num="144" type="stmt" count="1"/>
       <line num="145" type="stmt" count="1"/>
-      <metrics loc="151" ncloc="118" classes="1" methods="7" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="13" coveredstatements="13" elements="20" coveredelements="20"/>
+      <line num="148" type="stmt" count="0"/>
+      <metrics loc="151" ncloc="119" classes="1" methods="7" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="13" elements="21" coveredelements="19"/>
     </file>
     <file name="/home/elstarkov/dbwebb-kurser/mvc/me/report/src/Card/CardHand.php">
       <class name="App\Card\CardHand" namespace="global">
@@ -454,25 +455,12 @@
       <line num="58" type="stmt" count="0"/>
       <metrics loc="61" ncloc="58" classes="1" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="13" coveredstatements="0" elements="17" coveredelements="0"/>
     </file>
-    <file name="/home/elstarkov/dbwebb-kurser/mvc/me/report/src/Dice/Dice.php">
-      <class name="App\Dice\Dice" namespace="global">
-        <metrics complexity="3" methods="3" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="2" elements="7" coveredelements="4"/>
-      </class>
-      <line num="9" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="11" type="stmt" count="1"/>
-      <line num="14" type="method" name="roll" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="16" type="stmt" count="0"/>
-      <line num="17" type="stmt" count="0"/>
-      <line num="20" type="method" name="getAsString" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="22" type="stmt" count="1"/>
-      <metrics loc="24" ncloc="24" classes="1" methods="3" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="2" elements="7" coveredelements="4"/>
-    </file>
     <file name="/home/elstarkov/dbwebb-kurser/mvc/me/report/src/Kernel.php">
       <class name="App\Kernel" namespace="global">
         <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </class>
       <metrics loc="12" ncloc="12" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
-    <metrics files="10" loc="1151" ncloc="1036" classes="9" methods="49" coveredmethods="16" conditionals="0" coveredconditionals="0" statements="363" coveredstatements="25" elements="412" coveredelements="41"/>
+    <metrics files="9" loc="1127" ncloc="1013" classes="8" methods="46" coveredmethods="13" conditionals="0" coveredconditionals="0" statements="360" coveredstatements="23" elements="406" coveredelements="36"/>
   </project>
 </coverage>
