@@ -133,9 +133,35 @@
         </p>
         <p>
             När jag skriver testerna så vill jag helst bevisa huruvida testerna faktiskt bevisar något. I några testklasser, framförallt för Card och CardGraphic blev
-            testerna väldigt simpla. De klasserna består av mindre komplicerade metoder och de har ofta som uppgift att bara symbolisera ett kort eller en siffra. Det gör
-            att testerna mest går ut på att kolla om det är en sträng som renderas när det är tänkt och om det är en integer som renderas när det förväntas.
-
+            testerna väldigt simpla. De klasserna består av mindre komplicerade metoder och de har ofta som uppgift att bara symbolisera ett kort eller en siffra.
+            Det gör att testerna mest går ut på att kolla om det är en sträng som renderas när det är tänkt och om det är en integer som renderas när det förväntas.
+        </p>
+        <p>
+            När jag skulle testa DeckOfCards och CardHand blev det lite mer intressant. För att en hand ska kunna testas så behöver den ju med fördel hålla minst ett
+            kort, d.v.s. minst ett CardGraphic-objekt. Jag försökte först att skapa ett mockobjekt för metoden "CardGraphic->getAsString()" eftersom det skapas ett
+            slumpmässigt kort varje gång jag kör koden. Det gör att om jag vill kolla att handen innehåller ett specifikt kort så blir resultatet olika för varje gång
+            och testerna går sönder. Jag lyckades inte helt få till mocken och jag valde att ta en enklare väg och hårdkoda ett grafisk kort istället. Sedan la jag till
+            det i handen.
+        </p>
+        <p>
+            I DeckOfCards blev jag beroende av en hel kortlek. Ett problem jag stötte på då var att jag inte kunde hämta ut hela kortleken då den är ett privat attribut.
+            Det är första gången som jag på riktigt upplever vad publikt och privat faktiskt innebär i praktiken. Jag fick istället skapa två kortleker som såg likadana
+            ut från början och sedan använda metoderna för att visa hur kortlekarna förändras. I den här delen upplevde jag att testningen gjorde som mest nytta.
+        </p>
+        <p>
+            Jag behövde inte justera så mycket i min kod för att den skulle gå att testa hyfsat bra. Gissvingsvis så gjorde jag de största förändringarna i slutet av
+            kmom03 när jag försökte justera koden enligt de riktlinjer som lintern gav mig. Att minska antalet if else-satser underlättade säkerligen. Det enda jag
+            inte nådde helt upp i 100% på i testningen var ju faktiskt en if-sats med två olika return-satser. Jag upptäckte att den ena return-satsen inte behövdes
+            men när jag tog bort den så klagade lintern istället. Detta gjorde att jag valde att ha kvar return-satsen ändå, trots att den inte bidrar till något.
+        </p>
+        <p>
+            Testbar kod är mycket troligt kod som är snyggare och renare än mindre testbar kod. Min kod blev lättare att förstå när jag rensade den med hjälp av linterns
+            önskemål.
+        </p>
+        <p>
+            Min TIL för det här momentet är skillnaden mellan privat och publikt i praktiken. Jag har länge förstått det i teorin men ändå inte riktigt förstått
+            vad det spelar för roll i praktiken. Det fick jag uppleva när jag inte kunde nå min egen array med kort i testningen. Learning by doing.
+        </p>
     </section>
 
     <section>
