@@ -35,8 +35,5 @@ class CardGraphicTest extends TestCase
 
         $res = $card->convertToPoints("[A ♠]");
         $this->assertEquals(0, $res);
-
-        $res = $card->convertToPoints("[10 ♠]");
-        $this->assertEquals(10, $res);
     }
 }

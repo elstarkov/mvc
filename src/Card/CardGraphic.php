@@ -145,6 +145,6 @@ class CardGraphic extends Card
                 return $value;
             }
         }
-        return 0;
+        //return 0;
     }
 }
