@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Library{% endblock %}
+
+{% block body %}
+    <br>
+    <br>
+    <h2>
+        Välkommen till samlingssidan för biblioteket!
+    </h2>
+    <p>
+        Klicka på någon av knapparna för att komma vidare.
+    </p>
+    <p>
+        {{ title }}
+    </p>
+    <br>
+        <form action="{{ path('book_create') }}">
+            <p>
+                <input type="submit" value="Skapa bok">
+            </p>
+        </form>
+    <br>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Create{% endblock %}
+
+{% block body %}
+    <br>
+    <br>
+    <h2>
+        Här är create.
+    </h2>
+    <br>
+    <form method="post" action="{{ path('post_create') }}">
+        <p>
+            <input type="text" name="title" placeholder="Titel">
+        </p>
+        <p>
+            <input type="number" name="isbn" placeholder="ISBN">
+        </p>
+        <p>
+            <input type="text" name="author" placeholder="Författare">
+        </p>
+        <p>
+            <input type="submit" value="Slutför">
+        </p>
+    </form>
+<br>
+
+{% endblock %}
