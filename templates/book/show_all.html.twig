@@ -27,7 +27,7 @@
                 <td>{{ book.isbn }}</td>
                 <td>{{ book.author }}</td>
                 {% if book.image == null %}
-                    <td><img src="{{ asset('img/bildsaknas.png') }}" alt="bild sakbas" class="tableImg"/></td>
+                    <td><img src="{{ asset('img/no_img.jpg') }}" alt="bild sakbas" class="tableImg"/></td>
                 {% else %}
                     <td><img src="{{ asset('img/' ~ book.image) }}" alt="harry p" class="tableImg"/></td>
                 {% endif %}

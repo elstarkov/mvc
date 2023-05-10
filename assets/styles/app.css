@@ -146,4 +146,9 @@ input[type=text], input[type=number] {
 td {
     border: solid black 1px;
     padding: 10px;
+    text-align: center;
+}
+
+table {
+    width: 100%;
 }
