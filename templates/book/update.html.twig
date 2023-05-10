@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bibliotek{% endblock %}
+
+{% block body %}
+
+<br>
+<br>
+<h2>
+    Här är update.
+</h2>
+<br>
+<form method="post" action="">
+    <p>
+        <input type="text" name="title" value="{{ book.title }}">
+    </p>
+    <p>
+        <input type="number" name="isbn" value="{{ book.isbn }}">
+    </p>
+    <p>
+        <input type="text" name="author" value="{{ book.author }}">
+    </p>
+    <p>
+        <input type="submit" value="Uppdatera">
+    </p>
+</form>
+<br>
+
+{% endblock %}

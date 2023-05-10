@@ -84,9 +84,9 @@ class BookController extends AbstractController
         return $this->redirectToRoute('library');
     }
 
-    #[Route('/library/show', name: 'book_show_all')]
+    #[Route('/library/show', name: 'book_show_all', methods: ['GET'])]
     public function showAllBooks(
-        bookRepository $bookRepository
+        BookRepository $bookRepository
     ): Response {
 
         $books = $bookRepository->findAll();
@@ -97,6 +97,51 @@ class BookController extends AbstractController
 
         return $this->render('book/show_all.html.twig', $data);
     }
+
+    #[Route('/library/show/{id}', name: 'book_id', methods: ['GET'])]
+    public function showBookById(
+        BookRepository $bookRepository,
+        int $id
+    ): Response {
+
+        $book = $bookRepository->find($id);
+
+        $data = [
+            'book' => $book,
+        ];
+
+        return $this->render('book/show_one.html.twig', $data);
+    }
+
+    #[Route('/library/update/{id}', name: 'book_update', methods: ['GET'])]
+    public function updateBook(
+        BookRepository $bookRepository,
+        int $id
+    ): Response {
+
+        $book = $bookRepository->find($id);
+
+        $data = [
+            'book' => $book,
+        ];
+
+        return $this->render('book/update.html.twig', $data);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     #[Route('/library/api', name: 'api_books')]
     public function apiBooks(

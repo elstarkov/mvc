@@ -4,27 +4,25 @@
 
 {% block body %}
 
-<h2>Översikt</h2>
+<h2>Utvald bok</h2>
 
-<p>Här kan du se en översikt av samtliga böcker som finns tillgängliga.</p>
-
-<p>Klicka på en titel för att endast se detaljer om den boken.</p>
-<p>Du kan också uppdatera detaljerna genom att klicka på "Uppdatera"</p>
+<p>
+    Här kan du i lugn och ro titta på en bok i taget.
+</p>
 
 <br>
     <table>
         <thead>
             <tr>
-                <th>Titel</th>
+                <th>Title</th>
                 <th>ISBN</th>
-                <th>Författare</th>
-                <th>Bild</th>
+                <th>Author</th>
+                <th>Image</th>
             </tr>
         </thead>
         <tbody>
-            {% for book in books %}
             <tr>
-                <td><a href="{{ path('book_id', {'id': book.id}) }}">{{ book.title }}</a></td>
+                <td>{{ book.title }}</td>
                 <td>{{ book.isbn }}</td>
                 <td>{{ book.author }}</td>
                 {% if book.image == null %}
@@ -32,9 +30,7 @@
                 {% else %}
                     <td><img src="{{ asset('img/' ~ book.image) }}" alt="harry p" class="tableImg"/></td>
                 {% endif %}
-                <td><a href="{{ path('book_update', {'id': book.id}) }}">Uppdatera</a></td>
             </tr>
-            {% endfor %}
         </tbody>
     </table>
 
