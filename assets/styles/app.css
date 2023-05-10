@@ -138,3 +138,12 @@ input[type=text], input[type=number] {
     box-sizing: border-box;
     border-radius: 0px;
 }
+
+.tableImg {
+    max-height: 150px;
+}
+
+td {
+    border: solid black 1px;
+    padding: 10px;
+}

@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bibliotek{% endblock %}
+
+{% block body %}
+
+<h2>Översikt</h2>
+
+<p>
+    Här kan du se en översikt av samtliga böcker som finns tillgängliga.
+</p>
+
+<br>
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>ISBN</th>
+                <th>Author</th>
+                <th>Image</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+            <tr>
+                <td>{{ book.title }}</td>
+                <td>{{ book.isbn }}</td>
+                <td>{{ book.author }}</td>
+                {% if book.image == null %}
+                    <td><img src="{{ asset('img/bildsaknas.png') }}" alt="bild sakbas" class="tableImg"/></td>
+                {% else %}
+                    <td><img src="{{ asset('img/' ~ book.image) }}" alt="harry p" class="tableImg"/></td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
