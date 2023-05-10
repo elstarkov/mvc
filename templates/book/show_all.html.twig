@@ -19,6 +19,8 @@
                 <th>ISBN</th>
                 <th>Författare</th>
                 <th>Bild</th>
+                <th>Uppdatera</th>
+                <th>Radera</th>
             </tr>
         </thead>
         <tbody>
@@ -35,6 +37,11 @@
                 <td>
                     <form action="{{ path('book_update', {'id': book.id}) }}" method="get">
                         <button type="submit" class="button1">Uppdatera</button>
+                    </form>
+                </td>
+                <td>
+                    <form action="" method="get">
+                        <button type="submit" class="button2">Radera</button>
                     </form>
                 </td>
             </tr>

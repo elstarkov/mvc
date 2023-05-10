@@ -146,7 +146,7 @@ input[type=text], input[type=number] {
 }
 
 td {
-    border: solid black 1px;
+    border: solid #bfbfbf 1px;
     padding: 10px;
     text-align: center;
 }
@@ -159,15 +159,34 @@ table {
     background-color: #04AA6D;
     border: none;
     color: white;
-    padding: 15px 32px;
+    padding: 12px 30px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 14px;
     border-radius: 8px;
+    margin: 7px;
 }
 
 .button1:hover {
+    cursor: pointer;
+    background-color: #ced1ce;
+}
+
+.button2 {
+    background-color: #007eff;
+    border: none;
+    color: white;
+    padding: 12px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    border-radius: 8px;
+    margin: 7px;
+}
+
+.button2:hover {
     cursor: pointer;
     background-color: #ced1ce;
 }
