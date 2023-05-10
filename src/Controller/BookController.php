@@ -121,6 +121,12 @@ class BookController extends AbstractController
 
         $book = $bookRepository->find($id);
 
+        if (!$book) {
+            throw $this->createNotFoundException(
+                'No book$book found for id '.$id
+            );
+        }
+
         $data = [
             'book' => $book,
         ];
@@ -128,18 +134,29 @@ class BookController extends AbstractController
         return $this->render('book/update.html.twig', $data);
     }
 
+    #[Route('/library/update/post/{id}', name: 'post_book_update', methods: ['POST'])]
+    public function postUpdateBook(
+        BookRepository $bookRepository,
+        Request $request,
+        int $id
+    ): Response {
 
+        $book = $bookRepository->find($id);
 
+        if (!$book) {
+            throw $this->createNotFoundException(
+                'No book$book found for id '.$id
+            );
+        }
 
+        $book->setTitle($request->get('title'));
+        $book->setIsbn($request->get('isbn'));
+        $book->setAuthor($request->get('author'));
 
+        $bookRepository->save($book, true);
 
-
-
-
-
-
-
-
+        return $this->redirectToRoute('book_show_all');
+    }
 
 
 

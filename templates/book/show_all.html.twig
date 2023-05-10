@@ -9,7 +9,7 @@
 <p>Här kan du se en översikt av samtliga böcker som finns tillgängliga.</p>
 
 <p>Klicka på en titel för att endast se detaljer om den boken.</p>
-<p>Du kan också uppdatera detaljerna genom att klicka på "Uppdatera"</p>
+<p>Du kan även radera eller ändra detaljer för en bok med hjälp av knapparna.</p>
 
 <br>
     <table>
@@ -32,7 +32,11 @@
                 {% else %}
                     <td><img src="{{ asset('img/' ~ book.image) }}" alt="harry p" class="tableImg"/></td>
                 {% endif %}
-                <td><a href="{{ path('book_update', {'id': book.id}) }}">Uppdatera</a></td>
+                <td>
+                    <form action="{{ path('book_update', {'id': book.id}) }}" method="get">
+                        <button type="submit" class="button1">Uppdatera</button>
+                    </form>
+                </td>
             </tr>
             {% endfor %}
         </tbody>
