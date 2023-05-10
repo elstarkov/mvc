@@ -2,6 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\Book;
+use App\Repository\BookRepository;
+use Doctrine\Persistence\ManagerRegistry;
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,13 +20,25 @@ class BookController extends AbstractController
     ): Response
     {
         $title = $session->get('title');
+        $isbn = $session->get('isbn');
+        $author = $session->get('author');
 
         if ($title === null) {
             $title = '';
         }
 
+        if ($isbn === null) {
+            $isbn = '';
+        }
+
+        if ($author === null) {
+            $author = '';
+        }
+
         $data = [
             'title' => $title,
+            'isbn' => $isbn,
+            'author' => $author,
         ];
 
         return $this->render('book/index.html.twig', $data);
@@ -42,6 +58,8 @@ class BookController extends AbstractController
     ): Response {
 
         $session->set("title", $request->get('title'));
+        $session->set("isbn", $request->get('isbn'));
+        $session->set("author", $request->get('author'));
 
         return $this->redirectToRoute('library');
     }
