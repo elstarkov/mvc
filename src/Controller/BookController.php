@@ -15,8 +15,7 @@ class BookController extends AbstractController
 {
     #[Route('/library', name: 'library', methods: ['GET'])]
     public function index(
-    ): Response
-    {
+    ): Response {
         return $this->render('book/index.html.twig');
     }
 
@@ -40,9 +39,9 @@ class BookController extends AbstractController
         $book->setIsbn($request->get('isbn'));
         $book->setAuthor($request->get('author'));
         //$book->setImage($request->get('image'));
-    
+
         $entityManager->persist($book);
-    
+
         $entityManager->flush();
 
         return $this->redirectToRoute('library');
