@@ -6,20 +6,25 @@
     <br>
     <br>
     <h2>
-        Här är create.
+        Skapa
     </h2>
+
+    <p>På den här sidan kan du skapa en ny bok.</p>
+
+    <p>Fyll i uppgifterna nedan.</p>
     <br>
+
     <form method="post" action="{{ path('post_create') }}">
-        <p>
-            <label for="title">Titel</label>
+        <p class="bold">
+            <label for="title">Titel:</label>
             <input type="text" id="title" name="title" placeholder="Ange titel">
         </p>
-        <p>
-            <label for="isbn">ISBN</label>
+        <p class="bold">
+            <label for="isbn">ISBN:</label>
             <input type="number" id="isbn" name="isbn" placeholder="Fyll i ISBN">
         </p>
-        <p>
-            <label for="author">Författare</label>
+        <p class="bold">
+            <label for="author">Författare:</label>
             <input type="text" id="author" name="author" placeholder="Ange författare">
         </p>
         <br>

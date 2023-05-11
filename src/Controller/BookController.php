@@ -158,6 +158,27 @@ class BookController extends AbstractController
         return $this->redirectToRoute('book_show_all');
     }
 
+    #[Route('/library/delete/{id}', name: 'book_delete', methods: ['GET'])]
+    public function deleteBook(
+        BookRepository $bookRepository,
+        int $id
+    ): Response {
+
+        $book = $bookRepository->find($id);
+
+        if (!$book) {
+            throw $this->createNotFoundException(
+                'No book$book found for id '.$id
+            );
+        }
+
+        $data = [
+            'book' => $book,
+        ];
+
+        return $this->render('book/delete.html.twig', $data);
+    }
+
 
 
     #[Route('/library/api', name: 'api_books')]

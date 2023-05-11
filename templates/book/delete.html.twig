@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bibliotek{% endblock %}
+
+{% block body %}
+
+<br>
+<br>
+<h2>
+    Radera
+</h2>
+
+<p>Klicka på knappen för att radera boken.</p>
+
+<br>
+    <form method="post" action="">
+        <p class="bold">
+            <label for="title">Titel:</label>
+            <input type="text" id="title" name="title" readonly value="{{ book.title }}">
+        </p>
+        <p class="bold">
+            <label for="isbn">ISBN:</label>
+            <input type="number" id="isbn" name="isbn" readonly value="{{ book.isbn }}">
+        </p>
+        <p class="bold">
+            <label for="author">Författare:</label>
+            <input type="text" id="author" name="author" readonly value="{{ book.author }}">
+        </p>
+        <br>
+        <p>
+            <input type="submit" value="Radera">
+        </p>
+    </form>
+<br>
+
+{% endblock %}

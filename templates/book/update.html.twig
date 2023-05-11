@@ -7,19 +7,24 @@
 <br>
 <br>
 <h2>
-    Här är update.
+    Uppdatera
 </h2>
+
+    <p>Här kan du uppdatera detaljer om en bok.</p>
+
+    <p>Fyll i nya värden och klicka på "Uppdatera".</p>
+
 <br>
     <form method="post" action="{{ path('post_book_update', {'id': book.id}) }}">
-        <p>
+        <p class="bold">
             <label for="title">Titel:</label>
             <input type="text" id="title" name="title" value="{{ book.title }}">
         </p>
-        <p>
+        <p class="bold">
             <label for="isbn">ISBN:</label>
             <input type="number" id="isbn" name="isbn" value="{{ book.isbn }}">
         </p>
-        <p>
+        <p class="bold">
             <label for="author">Författare:</label>
             <input type="text" id="author" name="author" value="{{ book.author }}">
         </p>
