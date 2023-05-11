@@ -167,6 +167,43 @@
     <section>
         <section id="kmom05">
         <h2>Kmom 05</h2>
+        <p>
+            Som vanligt var övningen med tillhörande video väldigt nyttig. Man får som i regel nästan allt som krävs för att genomföra uppgiften. Det krävdes lite extra
+            tankeverksamhet för att koppla ihop manipulering av databasen med router-hanteringen men eftersom vi har jobbat en hel del med POST och GET så gick det ändå
+            hyfsat okej. När jag väl fått ordning på flödet i CREATE, som skapdes först, så gav det en grundläggande idé för utformandet av resterande delar.
+        </p>
+        <p>
+            Lite fundersam blev/är jag kring bild-hanteringen. Jag tänkte att "man ska kunna lägga till detaljer om en bok" även innebär ladda upp bilder. Jag försökte
+            göra lite research och insåg att det kanske var möjligt att få till men gjorde bedömingen att det nog låg under kategorin "överkurs". Jag valde därför att
+            endast lägga in bilder för mina tre grundböcker och sedan låta nya böcker endast innehålla namn, författare och ISBN.
+        </p>
+        <p>
+            Det sista problemet jag stötte på var när jag väl hade laddat upp allting till studentservern. Vid det här laget har jag lärt mig att det alltid är något
+            som inte kommer fungera på studentservern även om det fungerar lokalt... Mycket riktigt, problem idag igen. Först ville inte min API-rout som ska visa
+            upp en utvald bok acceptera siffrorna som en integer. Konstigt men inte omöjligt att ordna så jag gjorde som klagomålet sa och skickade siffrorna som en sträng
+            innan jag gjorde om dem till integers. Även om det fungerade så upptäckte jag att boken som visades upp inte stämde med bokens ISBN som skickats som parameter
+            i URLen. Jag navigerade vidare till översikten för samtliga böcker och såg att alla böcker helt plötsligt hade samma ISBN. Jag klarar inte helt att förstå
+            varför men eftersom det fungerade lokalt misstänker jag att det finns någon typ av begränsning på studentservern när det gäller storleken av ett tal som 
+            får laddas upp. Kanske en säkerhetsåtgärd? Hur som helst, eftersom jag använde autentiska ISBN-nummer så blev det långa tal men efter dessa problem valde jag
+            att göra om till fyrsiffriga tal. Efter det fungerade det bättre även om det inte blev lika estetiskt i översikten.
+        </p>
+        <p>
+            Jag försökte att hålla applikationen rimlig och tydlig. Översikten för samtliga böcker blev det centrala innehållet och därfrån kan man ändra på innehållet.
+            Vill man lägga till en bok finns det en egen knapp för det från landningssidan.
+        </p>
+        <p>
+            Jag hade först svårt att förstå hur tusan man skulle kunna jobba objektorienterat med databaser. I de flesta nya moment så har jag svårt att förstå i början.
+            Det spelar inte så stor roll att jag ser på introduktionen eller läser en avancerad manual. Men, när jag väl satt igång och jobba går det bättre att göra
+            kopplingar. Då kan jag tänka "aha det var det här Mos pratade om i introduktionen" och så blir det lite lättare att gå vidare. Med det sagt så förstår jag
+            vilken enorm fördel ORM kan vara för en objektorienterat lagd programmerare. Dessa färdigskrivna metoder som utför någon typ av SQL i bakgrunden sparar
+            så otroligt mycket tid. Jag har aldrig lagt så mycket tid på något moment som kmom05 och kmom06 i databas-kursen. Det tog ju aldrig slut med mängden
+            funktionalitet som behövdes skapas. Med ORM autogenererades allt som behövdes för att skapa ett fungerande CRUD-flöde och jag använder mig gärna av
+            det här arbetssättet i framtiden. Objektorientering kan vara avancerad och svår men när det fungerar är det extremt tillfredsställande.
+        </p>
+        <p>
+            För mig är hela konceptet kring ORM momentets TIL. Jag visste inte att man kunde jobba på det här sättet. Däremot känns det bra att ha gått databas-kursen
+            för att veta lite om vad som försiggår i bakgrunden. Det skapar en ännu större förståelse för hur smidigt det här faktiskt var.
+        </p>
     </section>
 
     <section>
