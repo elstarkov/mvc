@@ -290,10 +290,12 @@ class ControllerJson extends AbstractController
     #[Route('api/library/books/{isbn}', name: 'api_book_isbn', methods: ['GET'])]
     public function apiIsbn(
         BookRepository $bookRepository,
-        int $isbn
+        string $isbn
     ): Response {
 
         $books = $bookRepository->findAll();
+
+        $isbn = intval($isbn);
 
         $book = null;
         foreach ($books as $b) {
