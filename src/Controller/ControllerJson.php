@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Repository\BookRepository;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -266,6 +267,49 @@ class ControllerJson extends AbstractController
         ];
 
         $response = new JsonResponse($data);
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT
+        );
+        return $response;
+    }
+
+    #[Route('api/library/books', name: 'api_books', methods: ['GET'])]
+    public function apiBooks(
+        BookRepository $bookRepository
+    ): Response {
+        $books = $bookRepository
+            ->findAll();
+
+        $response = $this->json($books);
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT
+        );
+        return $response;
+    }
+
+    #[Route('api/library/books/{isbn}', name: 'api_book_isbn', methods: ['GET'])]
+    public function apiIsbn(
+        BookRepository $bookRepository,
+        int $isbn
+    ): Response {
+
+        $books = $bookRepository->findAll();
+
+        $book = null;
+        foreach ($books as $b) {
+            if ($b->getIsbn() == $isbn) {
+                $book = $b;
+                break;
+            }
+        }
+
+        if (!$book) {
+            throw $this->createNotFoundException(
+                'No book found for isbn '.$isbn
+            );
+        }
+
+        $response = $this->json($book);
         $response->setEncodingOptions(
             $response->getEncodingOptions() | JSON_PRETTY_PRINT
         );

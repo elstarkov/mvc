@@ -10,43 +10,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class BookController extends AbstractController
 {
     #[Route('/library', name: 'library', methods: ['GET'])]
     public function index(
-        SessionInterface $session,
     ): Response
     {
-        // $title = $session->get('title');
-        // $isbn = $session->get('isbn');
-        // $author = $session->get('author');
-        // $image = $session->get('image');
-
-        // if ($title === null) {
-        //     $title = '';
-        // }
-
-        // if ($isbn === null) {
-        //     $isbn = '';
-        // }
-
-        // if ($author === null) {
-        //     $author = '';
-        // }
-
-        // if ($image === null) {
-        //     $image = '';
-        // }
-
-        // $data = [
-        //     'title' => $title,
-        //     'isbn' => $isbn,
-        //     'author' => $author,
-        //     'image' => $image,
-        // ];
-
         return $this->render('book/index.html.twig');
     }
 
@@ -59,15 +29,9 @@ class BookController extends AbstractController
 
     #[Route('/library/create', name: 'post_create', methods: ['POST'])]
     public function PostCreateBook(
-        SessionInterface $session,
         Request $request,
         ManagerRegistry $doctrine
     ): Response {
-
-        // $session->set("title", $request->get('title'));
-        // $session->set("isbn", $request->get('isbn'));
-        // $session->set("author", $request->get('author'));
-        // $session->set("image", $request->get('image'));
 
         $entityManager = $doctrine->getManager();
 
@@ -123,7 +87,7 @@ class BookController extends AbstractController
 
         if (!$book) {
             throw $this->createNotFoundException(
-                'No book$book found for id '.$id
+                'No book found for id '.$id
             );
         }
 
@@ -179,20 +143,21 @@ class BookController extends AbstractController
         return $this->render('book/delete.html.twig', $data);
     }
 
-
-
-    #[Route('/library/api', name: 'api_books')]
-    public function apiBooks(
-        bookRepository $bookRepository
+    #[Route('/library/delete/post/{id}', name: 'post_book_delete', methods: ['POST'])]
+    public function postDeleteBook(
+        BookRepository $bookRepository,
+        int $id
     ): Response {
-        $books = $bookRepository
-            ->findAll();
+        $book = $bookRepository->find($id);
 
-        //return $this->json($books);
-        $response = $this->json($books);
-        $response->setEncodingOptions(
-            $response->getEncodingOptions() | JSON_PRETTY_PRINT
-        );
-        return $response;
+        if (!$book) {
+            throw $this->createNotFoundException(
+                'No book found for id '.$id
+            );
+        }
+
+        $bookRepository->remove($book, true);
+
+        return $this->redirectToRoute('book_show_all');
     }
 }

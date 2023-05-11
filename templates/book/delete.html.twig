@@ -13,7 +13,7 @@
 <p>Klicka på knappen för att radera boken.</p>
 
 <br>
-    <form method="post" action="">
+    <form method="post" action="{{ path('post_book_delete', {'id': book.id}) }}">
         <p class="bold">
             <label for="title">Titel:</label>
             <input type="text" id="title" name="title" readonly value="{{ book.title }}">
