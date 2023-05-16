@@ -66,7 +66,7 @@
     runt 18 medan de gröna cirklarna ligger mellan ett och tre. Som ett extra mått kan man också utläsa att ökad komplexitet kan leda till svårunderhållen kod.
     Vi bör nog ta en titt på Controller-klasserna.
 </p>
-    <img src="{{ asset('img/phpmetrics.png') }}" alt="">
+    <img src="{{ asset('img/phpmetrics.png') }}" alt="phpmetrics">
 
 <h3>Scrutinizer</h3>
 
@@ -85,7 +85,40 @@
     <img src="https://scrutinizer-ci.com/g/elstarkov/mvc/badges/code-intelligence.svg?b=main" alt="code intelligence">
 
 <p>
-    Vid det här laget är vi inte längre förvånande. Det är tydligt att andel code coverage skiljer sig avsevärt från övriga delar.
+    Vid det här laget är vi inte längre förvånande. Det är tydligt att andel code coverage skiljer sig avsevärt från övriga delar. Å andra sidan är det också
+    ganska positivt att övriga delar ser ut att nå upp till en hög nivå. I en analytiskt värld hade det kanske varit mer optimalt om resultatet från verktyget
+    hade varit mer jämndåligt. Då hade det funnits mer att förbättra och analysera. Koden har dock genomgått en linter som åtgärdat och förbättrat stora delar av
+    koden. Men om vi bortser från det och lägger det uppenbara förbättringsläget i code coverage åt sidan för stunden så kan vi se om det finns några andra
+    intressanta mätresultat att kommentera.
+</p>
+<p>
+    Som utgångspunkt finns här de filer med sämst betyg samlade. Betygen är ett helhetsbetyg från A-F och som vi kan se är standarden relativt hög även om vi vill
+    vara kräsna. Vad som dock går att utläsa är att det återigen är samlingen av 'Controllers' som är den gemensamma nämnaren.
+</p>
+    <img src="{{ asset('img/scrut.png') }}" alt="scrut">
+
+<p>
+    Eftersom dessa controller-filer saknar tester samt innehåller en del conditions som hanterar olika utfall blir CRAP-scoren hög. Det kan vara så att om spelaren
+    i kortspelet slår ett ess så ska en viss sida renderas och annars en annan o.s.v. Det är conditions som är svåra att undvika samtidigt som antalet conditions
+    minskade avsevärt efter att linterns förslag på förbättringar implementerades i ett tidigare skede inför den här rapporten. Hade inte det gjorts så hade
+    rimligtvis kodkvaliteten varit betydligt sämre och vi hade haft en mer intressant rapport. Vart man än vänder sig så landar det i att tester för
+    controller-sidorna bör skrivas eller så bör de inte tas med i verktygets rapport. Det kan också nämnas att rapporten ger några små-issues. Dessa issues
+    är dock i filer som mer eller mindre har autogenererats och har egentligen ingen påverkan för kvaliteten på hemsidan. Valet görs därför att ignorera
+    dessa och fokusera på att förbättra 'code coverage'.
+</p>
+
+<h3>Förbättringar</h3>
+<p>
+    Hur man bör förbättra resultaten har till stor del diskuterats men att ptunkta upp skapar tydlighet.
+</p>
+
+<ul>
+    <li>Öka kodtäckning</li>
+    <li>Minska CRAP-score</li>
+    <li>Skriva tester för controllers</li>
+</ul>
+
+<!--Fortsätt från: Implementera sedan förbättringarna.-->
 
 
 {% endblock %}
