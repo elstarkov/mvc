@@ -1,0 +1,47 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Metrics{% endblock %}
+
+{% block body %}
+
+<br>
+<h2>Clean Code</h2>
+<hr>
+
+<h3>Introduktion</h3>
+
+<p>
+    På den här sidan kommer källkoden bakom hemsidans uppbyggnad analyseras med hjälp av verktygen PHPMetrics
+    och Scrutinizer. Verktygen kommer i första hand att bedöma koden utifrån sex olika kriterier. Vi kallar
+    kriterierna för "de sex C:na". Kriterierna finns listade nedan:
+</p>
+    <ul>
+        <li>Codestyle</li>
+        <li>Coverage</li>
+        <li>Complexity</li>
+        <li>Cohesion</li>
+        <li>Coupling</li>
+        <li>CRAP</li>
+    </ul>
+
+<p>
+    Med hjälp av kriterierna kan verktygen generera mätvärden och betyg på koden. 'Codestyle' är ett mer generellt betyg
+    för kodens kvalitet och hur väl den förhåller sig till det använda språkets struktur och riktlinjer. 'Coverage' syftar
+    till hur väl koden är testad. Ett högt 'coverage' är en typ av kvalitetsstämpel och bevis på vältestad kod. 'Complexity'
+    handlar om kodens komplexitet. Hög komplexitet innebär risk för kod som är svår att underhålla. Det kan göra koden känslig
+    för uppdateringar i framtiden. 'Cohesion' beskriver hur väl metoder i en klass verkligen hör ihop med klassen. Man vill ha
+    en hög 'Cohesion' vilket ger ett lågt värde i testet. Det indikerar på att klassen och dess tillhörande metoder och variabler
+    är lättare att förstå och underhålla. Man kan se det som ett kvitto på att de förhåller sig till sina tilltänkta uppgifter.
+    'Coupling' handlar om hur olika klasser är kopplade till varandra. En klass kan undersökas utifrån två olika typer av 'Coupling'.
+    'Afferent coupling (AC)' beskriver hur många klasser som är beroende av den aktuella klassen. 'Efferent coupling (EC)' beskriver
+    tvärt om hur många klasser som den aktuella klassen är beroende av. Det finns inga rätt eller fel men det kan vara värt att se
+    över sina klasser om man märker att en ha väldigt stort inflytande. Det sista huvudsakliga kriteriet är 'CRAP'. CRAP kan ses som
+    ett mått på risk. Det undersöker hur vältestad en bit kod är utifrån dess komplexitet. Om koden är komplex bör den ha motsvarande
+    mängd tester. Komplex kod som inte är vältestad kommer generera ett högre 'CRAP-score'. Det finns fler kriterier för att mäta kodens
+    kvalitet men i den här analysen kommer dessa vara de huvudsakliga men det är möjligt att andra kriterier nämns om det skulle vara
+    rimligt.
+</p>
+
+
+
+{% endblock %}
