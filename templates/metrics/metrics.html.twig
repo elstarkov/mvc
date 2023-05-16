@@ -41,7 +41,51 @@
     kvalitet men i den här analysen kommer dessa vara de huvudsakliga men det är möjligt att andra kriterier nämns om det skulle vara
     rimligt.
 </p>
+<p>
+    Med kriterierna förklarade så kan en kort kommentar om min egen kod vid ett första anblick ges. I det stora hela genereras ett gott betyg
+    men det som sticker ut tydligt är den låga procenten för 'Coverage'. Tittar man lite närmare så förstår man att det är samtliga "Controllers"
+    som ger problem. Anledningen är att det inte finns några tester skrivna för dessa då de endast har som uppgift att rendera olika webbkomponenter.
+    Webbkomponenterna använder i sin tur klasser. För dessa klasser finns det redan enhetstester. Som lösning på kritiken ställs nu författaren inför
+    valet att antingen skriva tester även för 'Controllers' eller välja att exkludera dessa när verktygen körs.
+</p>
 
+<h3>PHPMetrics</h3>
+
+<p>
+    Verktyget PHPMetrics genererar en rapport som går att öppna i webbläsaren. Som det nämndes tidigare så är det i huvudsak kategorin 'Controllers'
+    som inte uppfyller kraven. Vi har redan varit inne på varför och hur man skulle kunna lösa problemen. Om man studerar rapporten närmare så går det
+    också att förstå att även koden för själva enhetstesterna bedöms utifrån hur vältestad den är. Det här blir helt fel eftersom koden enbart
+    finns för att testa koden i de klasser som webbplatsen använder. Det behövs inga tester för att testa testerna. Vi kan utgå ifrån att koden
+    bakom modulen för enhetstestning är korrekt. Som lösning på detta bör nog konfigurationsfilen ses över. Testklasserna bör exkluderas från verktygets
+    bedömning. Övriga noteringar är att klasserna som har centrala roller i kortspelet har de högsta värdena för 'Coupling'. Det låter rimligt eftersom
+    de ansvarar för korthänder, kortleken samt varje enskilt kort i leken. Det här är klasser som är beroende av varandra och det skulle vara svårt att
+    skapa ett fungerande kortspel om de inte var det även om det innebär ett högre coupling-värde.
+</p>
+<p>
+    Följande bild sammanfattar läget bra. Den beskriver komplexiteten med en illustration. De röda cirklarna är samtliga Controllers. De har ett komplexitets-värde
+    runt 18 medan de gröna cirklarna ligger mellan ett och tre. Som ett extra mått kan man också utläsa att ökad komplexitet kan leda till svårunderhållen kod.
+    Vi bör nog ta en titt på Controller-klasserna.
+</p>
+    <img src="{{ asset('img/phpmetrics.png') }}" alt="">
+
+<h3>Scrutinizer</h3>
+
+<p>
+    Scrutinizer är det andra verktyget som används i analysen. Det här verktyget går att använda för olika kodspråk medan PHPMetrics är mer utformat
+    för PHP-kod. Oavsett språk så finns det många gemensamma mål man vill uppfylla för koden ska vara i så gott skick som möjligt. Scrutinizer erbjuder
+    oss fordelen att få olika delar av koden summerade med hjälp av badges. Vi kollar:
+</p>
+
+    <img src="https://scrutinizer-ci.com/g/elstarkov/mvc/badges/quality-score.png?b=main" alt="quality">
+
+    <img src="https://scrutinizer-ci.com/g/elstarkov/mvc/badges/coverage.png?b=main" alt="coverage">
+
+    <img src="https://scrutinizer-ci.com/g/elstarkov/mvc/badges/build.png?b=main" alt="build">
+
+    <img src="https://scrutinizer-ci.com/g/elstarkov/mvc/badges/code-intelligence.svg?b=main" alt="code intelligence">
+
+<p>
+    Vid det här laget är vi inte längre förvånande. Det är tydligt att andel code coverage skiljer sig avsevärt från övriga delar.
 
 
 {% endblock %}
