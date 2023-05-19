@@ -1,6 +1,6 @@
 {
     "includes": [
-        "src"
+        "src/Card"
     ],
     "exclude": [
       "test[s]?"

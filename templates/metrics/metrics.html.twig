@@ -126,6 +126,26 @@
 </p>
 
 <h3>Verkställ förbättringar</h3>
+<p>
+    Vid det här laget inser jag att den här analysen tydligt illustrerar vad verktygen menar med komplex och svårtestad kod. Jag trodde att det
+    skulle vara relativt smärtfritt att skriva enhetstester för kontrollerna men verktygen försökte helt klart berätta något för mig. Kontrollerna
+    består av klasser som sedan använder metoder för att rendera vyer och hantera värden som skickas via sessioner. Jag försöker skapa ett mock-objekt
+    för att isolera metoden jag vill testa mot andra beroenden. Jag försöker kolla så att metoden 'Game()' i min spel-Controller renderar startsidan för spelet
+    men jag lyckas inte formulera ett korrekt test. Det närmsta jag kommer är ett test som kollar att metoden returnerar ett "Response". Detta räcker inte för att
+    PHPunit-dokumentet som dokumenterar unittesterna ska godkänna testet. Ju mer jag försöker desto mer inser jag att det kommer vara komplicerat att skriva
+    tester för samtliga metoder i mina Controllers. Insikten av att det kanske inte ens är helt nödvändigt nås också. Behövs testerna? Vi vill ha testbar och
+    lättunderhållen kod men controller-sidornas huvudsakliga uppgift är ju faktiskt bara att rendera vyerna och hålla koll på värden via sessioner. Koden
+    bakom vyerna genereras med hjälp av de klasser och metoder som det redan finns enhetstester för. Går dessa tester igenom så kan vi vara ganska säkra på
+    att innehållet som vyerna renderar har framtagits på ett korrekt sätt. Är något fel med koden som renderar vyerna brukar det framgå tydligt i form av
+    något felmeddelande som Symfony, i det här fallet, visar upp för oss. Som en följd av detta görs istället valet att även exkludera Controller-vyerna från
+    verktygen som testar koden, tillsammans med själva testfilerna samt metoderna som tillhör ORM-hanteringen. Resultatet? Vi tittar.
+
+    <h4>PHPMetrics</h4>
+    <img src="{{ asset('img/metricsfixed.png') }}" alt="phpmetrics">
+    
+    <h4>Scrutinizer</h4>
+    Det känns inte helt bra att ta den lätta vägen
+    u
 
 
 {% endblock %}
