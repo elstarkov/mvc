@@ -139,13 +139,52 @@
     att innehållet som vyerna renderar har framtagits på ett korrekt sätt. Är något fel med koden som renderar vyerna brukar det framgå tydligt i form av
     något felmeddelande som Symfony, i det här fallet, visar upp för oss. Som en följd av detta görs istället valet att även exkludera Controller-vyerna från
     verktygen som testar koden, tillsammans med själva testfilerna samt metoderna som tillhör ORM-hanteringen. Resultatet? Vi tittar.
+</p>
 
-    <h4>PHPMetrics</h4>
-    <img src="{{ asset('img/metricsfixed.png') }}" alt="phpmetrics">
-    
-    <h4>Scrutinizer</h4>
-    Det känns inte helt bra att ta den lätta vägen
-    u
+<h4>PHPMetrics</h4>
+<img src="{{ asset('img/metricsfixed.png') }}" alt="phpmetrics">
 
+<h4>Scrutinizer</h4>
+<img src="https://scrutinizer-ci.com/g/elstarkov/mvc/badges/quality-score.png?b=main" alt="quality">
+
+<img src="https://scrutinizer-ci.com/g/elstarkov/mvc/badges/coverage.png?b=main" alt="coverage">
+
+<img src="https://scrutinizer-ci.com/g/elstarkov/mvc/badges/build.png?b=main" alt="build">
+
+<img src="https://scrutinizer-ci.com/g/elstarkov/mvc/badges/code-intelligence.svg?b=main" alt="code intelligence">
+
+<p>
+    Nu ser koden helt plötsligt nästan felfri ut. Det känns inte helt bra att ta den lätta vägen ut och uppnå högre kodtäckning via exkludering.
+    Men i ärlighetens namn så borde samtliga filer förutom Controllers kanske redan ha varit exkluderade första gången som verktygen körde koden.
+    Då kördes testerna med baskonfiguering. Det känns både bra och dåligt att det inte fanns så mycket att justera. Det ger ett kvitto på att koden
+    kan bedömas som någorlunda lättförståelig och lätt att underhålla samtidigt som analysen hade blivit mer intressant om det funnits större saker
+    att åtgärda.
+</p>
+
+<h3>Diskussion</h3>
+
+<p>
+    Det börjar bli dags att avrunda. Analysen blev inte helt som förväntat. Jag är nöjd att grundbetyget höll hög standard men i en perfekt värld skulle såklart
+    lösningen för kontroller-sidorna varit att skriva nya tester snarare än att exkludera dem. Samtidigt känns det lite som överarbete och i grunden kan jag nog
+    känna mig nöjd med att de klasser och metoder som används för att skapa innehållet uppnådde en hög kodtäckning. Jag inser att man kanske måste välja
+    sitt fokus och skapa en balans. Hade den här webbplatsen varit ett arbete för en kund så kanske tidsramen gör att man till en början får fokusera på
+    att det som händer i bakgrunden fungerar, och felsöka routrar utifrån den information som genereras om man inte kan nå en rout. Om inte koden bakom
+    router-hanteringen fungerar så brukar det ofta framgå tydligt eftersom innehållet inte renderas alls eller bara till en viss del. Å andra sidan skulle
+    detta kunna leda till krascher vid senare tillfällen då inte all kod omfattas av testning och kan göra det svårt att upptäcka buggar i tid. Det leder
+    till vad jag i den här kursen har lärt mig kallas för "technical debt". Kort sammanfattat en teknisk skuld som kan innebära mer arbete i framtiden som
+    konsekvens av att man valt att förbise delar av sin kod i ett tidigare skede.
+</p>
+<p>
+    Arbetet med verktygen PHPMetrics och Scrutinizer verkar dock vara väldigt sunda hjälpmedel som kan göra livet mindre (eller mer) komplicerat för en grupp
+    med utvecklare. Speciellt då många säkerligen kommer från olika bakgrunder. Någon kanske är nyexaminerad medan en annan har 20 år av erfarenhet. Då är det
+    naturligt att man skriver på olika sätt. Verktygen kan hjälpa en mindre rutinerad utvecklare att ta nästa kliv samtidigt som någon med mer erfarenhet får
+    spetsa till sina kunskaper ytterligare. Verktygen kan få dessa två att mötas på vägen genom en gemensam kod-struktur som båda två kan förstå trots de olika
+    färdigheterna. Det är en trygghet att ha en hård och rättvis bedömare som kan ge ett kvitto på att koden gör vad den borde och i rätt utsträckning
+    samtidigt som det kan leda till mer arbete om man inte testar koden tillräckligt ofta medan den tas fram. På sikt så tror jag de flesta blir en bättre
+    utvecklare genom att använda linters och testverktyg för att kvalitetssäkra sin kod. Det tydligaste exemplet för egen räkning är hur ofta lintern påpekade
+    för mig att det i många fall var onödigt med en "else"-sats. Trots min skepsis följde jag förslagen och föga förvånande var det min kod som gick att förenkla
+    och inte lintern som hade fel. Who knew? Som tack för besväret fick min kod ett högre betyg av verktygen från analysen då den inte blev lika komplex. Jag tar
+    med mig att det enkla ofta är det bästa.
+</p>
 
 {% endblock %}

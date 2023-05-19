@@ -1,5 +1,5 @@
 
-This is the Scrutinizer badges from the first test.
+This is the Scrutinizer badges.
 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/elstarkov/mvc/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/elstarkov/mvc/?branch=main)
 [![Code Coverage](https://scrutinizer-ci.com/g/elstarkov/mvc/badges/coverage.png?b=main)](https://scrutinizer-ci.com/g/elstarkov/mvc/?branch=main)
