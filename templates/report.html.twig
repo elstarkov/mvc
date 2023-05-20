@@ -209,6 +209,39 @@
     <section>
         <section id="kmom06">
         <h2>Kmom 06</h2>
+        <p>
+            Phpmetrics illustrerade på ett tydligt sätt vilka delar av koden som hade bäst förutsättningar för att vara korrekt, lättförståelig och mest
+            underhållsvänlig. Det som jag tycker stack ut mest var de stora cirklarna i olika färger som representerade olika delars komplexitet. Ögat drar
+            sig till de färgstarka cirklarna. Man får också en kort men tydlig förklaring om cirklarnas innebörd. Om man hoovrar över en cirkel får man också
+            statistik på "maintainability index". Enligt mina cirklar verkar lägre komplexitet leda till ett högre "maintainability index" vilket skulle betyda att
+            koden då är lättare att underhålla. Det låter rimligt. I övrigt finns det mycket siffror att tillgå för den som vill gräva på djupet. Jag valde att
+            i första hand fokusera på det cirklarna påpekade.
+        </p>
+        <p>
+            Jag gillade nog Scrutinizer bättre än Phpmetrics. Jag tycker att verktyget var tydligare och även här var det bilder av resultatet som fångade min
+            uppmärksamhet. Det ser proffsigt ut med badges. Dessa är enkla att tolka när bakgrundsfärgen sätter en prägel på om betyget är bra, hyfsat eller inte
+            så bra. Vid det första testet så var stora delar av min kod bra men det blev väldigt tydligt att någonting inte stod rätt till med kodtäckningen. Det
+            visade sig vara mina kontroller-sidor som använder metoder för att rendera vyer som inte innehöll några enhetstester. Dessa sidor genererade också
+            stora röda cirklar i phpmetrics som varslade om att koden skulle vara svårtestad. Jag accepterade utmaningen och försökte skriva några enhetstester
+            för game-controllern men det gick inget vidare. Jag hade stora svårigheter med att formulera ett test som bevisade att metoden renderade rätt vy.
+            Jag försökte använda ett mockobjekt för att göra testet mindre beroende men det gick inte helt ihop sig. Det fanns alltså grundlag för att kalla min
+            kod komplex och svårunderhållen! Med den insikten insåg jag att det var läge att ta förlusten och notera att dessa verktyg kan vara väldigt användbara
+            i framtiden. Man bör med fördel använda de under utvecklingen av koden och inte när applikationen/webbplatsen är färdig.
+        </p>
+        <p>
+            Enligt min åsikt så är verktygen bra hjälpmedel för att kvalitetschecka koden. Man bör dock använda de på rätt sätt och titta närmare på klagomålen.
+            I vissa fall kan det vara så att allt kanske inte är relevant att testa. I det stora hela tycker jag dock att betygen ger en väldigt bra översikt
+            över vilka delar som är bra och vilka som skulle kunna kräva lite mer arbete. Att sträva mot ett så högt betyg som möjligt kan nog leda till att man
+            undviker att hamna i s.k. teknisk skuld på sikt. Jag tror också att det skapar ett grundtänk för utvecklaren som hen har med sig när hen skriver kod.
+            Jag vet bara att jag själv framöver komma försöka tänka på att skriva så få conditions i from av if else-satser som möjligt. Samtidigt bör man inte
+            stirra sig helt blind på siffror och färger. Man kan ha en fullt fungerande applikation trots att den är komplex. Kanske vet man att den inte kommer
+            uppdateras i framtiden? Ja, då tar det kanske bara onödig tid att skriva om hela applikationen.
+        </p>
+        <p>
+            Min TIL för det här kursmomentet är hela konceptet kring "software quality management". Alltså, att använda verktyg för att enkelt hålla koll på vem
+            som skrivit vilken kod samt vilken kvalitet den håller. Är man många som jobbar på ett projekt så kan det fort bli komplicerat om man inte har en
+            god struktur. Det här gav mig en idé om hur det troligtvis ser på de flesta arbetsplatser när man arbetar tillsammans.
+        </p>
     </section>
 
     <section>
