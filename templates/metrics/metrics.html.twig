@@ -76,13 +76,13 @@
     oss fordelen att få olika delar av koden summerade med hjälp av badges. Vi kollar:
 </p>
 
-    <img src="{{ asset('img/code-intelligence.svg') }}" alt="quality">
+    <img src="{{ asset('img/quality-score.svg') }}" alt="quality">
 
     <img src="{{ asset('img/coverage.svg') }}" alt="coverage">
 
     <img src="{{ asset('img/build.svg') }}" alt="build">
 
-    <img src="{{ asset('img/quality-score.svg') }}" alt="code intelligence">
+    <img src="{{ asset('img/code-intelligence.svg') }}" alt="code intelligence">
 
 <p>
     Vid det här laget är vi inte längre förvånande. Det är tydligt att andel code coverage skiljer sig avsevärt från övriga delar. Å andra sidan är det också
@@ -145,13 +145,21 @@
 <img src="{{ asset('img/metricsfixed.png') }}" alt="phpmetrics">
 
 <h4>Scrutinizer</h4>
-<img src="https://scrutinizer-ci.com/g/elstarkov/mvc/badges/quality-score.png?b=main" alt="quality">
+<a href="https://scrutinizer-ci.com/g/elstarkov/mvc/?branch=main">
+    <img src="https://scrutinizer-ci.com/g/elstarkov/mvc/badges/quality-score.png?b=main" alt="quality">
+</a>
 
-<img src="https://scrutinizer-ci.com/g/elstarkov/mvc/badges/coverage.png?b=main" alt="coverage">
+<a href="https://scrutinizer-ci.com/g/elstarkov/mvc/code-structure/main/code-coverage">
+    <img src="https://scrutinizer-ci.com/g/elstarkov/mvc/badges/coverage.png?b=main" alt="coverage">
+</a>
 
-<img src="https://scrutinizer-ci.com/g/elstarkov/mvc/badges/build.png?b=main" alt="build">
+<a href="https://scrutinizer-ci.com/g/elstarkov/mvc/?branch=main">
+    <img src="https://scrutinizer-ci.com/g/elstarkov/mvc/badges/build.png?b=main" alt="build">
+</a>
 
-<img src="https://scrutinizer-ci.com/g/elstarkov/mvc/badges/code-intelligence.svg?b=main" alt="code intelligence">
+<a href="https://scrutinizer-ci.com/g/elstarkov/mvc/?branch=main">
+    <img src="https://scrutinizer-ci.com/g/elstarkov/mvc/badges/code-intelligence.svg?b=main" alt="code intelligence">
+</a>
 
 <p>
     Nu ser koden helt plötsligt nästan felfri ut. Det känns inte helt bra att ta den lätta vägen ut och uppnå högre kodtäckning via exkludering.
