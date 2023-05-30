@@ -10,6 +10,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+
+use Symfony\UX\Chartjs\Builder\ChartBuilderInterface;
+use Symfony\UX\Chartjs\Model\Chart;
+
 class OvercrowdedController extends AbstractController
 
 {
@@ -21,10 +25,11 @@ class OvercrowdedController extends AbstractController
 
         $overCrowded = new Overcrowding();
 
-        $overCrowded->setYear("2020-2020");
-        $overCrowded->setGender("Män");
-        $overCrowded->setCategory("Utrikes födda");
-        $overCrowded->setAmount(16.5);
+        // $overCrowded->setCountry("EU-27");
+        // $overCrowded->setCategory("Inrikes födda");
+        // $overCrowded->setAmount(14);
+
+        //$overCrowded->setCategory("Utrikes födda");
 
         $entityManager->persist($overCrowded);
 
@@ -32,7 +37,7 @@ class OvercrowdedController extends AbstractController
 
         return new Response(
             'Saved new info with id '.$overCrowded->getId().
-            '. Saved new info with gender '.$overCrowded->getGender().
+            '. Saved new info with country '.$overCrowded->getCountry().
             '. Saved new info with category '.$overCrowded->getCategory().
             '. Saved new info with amount '.$overCrowded->getAmount(),
         );
@@ -62,15 +67,57 @@ class OvercrowdedController extends AbstractController
 
     #[Route('/proj', name: 'proj', methods: ['GET'])]
     public function index(
-        OverCrowdingRepository $overcrowdedRepository
+        OverCrowdingRepository $overcrowdedRepository,
+        ChartBuilderInterface $chartBuilder
     ): Response {
+
         $allOverCrowded = $overcrowdedRepository->findAll();
 
-        $data = [
+        $chart1 = $chartBuilder->createChart(Chart::TYPE_BAR);
+
+        $labels1 = [];
+        $data1 = [];
+
+        foreach ($allOverCrowded as $overcrowded) {
+            $labels1[] = $overcrowded->getCountry().' ('.$overcrowded->getCategory().')';
+            $data1[] = $overcrowded->getAmount();
+
+            if ($overcrowded->getCategory() === 'Inrikes födda') {
+                $backgroundColor[] = 'rgba(255, 99, 132, 0.5)';
+                $borderColor[] = 'rgb(255, 99, 132)';
+            } else {
+                $backgroundColor[] = 'rgba(54, 162, 235, 0.5)';
+                $borderColor[] = 'rgb(54, 162, 235)';
+            }
+        }
+
+        $chart1->setData([
+            'labels' => $labels1,
+            'datasets' => [
+                [
+                    'label' => 'Andel trångbodda efter födelseland, 18 år och äldre, EU-27 och Norden',
+                    'backgroundColor' => $backgroundColor,
+                    'borderColor' => $borderColor,
+                    'data' => $data1
+                ],
+            ],
+        ]);
+
+        $chart1->setOptions([
+            'scales' => [
+                'y' => [
+                    'suggestedMin' => 0,
+                    'suggestedMax' => 50,
+                ],
+            ],
+        ]);
+
+        $result = [
+            'chart1' => $chart1,
             'overcrowded' => $allOverCrowded,
         ];
 
-        return $this->render('proj/index.html.twig', $data);
+        return $this->render('proj/index.html.twig', $result);
     }
 }
 

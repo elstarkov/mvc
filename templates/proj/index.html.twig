@@ -14,13 +14,13 @@
 
     <p>Testar på en table</p>
     <br>
-    <h3>Trångboddhet enligt norm 2 bland personer 16-84 år</h3>
+    <h3>Andel trångbodda efter födelseland, 18 år och äldre, EU-27 och Norden - 2019</h3>
+        {{ render_chart(chart1) }}
     <table>
         <thead>
             <tr>
                 <th>Id</th>
-                <th>År</th>
-                <th>Kön</th>
+                <th>Land</th>
                 <th>Grupp</th>
                 <th>Andel</th>
             </tr>
@@ -28,10 +28,10 @@
         <tbody>
             {% for info in overcrowded %}
                 <td>{{ info.id }}</td>
-                <td>{{ info.year }}</td>
-                <td>{{ info.gender }}</td>
+                <td>{{ info.country }}</td>
                 <td>{{ info.category }}</td>
                 <td>{{ info.amount }}%</td>
+                <tr>
             {% endfor %}
         </tbody>
     </table>

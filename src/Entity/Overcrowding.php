@@ -14,10 +14,7 @@ class Overcrowding
     private ?int $id = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $year = null;
-
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $gender = null;
+    private ?string $country = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $category = null;
@@ -30,26 +27,14 @@ class Overcrowding
         return $this->id;
     }
 
-    public function getYear(): ?string
+    public function getCountry(): ?string
     {
-        return $this->year;
+        return $this->country;
     }
 
-    public function setYear(?string $year): self
+    public function setCountry(?string $country): self
     {
-        $this->year = $year;
-
-        return $this;
-    }
-
-    public function getGender(): ?string
-    {
-        return $this->gender;
-    }
-
-    public function setGender(?string $gender): self
-    {
-        $this->gender = $gender;
+        $this->country = $country;
 
         return $this;
     }
