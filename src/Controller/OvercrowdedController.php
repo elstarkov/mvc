@@ -107,7 +107,7 @@ class OvercrowdedController extends AbstractController
             'scales' => [
                 'y' => [
                     'suggestedMin' => 0,
-                    'suggestedMax' => 50,
+                    'suggestedMax' => 40,
                 ],
             ],
         ]);
