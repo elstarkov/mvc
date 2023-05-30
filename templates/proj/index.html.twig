@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Project{% endblock %}
+
+{% block body %}
+    <br>
+    <br>
+    <h2>
+        Välkommen till mitt projekt!
+    </h2>
+    <p><a href="https://www.scb.se/hitta-statistik/temaomraden/agenda-2030/mal-11/?showAllContentLinks=True">Statistik</a></p>
+    <br>
+    <br>
+
+    <p>Testar på en table</p>
+    <br>
+    <h3>Trångboddhet enligt norm 2 bland personer 16-84 år</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>År</th>
+                <th>Kön</th>
+                <th>Grupp</th>
+                <th>Andel</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for info in overcrowded %}
+                <td>{{ info.id }}</td>
+                <td>{{ info.year }}</td>
+                <td>{{ info.gender }}</td>
+                <td>{{ info.category }}</td>
+                <td>{{ info.amount }}%</td>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
+
+{# använd för att jämföra resultat https://www.scb.se/hitta-statistik/artiklar/2021/sverige-har-flest-trangbodda-i-norden/ #}
