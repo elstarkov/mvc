@@ -4,6 +4,10 @@ namespace App\Controller;
 
 use App\Entity\Overcrowding;
 use App\Repository\OvercrowdingRepository;
+
+use App\Entity\MaternalMortality;
+use App\Repository\MaternalMortalityRepository;
+
 use Doctrine\Persistence\ManagerRegistry;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -31,9 +35,9 @@ class OvercrowdedController extends AbstractController
 
         //$overCrowded->setCategory("Utrikes födda");
 
-        $entityManager->persist($overCrowded);
+        // $entityManager->persist($overCrowded);
 
-        $entityManager->flush();
+        // $entityManager->flush();
 
         return new Response(
             'Saved new info with id '.$overCrowded->getId().
@@ -68,6 +72,7 @@ class OvercrowdedController extends AbstractController
     #[Route('/proj', name: 'proj', methods: ['GET'])]
     public function index(
         OverCrowdingRepository $overcrowdedRepository,
+        MaternalMortalityRepository $maternalMortalityRepository,
         ChartBuilderInterface $chartBuilder
     ): Response {
 
@@ -112,9 +117,48 @@ class OvercrowdedController extends AbstractController
             ],
         ]);
 
+        $allMortality= $maternalMortalityRepository->findAll();
+
+        $chart2 = $chartBuilder->createChart(Chart::TYPE_LINE);
+
+        $labels2 = [];
+        $data2 = [];
+
+        foreach ($allMortality as $mortality) {
+            $labels2[] = $mortality->getYear();
+            $data2[] = $mortality->getRate();
+
+            $backgroundColor[] = 'rgba(255, 99, 132, 0.5)';
+            $borderColor[] = 'rgb(255, 99, 132)';
+        }
+
+        $chart2->setData([
+            'labels' => $labels2,
+            'datasets' => [
+                [
+                    'label' => 'Antal dödsfall bland kvinnor som genomgått en förlossning per 100 000 levnade födda barn under åren 2010-2020',
+                    'backgroundColor' => $backgroundColor,
+                    'borderColor' => $borderColor,
+                    'data' => $data2
+                ],
+            ],
+        ]);
+
+        $chart2->setOptions([
+            'scales' => [
+                'y' => [
+                    'suggestedMin' => 0,
+                    'suggestedMax' => 10,
+                ],
+            ],
+        ]);
+
+
         $result = [
             'chart1' => $chart1,
+            'chart2' => $chart2,
             'overcrowded' => $allOverCrowded,
+            'mortality' => $allMortality
         ];
 
         return $this->render('proj/index.html.twig', $result);

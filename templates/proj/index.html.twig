@@ -29,13 +29,37 @@
     <p>
         Nedan finns ett diagram som visar mödradödlighet i Sverige mellan åren 2010-2020.
     </p>
+
+    {{ render_chart(chart2) }}
+
+    https://www.scb.se/hitta-statistik/temaomraden/agenda-2030/mal-3/
+
+    https://www.rfsu.se/vad-vi-gor/nara-dig/barnvagnsmarschen/modradodlighet-i-varlden/
         
+        {# <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>År</th>
+                <th>Mödradödlighet per 100 000 förlossningar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for info in mortality %}
+                <td>{{ info.id }}</td>
+                <td>{{ info.year }}</td>
+                <td>{{ info.rate }}</td>
+                <tr>
+            {% endfor %}
+        </tbody>
+    </table> #}
         
-        
-        
+    <p>
         I Sverige är inte det här ett problem och
-        vi kommer snart att titta på siffror för mödradödligheten i Sverige mellan åren 2010-
-        2020. Men innan det ska vi jämföra med övriga världen. 
+        vi kommer snart att titta på siffror för mödradödligheten i Sverige mellan åren
+        2010-2020. Men innan det ska vi jämföra med övriga världen.
+    </p>
+
 
 
 
@@ -115,13 +139,6 @@
         åt. Intervjupersonerna i studien framhöll därför även vikten av gemensamma utemiljöer såsom
         grönområden, fritidsgårdar, lekplatser och skolgårdar.
     </p>
-    <br>
-    <hr>
-    <br>
-
-
-
-
 
 
     {# <table>
