@@ -9,6 +9,7 @@
 tools/
 /var/
 /vendor/
+/vendor/symfony/ux-chartjs/assets
 ###< symfony/framework-bundle ###
 
 ###> phpunit/phpunit ###
