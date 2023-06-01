@@ -10,9 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-
 class MaternalMortalityController extends AbstractController
-
 {
     #[Route('/proj/create/mortality', name: 'proj_create_mortality', methods: ['GET'])]
     public function create(

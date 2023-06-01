@@ -19,7 +19,6 @@ use Symfony\UX\Chartjs\Builder\ChartBuilderInterface;
 use Symfony\UX\Chartjs\Model\Chart;
 
 class OvercrowdedController extends AbstractController
-
 {
     #[Route('/proj/create', name: 'proj_create', methods: ['GET'])]
     public function create(
@@ -164,4 +163,3 @@ class OvercrowdedController extends AbstractController
         return $this->render('proj/index.html.twig', $result);
     }
 }
-
