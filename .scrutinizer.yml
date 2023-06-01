@@ -15,7 +15,7 @@ build:
                     # version: 8.1.17
                     # version: 8.2.4
                 node:
-                    version: 18.0.0
+                    version: 10.15.3
         analysis:
             tests:
                 override:
