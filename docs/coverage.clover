@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1685711197">
-  <project timestamp="1685711197">
+<coverage generated="1685712578">
+  <project timestamp="1685712578">
     <file name="/home/elstarkov/dbwebb-kurser/mvc/me/report/src/Card/Card.php">
       <class name="App\Card\Card" namespace="global">
         <metrics complexity="4" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="7" elements="11" coveredelements="11"/>
@@ -552,10 +552,9 @@
     </file>
     <file name="/home/elstarkov/dbwebb-kurser/mvc/me/report/src/Controller/MaternalMortalityController.php">
       <class name="App\Controller\MaternalMortalityController" namespace="global">
-        <metrics complexity="3" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="16" coveredstatements="0" elements="18" coveredelements="0"/>
+        <metrics complexity="3" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="15" coveredstatements="0" elements="17" coveredelements="0"/>
       </class>
       <line num="15" type="method" name="create" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="19" type="stmt" count="0"/>
       <line num="21" type="stmt" count="0"/>
       <line num="30" type="stmt" count="0"/>
       <line num="31" type="stmt" count="0"/>
@@ -572,7 +571,7 @@
       <line num="53" type="stmt" count="0"/>
       <line num="54" type="stmt" count="0"/>
       <line num="55" type="stmt" count="0"/>
-      <metrics loc="58" ncloc="54" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="16" coveredstatements="0" elements="18" coveredelements="0"/>
+      <metrics loc="58" ncloc="53" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="15" coveredstatements="0" elements="17" coveredelements="0"/>
     </file>
     <file name="/home/elstarkov/dbwebb-kurser/mvc/me/report/src/Controller/MetricsController.php">
       <class name="App\Controller\MetricsController" namespace="global">
@@ -584,16 +583,10 @@
     </file>
     <file name="/home/elstarkov/dbwebb-kurser/mvc/me/report/src/Controller/OvercrowdedController.php">
       <class name="App\Controller\OvercrowdedController" namespace="global">
-        <metrics complexity="9" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="94" coveredstatements="0" elements="97" coveredelements="0"/>
+        <metrics complexity="9" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="88" coveredstatements="0" elements="91" coveredelements="0"/>
       </class>
       <line num="23" type="method" name="create" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="27" type="stmt" count="0"/>
       <line num="29" type="stmt" count="0"/>
-      <line num="31" type="stmt" count="0"/>
-      <line num="32" type="stmt" count="0"/>
-      <line num="33" type="stmt" count="0"/>
-      <line num="37" type="stmt" count="0"/>
-      <line num="39" type="stmt" count="0"/>
       <line num="41" type="stmt" count="0"/>
       <line num="42" type="stmt" count="0"/>
       <line num="43" type="stmt" count="0"/>
@@ -683,7 +676,7 @@
       <line num="168" type="stmt" count="0"/>
       <line num="169" type="stmt" count="0"/>
       <line num="171" type="stmt" count="0"/>
-      <metrics loc="174" ncloc="173" classes="1" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="94" coveredstatements="0" elements="97" coveredelements="0"/>
+      <metrics loc="174" ncloc="167" classes="1" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="88" coveredstatements="0" elements="91" coveredelements="0"/>
     </file>
     <file name="/home/elstarkov/dbwebb-kurser/mvc/me/report/src/Controller/ProductController.php">
       <class name="App\Controller\ProductController" namespace="global">
@@ -762,21 +755,21 @@
     </file>
     <file name="/home/elstarkov/dbwebb-kurser/mvc/me/report/src/Entity/MaternalMortality.php">
       <class name="App\Entity\MaternalMortality" namespace="global">
-        <metrics complexity="5" methods="5" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="0" elements="12" coveredelements="0"/>
+        <metrics complexity="5" methods="5" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="7" elements="12" coveredelements="12"/>
       </class>
-      <line num="22" type="method" name="getId" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="24" type="stmt" count="0"/>
-      <line num="27" type="method" name="getYear" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="29" type="stmt" count="0"/>
-      <line num="32" type="method" name="setYear" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="34" type="stmt" count="0"/>
-      <line num="36" type="stmt" count="0"/>
-      <line num="39" type="method" name="getRate" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="41" type="stmt" count="0"/>
-      <line num="44" type="method" name="setRate" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="46" type="stmt" count="0"/>
-      <line num="48" type="stmt" count="0"/>
-      <metrics loc="51" ncloc="51" classes="1" methods="5" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="0" elements="12" coveredelements="0"/>
+      <line num="22" type="method" name="getId" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="24" type="stmt" count="1"/>
+      <line num="27" type="method" name="getYear" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="29" type="stmt" count="1"/>
+      <line num="32" type="method" name="setYear" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="34" type="stmt" count="1"/>
+      <line num="36" type="stmt" count="1"/>
+      <line num="39" type="method" name="getRate" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="41" type="stmt" count="1"/>
+      <line num="44" type="method" name="setRate" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="46" type="stmt" count="1"/>
+      <line num="48" type="stmt" count="1"/>
+      <metrics loc="51" ncloc="51" classes="1" methods="5" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="7" elements="12" coveredelements="12"/>
     </file>
     <file name="/home/elstarkov/dbwebb-kurser/mvc/me/report/src/Entity/Overcrowding.php">
       <class name="App\Entity\Overcrowding" namespace="global">
@@ -889,6 +882,6 @@
       <line num="38" type="stmt" count="0"/>
       <metrics loc="67" ncloc="36" classes="1" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="0" elements="10" coveredelements="0"/>
     </file>
-    <metrics files="22" loc="2215" ncloc="1964" classes="21" methods="107" coveredmethods="25" conditionals="0" coveredconditionals="0" statements="649" coveredstatements="43" elements="756" coveredelements="68"/>
+    <metrics files="22" loc="2215" ncloc="1957" classes="21" methods="107" coveredmethods="30" conditionals="0" coveredconditionals="0" statements="642" coveredstatements="50" elements="749" coveredelements="80"/>
   </project>
 </coverage>

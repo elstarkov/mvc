@@ -14,9 +14,9 @@ class MaternalMortalityController extends AbstractController
 {
     #[Route('/proj/create/mortality', name: 'proj_create_mortality', methods: ['GET'])]
     public function create(
-        ManagerRegistry $doctrine,
+        //ManagerRegistry $doctrine,
     ): Response {
-        $entityManager = $doctrine->getManager();
+        //$entityManager = $doctrine->getManager();
 
         $mortality = new MaternalMortality();
 

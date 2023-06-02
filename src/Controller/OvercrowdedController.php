@@ -22,21 +22,21 @@ class OvercrowdedController extends AbstractController
 {
     #[Route('/proj/create', name: 'proj_create', methods: ['GET'])]
     public function create(
-        ManagerRegistry $doctrine,
+        //ManagerRegistry $doctrine,
     ): Response {
-        $entityManager = $doctrine->getManager();
+        // $entityManager = $doctrine->getManager();
 
         $overCrowded = new Overcrowding();
 
-        $overCrowded->setCountry("EU-27");
-        $overCrowded->setCategory("Inte född");
-        $overCrowded->setAmount(1337);
+        // $overCrowded->setCountry("EU-27");
+        // $overCrowded->setCategory("Inte född");
+        // $overCrowded->setAmount(1337);
 
         //$overCrowded->setCategory("Utrikes födda");
 
-        $entityManager->persist($overCrowded);
+        // $entityManager->persist($overCrowded);
 
-        $entityManager->flush();
+        // $entityManager->flush();
 
         return new Response(
             'Saved new info with id '.$overCrowded->getId().
