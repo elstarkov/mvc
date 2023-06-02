@@ -171,7 +171,7 @@
     </p>
 
 
-    {# <table>
+    <table>
         <thead>
             <tr>
                 <th>Id</th>
@@ -189,7 +189,25 @@
                 <tr>
             {% endfor %}
         </tbody>
-    </table> #}
+    </table>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>År</th>
+                <th>Andel</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for info in mortality %}
+                <td>{{ info.id }}</td>
+                <td>{{ info.year }}</td>
+                <td>{{ info.rate }}%</td>
+                <tr>
+            {% endfor %}
+        </tbody>
+    </table>
 
 {% endblock %}
 

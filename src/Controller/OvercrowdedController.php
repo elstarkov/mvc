@@ -28,15 +28,15 @@ class OvercrowdedController extends AbstractController
 
         $overCrowded = new Overcrowding();
 
-        // $overCrowded->setCountry("EU-27");
-        // $overCrowded->setCategory("Inrikes födda");
-        // $overCrowded->setAmount(14);
+        $overCrowded->setCountry("EU-27");
+        $overCrowded->setCategory("Inte född");
+        $overCrowded->setAmount(1337);
 
         //$overCrowded->setCategory("Utrikes födda");
 
-        // $entityManager->persist($overCrowded);
+        $entityManager->persist($overCrowded);
 
-        // $entityManager->flush();
+        $entityManager->flush();
 
         return new Response(
             'Saved new info with id '.$overCrowded->getId().
@@ -85,15 +85,17 @@ class OvercrowdedController extends AbstractController
         $borderColor = [];
 
         foreach ($allOverCrowded as $overcrowded) {
-            $labels1[] = $overcrowded->getCountry().' ('.$overcrowded->getCategory().')';
-            $data1[] = $overcrowded->getAmount();
+            if ($overcrowded->getId() <= 16) {
+                $labels1[] = $overcrowded->getCountry().' ('.$overcrowded->getCategory().')';
+                $data1[] = $overcrowded->getAmount();
 
-            if ($overcrowded->getCategory() === 'Inrikes födda') {
-                $backgroundColor[] = 'rgba(255, 99, 132, 0.5)';
-                $borderColor[] = 'rgb(255, 99, 132)';
-            } else {
-                $backgroundColor[] = 'rgba(54, 162, 235, 0.5)';
-                $borderColor[] = 'rgb(54, 162, 235)';
+                if ($overcrowded->getCategory() === 'Inrikes födda') {
+                    $backgroundColor[] = 'rgba(255, 99, 132, 0.5)';
+                    $borderColor[] = 'rgb(255, 99, 132)';
+                } else {
+                    $backgroundColor[] = 'rgba(54, 162, 235, 0.5)';
+                    $borderColor[] = 'rgb(54, 162, 235)';
+                }
             }
         }
 
@@ -128,11 +130,13 @@ class OvercrowdedController extends AbstractController
         $borderColor2 = [];
 
         foreach ($allMortality as $mortality) {
-            $labels2[] = $mortality->getYear();
-            $data2[] = $mortality->getRate();
+            if ($mortality->getId() <= 11) {
+                $labels2[] = $mortality->getYear();
+                $data2[] = $mortality->getRate();
 
-            $backgroundColor2[] = 'rgba(255, 99, 132, 0.5)';
-            $borderColor2[] = 'rgb(255, 99, 132)';
+                $backgroundColor2[] = 'rgba(255, 99, 132, 0.5)';
+                $borderColor2[] = 'rgb(255, 99, 132)';
+            }
         }
 
         $chart2->setData([

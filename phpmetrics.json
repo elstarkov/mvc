@@ -1,6 +1,8 @@
 {
     "includes": [
-        "src/Card"
+        "src/Card",
+        "src/Controller",
+        "src/Entity"
     ],
     "exclude": [
       "test[s]?"
