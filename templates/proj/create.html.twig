@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}About (proj){% endblock %}
+
+{% block body %}
+    <br>
+    <hr>
+    <nav>
+        <div class="routes">
+            <a href="{{ path('proj_api') }}">API (proj)</a>
+            <a href="{{ path('proj_about') }}">About (proj)</a>
+        </div>
+    </nav>
+    <p>
+        Här kan du skapa en ny rad i tabellen "Trångboddhet". Det behöver
+        inte vara korrekt information. Diagrammet i projektet kommer inte
+        att påverkas.
+    </p>
+
+    <p class="bold">Fyll i uppgifterna nedan.</p>
+    <form method="post" action="{{ path('api_create_overcrowded') }}">
+        <p class="bold">
+            <label for="country">Land:</label>
+            <input type="text" id="country" name="country" placeholder="Ange land" required>
+        </p>
+        <p class="bold">
+            <label for="category">Kategori:</label>
+            <input type="text" id="category" name="category" placeholder="Ange kategori" required>
+        </p>
+        <p class="bold">
+            <label for="amount">Procent:</label>
+            <input type="number" id="amount" name="amount" min="1" max="100" placeholder="Fyll i procent" required>
+        </p>
+        <br>
+        <p>
+            <input type="submit" value="Skapa">
+        </p>
+    </form>
+
+{% endblock %}
+
+

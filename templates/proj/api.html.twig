@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}About (proj){% endblock %}
+
+{% block body %}
+    <br>
+    <hr>
+    <nav>
+        <div class="routes">
+            <a href="{{ path('proj_api') }}">API (proj)</a>
+            <a href="{{ path('proj_about') }}">About (proj)</a>
+        </div>
+    </nav>
+    <h2>
+        Hållbar utveckling (API)
+    </h2>
+    <p>
+        På den här sidan kan du klicka på länkarna för att visa upp innehållet från
+        tabellerna i databasen som använts för att rita upp statistiken i
+        analysen under "proj"-fliken.
+    </p>
+    <ul>
+        <li><a href="{{ path('api_overcrowd') }}">Visa upp innehåll från "Trångboddhet"</a></li>
+        <li><a href="{{ path('api_sweden') }}">Visa statistik för "Inrikes födda" (Trångboddhet)</a></li>
+        <li><a href="{{ path('api_foreign') }}">Visa statistik för "Utrikes födda" (Trångboddhet)</a></li>
+        <li><a href="{{ path('api_create') }}">Skapa ny rad i tabellen "Trångboddhet"</a></li>
+        <li><a href="{{ path('api_mortality') }}">Visa upp innehåll från "Mödradödlighet"</a></li>
+    </ul>
+
+{% endblock %}
+
+

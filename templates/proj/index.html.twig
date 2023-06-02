@@ -4,7 +4,13 @@
 
 {% block body %}
     <br>
-    <br>
+    <hr>
+    <nav>
+        <div class="routes">
+            <a href="{{ path('proj_api') }}">API (proj)</a>
+            <a href="{{ path('proj_about') }}">About (proj)</a>
+        </div>
+    </nav>
     <h2>
         Hållbar utveckling
     </h2>
@@ -171,7 +177,7 @@
     </p>
 
 
-    <table>
+    {# <table>
         <thead>
             <tr>
                 <th>Id</th>
@@ -207,7 +213,7 @@
                 <tr>
             {% endfor %}
         </tbody>
-    </table>
+    </table> #}
 
 {% endblock %}
 

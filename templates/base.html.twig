@@ -4,6 +4,11 @@
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="icon" href="{{ asset('img/glider.svg') }}">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400&display=swap" rel="stylesheet">
+
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
@@ -14,7 +19,7 @@
         {% endblock %}
     </head>
 
-    <body style="background-image: url({{ asset('img/street.jpg') }})">
+    <body style="background-image: url({{ asset('img/summer.jpg') }})">
         <header class="site-header">
             <span class="site-title">Report</span>
         </header>

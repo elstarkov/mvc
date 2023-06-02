@@ -751,6 +751,51 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Repository-OvercrowdingRepository.html#method_remove"
         },                {
+            "fqsen": "\\App\\Controller\\ProjController",
+            "name": "ProjController",
+            "summary": "",
+            "url": "classes/App-Controller-ProjController.html"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjController\u003A\u003Aindex\u0028\u0029",
+            "name": "index",
+            "summary": "",
+            "url": "classes/App-Controller-ProjController.html#method_index"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjController\u003A\u003Aproj_api\u0028\u0029",
+            "name": "proj_api",
+            "summary": "",
+            "url": "classes/App-Controller-ProjController.html#method_proj_api"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjController\u003A\u003Aapi_overcrowd\u0028\u0029",
+            "name": "api_overcrowd",
+            "summary": "",
+            "url": "classes/App-Controller-ProjController.html#method_api_overcrowd"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjController\u003A\u003Aapi_sweden\u0028\u0029",
+            "name": "api_sweden",
+            "summary": "",
+            "url": "classes/App-Controller-ProjController.html#method_api_sweden"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjController\u003A\u003Aapi_foreign\u0028\u0029",
+            "name": "api_foreign",
+            "summary": "",
+            "url": "classes/App-Controller-ProjController.html#method_api_foreign"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjController\u003A\u003Aapi_mortality\u0028\u0029",
+            "name": "api_mortality",
+            "summary": "",
+            "url": "classes/App-Controller-ProjController.html#method_api_mortality"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjController\u003A\u003Aapi_create\u0028\u0029",
+            "name": "api_create",
+            "summary": "",
+            "url": "classes/App-Controller-ProjController.html#method_api_create"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjController\u003A\u003Aapi_create_overcrowded\u0028\u0029",
+            "name": "api_create_overcrowded",
+            "summary": "",
+            "url": "classes/App-Controller-ProjController.html#method_api_create_overcrowded"
+        },                {
             "fqsen": "\\",
             "name": "\\",
             "summary": "",
