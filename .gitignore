@@ -28,3 +28,35 @@ tools/
 npm-debug.log
 yarn-error.log
 ###< symfony/webpack-encore-bundle ###
+
+.bin/
+/bin/
+build/
+.venv/
+vendor/
+node_modules/
+package-lock.json
+composer.lock
+.log/
+gui-repo/
+.phpunit.result.cache
+.work/
+stud.txt
+/grade/
+__pycache__
+*.pyc
+.phpunit.cache/
+
+# composer
+.cache/
+.config/
+.local/
+
+# Mac OS
+.DS_Store
+
+
+/repo/
+.npm/
+.bash_history
+.sqlite_history
