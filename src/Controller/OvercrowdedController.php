@@ -81,6 +81,8 @@ class OvercrowdedController extends AbstractController
 
         $labels1 = [];
         $data1 = [];
+        $backgroundColor = [];
+        $borderColor = [];
 
         foreach ($allOverCrowded as $overcrowded) {
             $labels1[] = $overcrowded->getCountry().' ('.$overcrowded->getCategory().')';
@@ -122,13 +124,15 @@ class OvercrowdedController extends AbstractController
 
         $labels2 = [];
         $data2 = [];
+        $backgroundColor2 = [];
+        $borderColor2 = [];
 
         foreach ($allMortality as $mortality) {
             $labels2[] = $mortality->getYear();
             $data2[] = $mortality->getRate();
 
-            $backgroundColor[] = 'rgba(255, 99, 132, 0.5)';
-            $borderColor[] = 'rgb(255, 99, 132)';
+            $backgroundColor2[] = 'rgba(255, 99, 132, 0.5)';
+            $borderColor2[] = 'rgb(255, 99, 132)';
         }
 
         $chart2->setData([
@@ -136,8 +140,8 @@ class OvercrowdedController extends AbstractController
             'datasets' => [
                 [
                     'label' => 'Antal dödsfall bland kvinnor som genomgått en förlossning per 100 000 levnade födda barn under åren 2010-2020',
-                    'backgroundColor' => $backgroundColor,
-                    'borderColor' => $borderColor,
+                    'backgroundColor' => $backgroundColor2,
+                    'borderColor' => $borderColor2,
                     'data' => $data2
                 ],
             ],

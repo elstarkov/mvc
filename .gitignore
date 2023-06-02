@@ -29,14 +29,6 @@ npm-debug.log
 yarn-error.log
 ###< symfony/webpack-encore-bundle ###
 
-
-
-
-
-
-
-
-
 # .bin/
 # /bin/
 # build/
@@ -62,7 +54,6 @@ yarn-error.log
 
 # # Mac OS
 # .DS_Store
-
 
 # /repo/
 /.npm/
