@@ -328,6 +328,72 @@ class __TwigTemplate_f8fd2879ba6eb2c46bec25abe334b2b1 extends Template
     <section>
         <section id=\"kmom07-10\">
         <h2>Kmom 07-10</h2>
+        <h3>Krav 1-3</h3>
+        <p>
+            Jag valde inriktningen <a href=\"https://dbwebb.se/kurser/mvc-v2/kmom10/sustainability\">\"visualisera indikatorer för hållbarhet\"</a> för mitt projekt.
+            Om man läser om projektet så står det att den största utmaningen nog ligger i planeringen och struktureringen av databasen, tabeller, statistik och
+            hur dessa ska representeras. Jag hade samma uppfattning. Det var som mest tidskrävande att planera vilken nivå jag skulle lägga analysen på, vilken
+            statistik som var rimlig och möjlig att representera på ett tydligt sätt samt att hitta artiklar relaterade till statistiken. Valet föll på att skapa
+            en informativ analys där jag inte blandade in mina egna tankar så mycket utan förlitade mig på ämnesexperter, statistik och fakta. Jag ville skriva
+            lagom mycket text och visa upp olika sorters diagram som bevisar att min databas är implementerad på ett korrekt sätt. Det var i alla fall så här jag
+            tolkade grundkraven.
+        </p>
+        <p>
+            På min <a href=\"https://github.com/elstarkov/mvc\">GitHub</a> kan man klona repot och hitta information i 'README.md' om hur väl webbplatsen uppfyller
+            vissa krav på kodtäckning och kodkvalité. Här är betyget lite missvisande, kodtäckningen är tämligen väldigt låg. Detta är för att jag inte skrivit
+            några tester för min \"controllers\" men inkluderar dem i test-verktyget. Jag har valt att lägga fokus på att testa min klasser som används i kortspelet
+            samt mina metoder som hanterar databasen för projektet. Här är kodtäckningen högre. <a href=\"
+            https://scrutinizer-ci.com/g/elstarkov/mvc/code-structure/main/code-coverage/src/\">Klicka här</a> och eventuellt på \"Entity\" för att förstå bättre.
+        </p>
+        <p>
+            I övrigt så har jag ändrat webbsidans färgtema, bakgrundsbild och typsnitt.
+        </p>
+        <h3>Krav 4</h3>
+        <p>
+            Som optionellt krav valde jag krav fyra, JSON API. Här försökte jag hålla det enkelt och jag skapade möjlighet att visa upp olika typer av statistik
+            från tabellerna i min databas. Här finns möjlighet att visa upp alla rader från tabllen \"Trångboddhet\", alla rader från \"Mödradödlighet\" eller
+            olika grupper från \"Trångboddhet\". Grupperna som finns att välja på är utrikes och inrikes födda. Som femte alternativ kan man också välja att
+            lägga till en ny rad i tabellen \"Trångboddhet\". Detta alternativ finns endast för att erbjuda användaren att få testa på hur man kan lägga till
+            data i en tabell. För att detta inte ska påverka mina diagram (som läser data från dessa tabeller) valde jag att lägga till en if-sats som
+            kontrollerar vilket värde varje rads id har. Varje gång man lägger till en ny rad i en tabell så autogenereras ett id. Id:t går inte
+            att påverka vilket gör att alla nya rader som skapas kommer få ett id som är högre än för de rader som skapats tidigare. Min if-sats släpper inte
+            igenom rader med id högre än 16 och alla nya rader som skapas från <a href=\"";
+        // line 279
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("api_create");
+        echo "\">api/proj/create</a> får ett id som
+            är högre än 16. Därför kan användaren lägga in godtyckligt nya rader, seriösa eller inte, utan att det påverkar diagrammet.
+        </p>
+        <h3>Allmänt</h3>
+        <p>
+            Projektet gick rent allmänt okej att genomföra. En stor utmaning i hela kursen har varit att se till så att struktur, filer och mappar ligger på
+            rätt ställen. I projektet fick jag extremt stora problem med Scrutinizer efter att jag hade installerat modulen \"Chart.js\". När Scrutinizer
+            körde \"npm install\" gick något galet och jag fick spendera många timmar med felsökning. Jag testade att installera om Symfony i en ny mapp vilket
+            i princip blev som att snabbköra hela kursen på nytt eftersom alla kursmoment innehåller delar som vi byggt på vår applikation med. Detta slutade
+            i katastrof när jag skulle ladda upp det med Git. Det uppstod en konflikt med den tidigare mappen och lite för snabbt körde jag en \"git stash\"
+            som lyckades radera ut 90% av det jag hade byggt upp på nytt. Lätt uppgiven (läs mycket) så fortsatte jag att testa mig fram med olika npm-versioner.
+            Jag testade även att använda \"yarn\" för att installera min Chart.js. Det gick inte som jag hade hoppats. Jag testade återigen med npm och helt
+            plötsligt fungerade det. Jag vet fortfarande inte helt vad lösningen var men nöjer mig med att projektet nu släpps igenom. Troligtvis var det något
+            galet med installationen av Chart.js och det tog ca 40 \"commits\" för att ta sig förbi problmet.
+        </p>
+        <p>
+            I övrigt kändes det givande att få göra något lite annorlunda i projektet. Det var en liten ögonöppnare att arbeta med statistik och fakta
+            relaterat till Agenda 2030. Angående det tekniska så kändes det bra att få testa på att arbeta på ORM/Doctrine en gång till. Nu förstår jag
+            helheten bättre och hur smidigt det är att använda. Jag lärde mig också bättre att förstå kommandot \"php bin/console make:migration\"
+            och \"php bin/console doctrine:migrations:migrate\" för att verkställa ändringar av databasens struktur. Dessa kommandos var också bra för att
+            återskapa databasen vilket jag behövde göra när jag skapade en kopia av min \"report\"-mapp för att felsöka. Då behövde jag köra dessa
+            kommandos för att innehållet skulle läsas in. Liknande problem uppstod när jag skulle testa att klona mitt repo. Då valde jag istället att
+            exkludera \"/var\"(mappen där databasen ligger) från min .gitignore-fil. Nu vet jag att alla som klonar mitt repo får de rader i sina tabeller
+            som är nödvändiga för att diagrammet ska se ut som förväntat.
+        </p>
+        <p>
+            Jag tycker att det var en gedigen kurs som lät mig få träna ytterligare på vad som verkar vara en typisk struktur bakom en webbplats. Vi har
+            nu arbetat på liknande sätt i många kurser och ett återkommande upplägg är hantering för routes i en fil, utförande av uppgifter i en annan
+            och en tredje som visar upp vyerna. Detta var bra repetition. De mest givande delarna från kursen var dock hur man kan arbeta
+            objektorienterat i PHP, repetition av PHP i sin helhet, enhetstester och verktyg för att säkra kodkvalité samt arbetet mot databaser med
+            hjälp av ORM/Doctrine. Jag märker att jag i princip har radat upp hela kursen vilket bör ses som ett kvitto på att kursen är väldigt givande
+            och bra. Helt klart en stabil 8 av 10. Ingenting att anmärka på. Videogenomgångarna är riktigt hjälpsamma, sluta inte med dem! Tack för
+            ett extremt lärorikt första år!
+        </p>
     </section>
 
 ";
@@ -351,7 +417,7 @@ class __TwigTemplate_f8fd2879ba6eb2c46bec25abe334b2b1 extends Template
 
     public function getDebugInfo()
     {
-        return array (  88 => 7,  78 => 6,  59 => 4,  36 => 2,);
+        return array (  362 => 279,  88 => 7,  78 => 6,  59 => 4,  36 => 2,);
     }
 
     public function getSourceContext()
@@ -605,6 +671,69 @@ class __TwigTemplate_f8fd2879ba6eb2c46bec25abe334b2b1 extends Template
     <section>
         <section id=\"kmom07-10\">
         <h2>Kmom 07-10</h2>
+        <h3>Krav 1-3</h3>
+        <p>
+            Jag valde inriktningen <a href=\"https://dbwebb.se/kurser/mvc-v2/kmom10/sustainability\">\"visualisera indikatorer för hållbarhet\"</a> för mitt projekt.
+            Om man läser om projektet så står det att den största utmaningen nog ligger i planeringen och struktureringen av databasen, tabeller, statistik och
+            hur dessa ska representeras. Jag hade samma uppfattning. Det var som mest tidskrävande att planera vilken nivå jag skulle lägga analysen på, vilken
+            statistik som var rimlig och möjlig att representera på ett tydligt sätt samt att hitta artiklar relaterade till statistiken. Valet föll på att skapa
+            en informativ analys där jag inte blandade in mina egna tankar så mycket utan förlitade mig på ämnesexperter, statistik och fakta. Jag ville skriva
+            lagom mycket text och visa upp olika sorters diagram som bevisar att min databas är implementerad på ett korrekt sätt. Det var i alla fall så här jag
+            tolkade grundkraven.
+        </p>
+        <p>
+            På min <a href=\"https://github.com/elstarkov/mvc\">GitHub</a> kan man klona repot och hitta information i 'README.md' om hur väl webbplatsen uppfyller
+            vissa krav på kodtäckning och kodkvalité. Här är betyget lite missvisande, kodtäckningen är tämligen väldigt låg. Detta är för att jag inte skrivit
+            några tester för min \"controllers\" men inkluderar dem i test-verktyget. Jag har valt att lägga fokus på att testa min klasser som används i kortspelet
+            samt mina metoder som hanterar databasen för projektet. Här är kodtäckningen högre. <a href=\"
+            https://scrutinizer-ci.com/g/elstarkov/mvc/code-structure/main/code-coverage/src/\">Klicka här</a> och eventuellt på \"Entity\" för att förstå bättre.
+        </p>
+        <p>
+            I övrigt så har jag ändrat webbsidans färgtema, bakgrundsbild och typsnitt.
+        </p>
+        <h3>Krav 4</h3>
+        <p>
+            Som optionellt krav valde jag krav fyra, JSON API. Här försökte jag hålla det enkelt och jag skapade möjlighet att visa upp olika typer av statistik
+            från tabellerna i min databas. Här finns möjlighet att visa upp alla rader från tabllen \"Trångboddhet\", alla rader från \"Mödradödlighet\" eller
+            olika grupper från \"Trångboddhet\". Grupperna som finns att välja på är utrikes och inrikes födda. Som femte alternativ kan man också välja att
+            lägga till en ny rad i tabellen \"Trångboddhet\". Detta alternativ finns endast för att erbjuda användaren att få testa på hur man kan lägga till
+            data i en tabell. För att detta inte ska påverka mina diagram (som läser data från dessa tabeller) valde jag att lägga till en if-sats som
+            kontrollerar vilket värde varje rads id har. Varje gång man lägger till en ny rad i en tabell så autogenereras ett id. Id:t går inte
+            att påverka vilket gör att alla nya rader som skapas kommer få ett id som är högre än för de rader som skapats tidigare. Min if-sats släpper inte
+            igenom rader med id högre än 16 och alla nya rader som skapas från <a href=\"{{ path('api_create') }}\">api/proj/create</a> får ett id som
+            är högre än 16. Därför kan användaren lägga in godtyckligt nya rader, seriösa eller inte, utan att det påverkar diagrammet.
+        </p>
+        <h3>Allmänt</h3>
+        <p>
+            Projektet gick rent allmänt okej att genomföra. En stor utmaning i hela kursen har varit att se till så att struktur, filer och mappar ligger på
+            rätt ställen. I projektet fick jag extremt stora problem med Scrutinizer efter att jag hade installerat modulen \"Chart.js\". När Scrutinizer
+            körde \"npm install\" gick något galet och jag fick spendera många timmar med felsökning. Jag testade att installera om Symfony i en ny mapp vilket
+            i princip blev som att snabbköra hela kursen på nytt eftersom alla kursmoment innehåller delar som vi byggt på vår applikation med. Detta slutade
+            i katastrof när jag skulle ladda upp det med Git. Det uppstod en konflikt med den tidigare mappen och lite för snabbt körde jag en \"git stash\"
+            som lyckades radera ut 90% av det jag hade byggt upp på nytt. Lätt uppgiven (läs mycket) så fortsatte jag att testa mig fram med olika npm-versioner.
+            Jag testade även att använda \"yarn\" för att installera min Chart.js. Det gick inte som jag hade hoppats. Jag testade återigen med npm och helt
+            plötsligt fungerade det. Jag vet fortfarande inte helt vad lösningen var men nöjer mig med att projektet nu släpps igenom. Troligtvis var det något
+            galet med installationen av Chart.js och det tog ca 40 \"commits\" för att ta sig förbi problmet.
+        </p>
+        <p>
+            I övrigt kändes det givande att få göra något lite annorlunda i projektet. Det var en liten ögonöppnare att arbeta med statistik och fakta
+            relaterat till Agenda 2030. Angående det tekniska så kändes det bra att få testa på att arbeta på ORM/Doctrine en gång till. Nu förstår jag
+            helheten bättre och hur smidigt det är att använda. Jag lärde mig också bättre att förstå kommandot \"php bin/console make:migration\"
+            och \"php bin/console doctrine:migrations:migrate\" för att verkställa ändringar av databasens struktur. Dessa kommandos var också bra för att
+            återskapa databasen vilket jag behövde göra när jag skapade en kopia av min \"report\"-mapp för att felsöka. Då behövde jag köra dessa
+            kommandos för att innehållet skulle läsas in. Liknande problem uppstod när jag skulle testa att klona mitt repo. Då valde jag istället att
+            exkludera \"/var\"(mappen där databasen ligger) från min .gitignore-fil. Nu vet jag att alla som klonar mitt repo får de rader i sina tabeller
+            som är nödvändiga för att diagrammet ska se ut som förväntat.
+        </p>
+        <p>
+            Jag tycker att det var en gedigen kurs som lät mig få träna ytterligare på vad som verkar vara en typisk struktur bakom en webbplats. Vi har
+            nu arbetat på liknande sätt i många kurser och ett återkommande upplägg är hantering för routes i en fil, utförande av uppgifter i en annan
+            och en tredje som visar upp vyerna. Detta var bra repetition. De mest givande delarna från kursen var dock hur man kan arbeta
+            objektorienterat i PHP, repetition av PHP i sin helhet, enhetstester och verktyg för att säkra kodkvalité samt arbetet mot databaser med
+            hjälp av ORM/Doctrine. Jag märker att jag i princip har radat upp hela kursen vilket bör ses som ett kvitto på att kursen är väldigt givande
+            och bra. Helt klart en stabil 8 av 10. Ingenting att anmärka på. Videogenomgångarna är riktigt hjälpsamma, sluta inte med dem! Tack för
+            ett extremt lärorikt första år!
+        </p>
     </section>
 
 {% endblock %}", "report.html.twig", "/home/elstarkov/dbwebb-kurser/mvc/me/report/templates/report.html.twig");
