@@ -7,7 +7,7 @@
 /public/bundles/
 .phpdoc/
 tools/
-/var/
+#/var/
 /vendor/
 #/vendor/symfony/ux-chartjs/assets
 ###< symfony/framework-bundle ###

@@ -1,0 +1,526 @@
+<?php
+
+use Twig\Environment;
+use Twig\Error\LoaderError;
+use Twig\Error\RuntimeError;
+use Twig\Extension\SandboxExtension;
+use Twig\Markup;
+use Twig\Sandbox\SecurityError;
+use Twig\Sandbox\SecurityNotAllowedTagError;
+use Twig\Sandbox\SecurityNotAllowedFilterError;
+use Twig\Sandbox\SecurityNotAllowedFunctionError;
+use Twig\Source;
+use Twig\Template;
+
+/* metrics/metrics.html.twig */
+class __TwigTemplate_30f7420d58c5249ceeaaeea482c81256 extends Template
+{
+    private $source;
+    private $macros = [];
+
+    public function __construct(Environment $env)
+    {
+        parent::__construct($env);
+
+        $this->source = $this->getSourceContext();
+
+        $this->blocks = [
+            'title' => [$this, 'block_title'],
+            'body' => [$this, 'block_body'],
+        ];
+    }
+
+    protected function doGetParent(array $context)
+    {
+        // line 1
+        return "base.html.twig";
+    }
+
+    protected function doDisplay(array $context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "metrics/metrics.html.twig"));
+
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "metrics/metrics.html.twig"));
+
+        $this->parent = $this->loadTemplate("base.html.twig", "metrics/metrics.html.twig", 1);
+        $this->parent->display($context, array_merge($this->blocks, $blocks));
+        
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
+
+        
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
+
+    }
+
+    // line 3
+    public function block_title($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
+
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
+
+        echo "Metrics";
+        
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
+
+        
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
+
+    }
+
+    // line 5
+    public function block_body($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
+
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
+
+        // line 6
+        echo "
+<br>
+<h2>Clean Code</h2>
+<hr>
+
+<h3>Introduktion</h3>
+
+<p>
+    På den här sidan kommer källkoden bakom hemsidans uppbyggnad analyseras med hjälp av verktygen PHPMetrics
+    och Scrutinizer. Verktygen kommer i första hand att bedöma koden utifrån sex olika kriterier. Vi kallar
+    kriterierna för \"de sex C:na\". Kriterierna finns listade nedan:
+</p>
+    <ul>
+        <li>Codestyle</li>
+        <li>Coverage</li>
+        <li>Complexity</li>
+        <li>Cohesion</li>
+        <li>Coupling</li>
+        <li>CRAP</li>
+    </ul>
+
+<p>
+    Med hjälp av kriterierna kan verktygen generera mätvärden och betyg på koden. 'Codestyle' är ett mer generellt betyg
+    för kodens kvalitet och hur väl den förhåller sig till det använda språkets struktur och riktlinjer. 'Coverage' syftar
+    till hur väl koden är testad. Ett högt 'coverage' är en typ av kvalitetsstämpel och bevis på vältestad kod. 'Complexity'
+    handlar om kodens komplexitet. Hög komplexitet innebär risk för kod som är svår att underhålla. Det kan göra koden känslig
+    för uppdateringar i framtiden. 'Cohesion' beskriver hur väl metoder i en klass verkligen hör ihop med klassen. Man vill ha
+    en hög 'Cohesion' vilket ger ett lågt värde i testet. Det indikerar på att klassen och dess tillhörande metoder och variabler
+    är lättare att förstå och underhålla. Man kan se det som ett kvitto på att de förhåller sig till sina tilltänkta uppgifter.
+    'Coupling' handlar om hur olika klasser är kopplade till varandra. En klass kan undersökas utifrån två olika typer av 'Coupling'.
+    'Afferent coupling (AC)' beskriver hur många klasser som är beroende av den aktuella klassen. 'Efferent coupling (EC)' beskriver
+    tvärt om hur många klasser som den aktuella klassen är beroende av. Det finns inga rätt eller fel men det kan vara värt att se
+    över sina klasser om man märker att en ha väldigt stort inflytande. Det sista huvudsakliga kriteriet är 'CRAP'. CRAP kan ses som
+    ett mått på risk. Det undersöker hur vältestad en bit kod är utifrån dess komplexitet. Om koden är komplex bör den ha motsvarande
+    mängd tester. Komplex kod som inte är vältestad kommer generera ett högre 'CRAP-score'. Det finns fler kriterier för att mäta kodens
+    kvalitet men i den här analysen kommer dessa vara de huvudsakliga men det är möjligt att andra kriterier nämns om det skulle vara
+    rimligt.
+</p>
+<p>
+    Med kriterierna förklarade så kan en kort kommentar om min egen kod vid ett första anblick ges. I det stora hela genereras ett gott betyg
+    men det som sticker ut tydligt är den låga procenten för 'Coverage'. Tittar man lite närmare så förstår man att det är samtliga \"Controllers\"
+    som ger problem. Anledningen är att det inte finns några tester skrivna för dessa då de endast har som uppgift att rendera olika webbkomponenter.
+    Webbkomponenterna använder i sin tur klasser. För dessa klasser finns det redan enhetstester. Som lösning på kritiken ställs nu författaren inför
+    valet att antingen skriva tester även för 'Controllers' eller välja att exkludera dessa när verktygen körs.
+</p>
+
+<h3>PHPMetrics</h3>
+
+<p>
+    Verktyget PHPMetrics genererar en rapport som går att öppna i webbläsaren. Som det nämndes tidigare så är det i huvudsak kategorin 'Controllers'
+    som inte uppfyller kraven. Vi har redan varit inne på varför och hur man skulle kunna lösa problemen. Om man studerar rapporten närmare så går det
+    också att förstå att även koden för själva enhetstesterna bedöms utifrån hur vältestad den är. Det här blir helt fel eftersom koden enbart
+    finns för att testa koden i de klasser som webbplatsen använder. Det behövs inga tester för att testa testerna. Vi kan utgå ifrån att koden
+    bakom modulen för enhetstestning är korrekt. Som lösning på detta bör nog konfigurationsfilen ses över. Testklasserna bör exkluderas från verktygets
+    bedömning. Övriga noteringar är att klasserna som har centrala roller i kortspelet har de högsta värdena för 'Coupling'. Det låter rimligt eftersom
+    de ansvarar för korthänder, kortleken samt varje enskilt kort i leken. Det här är klasser som är beroende av varandra och det skulle vara svårt att
+    skapa ett fungerande kortspel om de inte var det även om det innebär ett högre coupling-värde.
+</p>
+<p>
+    Följande bild sammanfattar läget bra. Den beskriver komplexiteten med en illustration. De röda cirklarna är samtliga Controllers. De har ett komplexitets-värde
+    runt 18 medan de gröna cirklarna ligger mellan ett och tre. Som ett extra mått kan man också utläsa att ökad komplexitet kan leda till svårunderhållen kod.
+    Vi bör nog ta en titt på Controller-klasserna.
+</p>
+    <img src=\"";
+        // line 69
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/phpmetrics.png"), "html", null, true);
+        echo "\" alt=\"phpmetrics\">
+
+<h3>Scrutinizer</h3>
+
+<p>
+    Scrutinizer är det andra verktyget som används i analysen. Det här verktyget går att använda för olika kodspråk medan PHPMetrics är mer utformat
+    för PHP-kod. Oavsett språk så finns det många gemensamma mål man vill uppfylla för koden ska vara i så gott skick som möjligt. Scrutinizer erbjuder
+    oss fordelen att få olika delar av koden summerade med hjälp av badges. Vi kollar:
+</p>
+
+    <img src=\"";
+        // line 79
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/quality-score.svg"), "html", null, true);
+        echo "\" alt=\"quality\">
+
+    <img src=\"";
+        // line 81
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/coverage.svg"), "html", null, true);
+        echo "\" alt=\"coverage\">
+
+    <img src=\"";
+        // line 83
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/build.svg"), "html", null, true);
+        echo "\" alt=\"build\">
+
+    <img src=\"";
+        // line 85
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/code-intelligence.svg"), "html", null, true);
+        echo "\" alt=\"code intelligence\">
+
+<p>
+    Vid det här laget är vi inte längre förvånande. Det är tydligt att andel code coverage skiljer sig avsevärt från övriga delar. Å andra sidan är det också
+    ganska positivt att övriga delar ser ut att nå upp till en hög nivå. I en analytiskt värld hade det kanske varit mer optimalt om resultatet från verktyget
+    hade varit mer jämndåligt. Då hade det funnits mer att förbättra och analysera. Koden har dock genomgått en linter som åtgärdat och förbättrat stora delar av
+    koden. Men om vi bortser från det och lägger det uppenbara förbättringsläget i code coverage åt sidan för stunden så kan vi se om det finns några andra
+    intressanta mätresultat att kommentera.
+</p>
+<p>
+    Som utgångspunkt finns här de filer med sämst betyg samlade. Betygen är ett helhetsbetyg från A-F och som vi kan se är standarden relativt hög även om vi vill
+    vara kräsna. Vad som dock går att utläsa är att det återigen är samlingen av 'Controllers' som är den gemensamma nämnaren.
+</p>
+    <img src=\"";
+        // line 98
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/scrut.png"), "html", null, true);
+        echo "\" alt=\"scrut\">
+
+<p>
+    Eftersom dessa controller-filer saknar tester samt innehåller en del conditions som hanterar olika utfall blir CRAP-scoren hög. Det kan vara så att om spelaren
+    i kortspelet slår ett ess så ska en viss sida renderas och annars en annan o.s.v. Det är conditions som är svåra att undvika samtidigt som antalet conditions
+    minskade avsevärt efter att linterns förslag på förbättringar implementerades i ett tidigare skede inför den här rapporten. Hade inte det gjorts så hade
+    rimligtvis kodkvaliteten varit betydligt sämre och vi hade haft en mer intressant rapport. Vart man än vänder sig så landar det i att tester för
+    controller-sidorna bör skrivas eller så bör de inte tas med i verktygets rapport. Det kan också nämnas att rapporten ger några små-issues. Dessa issues
+    är dock i filer som mer eller mindre har autogenererats och har egentligen ingen påverkan för kvaliteten på hemsidan. Valet görs därför att ignorera
+    dessa och fokusera på att förbättra 'code coverage'.
+</p>
+
+<h3>Förbättringar</h3>
+<p>
+    Hur man bör förbättra resultaten har till stor del diskuterats men att ptunkta upp skapar tydlighet.
+</p>
+
+<ul>
+    <li>Öka kodtäckning</li>
+    <li>Minska CRAP-score</li>
+    <li>Skriva tester för controllers</li>
+    <li>Exkludera testklasserna från rapporten</li>
+</ul>
+
+<p>
+    Dess punkter går egentligen i varandra och det finns en risk att det börjar bli tjatigt men efter att ha tittat närmare på rapporten så är det utan tvivel
+    'code coverage' som problemen kretsar kring. Bland punkterna så kan man se de två översta som vad som bör åtgärdas och den tredje punkten som ett
+    exempel på hur. Den fjärde och sista punkten är egentligen mer en parentes men också något som troligtvis kommer bidra till bättre kodtäckning.
+</p>
+
+<h3>Verkställ förbättringar</h3>
+<p>
+    Vid det här laget inser jag att den här analysen tydligt illustrerar vad verktygen menar med komplex och svårtestad kod. Jag trodde att det
+    skulle vara relativt smärtfritt att skriva enhetstester för kontrollerna men verktygen försökte helt klart berätta något för mig. Kontrollerna
+    består av klasser som sedan använder metoder för att rendera vyer och hantera värden som skickas via sessioner. Jag försöker skapa ett mock-objekt
+    för att isolera metoden jag vill testa mot andra beroenden. Jag försöker kolla så att metoden 'Game()' i min spel-Controller renderar startsidan för spelet
+    men jag lyckas inte formulera ett korrekt test. Det närmsta jag kommer är ett test som kollar att metoden returnerar ett \"Response\". Detta räcker inte för att
+    PHPunit-dokumentet som dokumenterar unittesterna ska godkänna testet. Ju mer jag försöker desto mer inser jag att det kommer vara komplicerat att skriva
+    tester för samtliga metoder i mina Controllers. Insikten av att det kanske inte ens är helt nödvändigt nås också. Behövs testerna? Vi vill ha testbar och
+    lättunderhållen kod men controller-sidornas huvudsakliga uppgift är ju faktiskt bara att rendera vyerna och hålla koll på värden via sessioner. Koden
+    bakom vyerna genereras med hjälp av de klasser och metoder som det redan finns enhetstester för. Går dessa tester igenom så kan vi vara ganska säkra på
+    att innehållet som vyerna renderar har framtagits på ett korrekt sätt. Är något fel med koden som renderar vyerna brukar det framgå tydligt i form av
+    något felmeddelande som Symfony, i det här fallet, visar upp för oss. Som en följd av detta görs istället valet att även exkludera Controller-vyerna från
+    verktygen som testar koden, tillsammans med själva testfilerna samt metoderna som tillhör ORM-hanteringen. Resultatet? Vi tittar.
+</p>
+
+<h4>PHPMetrics</h4>
+<img src=\"";
+        // line 145
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/metricsfixed.png"), "html", null, true);
+        echo "\" alt=\"phpmetrics\">
+
+<h4>Scrutinizer</h4>
+<a href=\"https://scrutinizer-ci.com/g/elstarkov/mvc/?branch=main\">
+    <img src=\"https://scrutinizer-ci.com/g/elstarkov/mvc/badges/quality-score.png?b=main\" alt=\"quality\">
+</a>
+
+<a href=\"https://scrutinizer-ci.com/g/elstarkov/mvc/code-structure/main/code-coverage\">
+    <img src=\"https://scrutinizer-ci.com/g/elstarkov/mvc/badges/coverage.png?b=main\" alt=\"coverage\">
+</a>
+
+<a href=\"https://scrutinizer-ci.com/g/elstarkov/mvc/?branch=main\">
+    <img src=\"https://scrutinizer-ci.com/g/elstarkov/mvc/badges/build.png?b=main\" alt=\"build\">
+</a>
+
+<a href=\"https://scrutinizer-ci.com/g/elstarkov/mvc/?branch=main\">
+    <img src=\"https://scrutinizer-ci.com/g/elstarkov/mvc/badges/code-intelligence.svg?b=main\" alt=\"code intelligence\">
+</a>
+
+<p>
+    Nu ser koden helt plötsligt nästan felfri ut. Det känns inte helt bra att ta den lätta vägen ut och uppnå högre kodtäckning via exkludering.
+    Men i ärlighetens namn så borde samtliga filer förutom Controllers kanske redan ha varit exkluderade första gången som verktygen körde koden.
+    Då kördes testerna med baskonfiguering. Det känns både bra och dåligt att det inte fanns så mycket att justera. Det ger ett kvitto på att koden
+    kan bedömas som någorlunda lättförståelig och lätt att underhålla samtidigt som analysen hade blivit mer intressant om det funnits större saker
+    att åtgärda.
+</p>
+
+<h3>Diskussion</h3>
+
+<p>
+    Det börjar bli dags att avrunda. Analysen blev inte helt som förväntat. Jag är nöjd att grundbetyget höll hög standard men i en perfekt värld skulle såklart
+    lösningen för kontroller-sidorna varit att skriva nya tester snarare än att exkludera dem. Samtidigt känns det lite som överarbete och i grunden kan jag nog
+    känna mig nöjd med att de klasser och metoder som används för att skapa innehållet uppnådde en hög kodtäckning. Jag inser att man kanske måste välja
+    sitt fokus och skapa en balans. Hade den här webbplatsen varit ett arbete för en kund så kanske tidsramen gör att man till en början får fokusera på
+    att det som händer i bakgrunden fungerar, och felsöka routrar utifrån den information som genereras om man inte kan nå en rout. Om inte koden bakom
+    router-hanteringen fungerar så brukar det ofta framgå tydligt eftersom innehållet inte renderas alls eller bara till en viss del. Å andra sidan skulle
+    detta kunna leda till krascher vid senare tillfällen då inte all kod omfattas av testning och kan göra det svårt att upptäcka buggar i tid. Det leder
+    till vad jag i den här kursen har lärt mig kallas för \"technical debt\". Kort sammanfattat en teknisk skuld som kan innebära mer arbete i framtiden som
+    konsekvens av att man valt att förbise delar av sin kod i ett tidigare skede.
+</p>
+<p>
+    Arbetet med verktygen PHPMetrics och Scrutinizer verkar dock vara väldigt sunda hjälpmedel som kan göra livet mindre (eller mer) komplicerat för en grupp
+    med utvecklare. Speciellt då många säkerligen kommer från olika bakgrunder. Någon kanske är nyexaminerad medan en annan har 20 år av erfarenhet. Då är det
+    naturligt att man skriver på olika sätt. Verktygen kan hjälpa en mindre rutinerad utvecklare att ta nästa kliv samtidigt som någon med mer erfarenhet får
+    spetsa till sina kunskaper ytterligare. Verktygen kan få dessa två att mötas på vägen genom en gemensam kod-struktur som båda två kan förstå trots de olika
+    färdigheterna. Det är en trygghet att ha en hård och rättvis bedömare som kan ge ett kvitto på att koden gör vad den borde och i rätt utsträckning
+    samtidigt som det kan leda till mer arbete om man inte testar koden tillräckligt ofta medan den tas fram. På sikt så tror jag de flesta blir en bättre
+    utvecklare genom att använda linters och testverktyg för att kvalitetssäkra sin kod. Det tydligaste exemplet för egen räkning är hur ofta lintern påpekade
+    för mig att det i många fall var onödigt med en \"else\"-sats. Trots min skepsis följde jag förslagen och föga förvånande var det min kod som gick att förenkla
+    och inte lintern som hade fel. Who knew? Som tack för besväret fick min kod ett högre betyg av verktygen från analysen då den inte blev lika komplex. Jag tar
+    med mig att det enkla ofta är det bästa.
+</p>
+
+";
+        
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
+
+        
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
+
+    }
+
+    public function getTemplateName()
+    {
+        return "metrics/metrics.html.twig";
+    }
+
+    public function isTraitable()
+    {
+        return false;
+    }
+
+    public function getDebugInfo()
+    {
+        return array (  247 => 145,  197 => 98,  181 => 85,  176 => 83,  171 => 81,  166 => 79,  153 => 69,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+    }
+
+    public function getSourceContext()
+    {
+        return new Source("{% extends \"base.html.twig\" %}
+
+{% block title %}Metrics{% endblock %}
+
+{% block body %}
+
+<br>
+<h2>Clean Code</h2>
+<hr>
+
+<h3>Introduktion</h3>
+
+<p>
+    På den här sidan kommer källkoden bakom hemsidans uppbyggnad analyseras med hjälp av verktygen PHPMetrics
+    och Scrutinizer. Verktygen kommer i första hand att bedöma koden utifrån sex olika kriterier. Vi kallar
+    kriterierna för \"de sex C:na\". Kriterierna finns listade nedan:
+</p>
+    <ul>
+        <li>Codestyle</li>
+        <li>Coverage</li>
+        <li>Complexity</li>
+        <li>Cohesion</li>
+        <li>Coupling</li>
+        <li>CRAP</li>
+    </ul>
+
+<p>
+    Med hjälp av kriterierna kan verktygen generera mätvärden och betyg på koden. 'Codestyle' är ett mer generellt betyg
+    för kodens kvalitet och hur väl den förhåller sig till det använda språkets struktur och riktlinjer. 'Coverage' syftar
+    till hur väl koden är testad. Ett högt 'coverage' är en typ av kvalitetsstämpel och bevis på vältestad kod. 'Complexity'
+    handlar om kodens komplexitet. Hög komplexitet innebär risk för kod som är svår att underhålla. Det kan göra koden känslig
+    för uppdateringar i framtiden. 'Cohesion' beskriver hur väl metoder i en klass verkligen hör ihop med klassen. Man vill ha
+    en hög 'Cohesion' vilket ger ett lågt värde i testet. Det indikerar på att klassen och dess tillhörande metoder och variabler
+    är lättare att förstå och underhålla. Man kan se det som ett kvitto på att de förhåller sig till sina tilltänkta uppgifter.
+    'Coupling' handlar om hur olika klasser är kopplade till varandra. En klass kan undersökas utifrån två olika typer av 'Coupling'.
+    'Afferent coupling (AC)' beskriver hur många klasser som är beroende av den aktuella klassen. 'Efferent coupling (EC)' beskriver
+    tvärt om hur många klasser som den aktuella klassen är beroende av. Det finns inga rätt eller fel men det kan vara värt att se
+    över sina klasser om man märker att en ha väldigt stort inflytande. Det sista huvudsakliga kriteriet är 'CRAP'. CRAP kan ses som
+    ett mått på risk. Det undersöker hur vältestad en bit kod är utifrån dess komplexitet. Om koden är komplex bör den ha motsvarande
+    mängd tester. Komplex kod som inte är vältestad kommer generera ett högre 'CRAP-score'. Det finns fler kriterier för att mäta kodens
+    kvalitet men i den här analysen kommer dessa vara de huvudsakliga men det är möjligt att andra kriterier nämns om det skulle vara
+    rimligt.
+</p>
+<p>
+    Med kriterierna förklarade så kan en kort kommentar om min egen kod vid ett första anblick ges. I det stora hela genereras ett gott betyg
+    men det som sticker ut tydligt är den låga procenten för 'Coverage'. Tittar man lite närmare så förstår man att det är samtliga \"Controllers\"
+    som ger problem. Anledningen är att det inte finns några tester skrivna för dessa då de endast har som uppgift att rendera olika webbkomponenter.
+    Webbkomponenterna använder i sin tur klasser. För dessa klasser finns det redan enhetstester. Som lösning på kritiken ställs nu författaren inför
+    valet att antingen skriva tester även för 'Controllers' eller välja att exkludera dessa när verktygen körs.
+</p>
+
+<h3>PHPMetrics</h3>
+
+<p>
+    Verktyget PHPMetrics genererar en rapport som går att öppna i webbläsaren. Som det nämndes tidigare så är det i huvudsak kategorin 'Controllers'
+    som inte uppfyller kraven. Vi har redan varit inne på varför och hur man skulle kunna lösa problemen. Om man studerar rapporten närmare så går det
+    också att förstå att även koden för själva enhetstesterna bedöms utifrån hur vältestad den är. Det här blir helt fel eftersom koden enbart
+    finns för att testa koden i de klasser som webbplatsen använder. Det behövs inga tester för att testa testerna. Vi kan utgå ifrån att koden
+    bakom modulen för enhetstestning är korrekt. Som lösning på detta bör nog konfigurationsfilen ses över. Testklasserna bör exkluderas från verktygets
+    bedömning. Övriga noteringar är att klasserna som har centrala roller i kortspelet har de högsta värdena för 'Coupling'. Det låter rimligt eftersom
+    de ansvarar för korthänder, kortleken samt varje enskilt kort i leken. Det här är klasser som är beroende av varandra och det skulle vara svårt att
+    skapa ett fungerande kortspel om de inte var det även om det innebär ett högre coupling-värde.
+</p>
+<p>
+    Följande bild sammanfattar läget bra. Den beskriver komplexiteten med en illustration. De röda cirklarna är samtliga Controllers. De har ett komplexitets-värde
+    runt 18 medan de gröna cirklarna ligger mellan ett och tre. Som ett extra mått kan man också utläsa att ökad komplexitet kan leda till svårunderhållen kod.
+    Vi bör nog ta en titt på Controller-klasserna.
+</p>
+    <img src=\"{{ asset('img/phpmetrics.png') }}\" alt=\"phpmetrics\">
+
+<h3>Scrutinizer</h3>
+
+<p>
+    Scrutinizer är det andra verktyget som används i analysen. Det här verktyget går att använda för olika kodspråk medan PHPMetrics är mer utformat
+    för PHP-kod. Oavsett språk så finns det många gemensamma mål man vill uppfylla för koden ska vara i så gott skick som möjligt. Scrutinizer erbjuder
+    oss fordelen att få olika delar av koden summerade med hjälp av badges. Vi kollar:
+</p>
+
+    <img src=\"{{ asset('img/quality-score.svg') }}\" alt=\"quality\">
+
+    <img src=\"{{ asset('img/coverage.svg') }}\" alt=\"coverage\">
+
+    <img src=\"{{ asset('img/build.svg') }}\" alt=\"build\">
+
+    <img src=\"{{ asset('img/code-intelligence.svg') }}\" alt=\"code intelligence\">
+
+<p>
+    Vid det här laget är vi inte längre förvånande. Det är tydligt att andel code coverage skiljer sig avsevärt från övriga delar. Å andra sidan är det också
+    ganska positivt att övriga delar ser ut att nå upp till en hög nivå. I en analytiskt värld hade det kanske varit mer optimalt om resultatet från verktyget
+    hade varit mer jämndåligt. Då hade det funnits mer att förbättra och analysera. Koden har dock genomgått en linter som åtgärdat och förbättrat stora delar av
+    koden. Men om vi bortser från det och lägger det uppenbara förbättringsläget i code coverage åt sidan för stunden så kan vi se om det finns några andra
+    intressanta mätresultat att kommentera.
+</p>
+<p>
+    Som utgångspunkt finns här de filer med sämst betyg samlade. Betygen är ett helhetsbetyg från A-F och som vi kan se är standarden relativt hög även om vi vill
+    vara kräsna. Vad som dock går att utläsa är att det återigen är samlingen av 'Controllers' som är den gemensamma nämnaren.
+</p>
+    <img src=\"{{ asset('img/scrut.png') }}\" alt=\"scrut\">
+
+<p>
+    Eftersom dessa controller-filer saknar tester samt innehåller en del conditions som hanterar olika utfall blir CRAP-scoren hög. Det kan vara så att om spelaren
+    i kortspelet slår ett ess så ska en viss sida renderas och annars en annan o.s.v. Det är conditions som är svåra att undvika samtidigt som antalet conditions
+    minskade avsevärt efter att linterns förslag på förbättringar implementerades i ett tidigare skede inför den här rapporten. Hade inte det gjorts så hade
+    rimligtvis kodkvaliteten varit betydligt sämre och vi hade haft en mer intressant rapport. Vart man än vänder sig så landar det i att tester för
+    controller-sidorna bör skrivas eller så bör de inte tas med i verktygets rapport. Det kan också nämnas att rapporten ger några små-issues. Dessa issues
+    är dock i filer som mer eller mindre har autogenererats och har egentligen ingen påverkan för kvaliteten på hemsidan. Valet görs därför att ignorera
+    dessa och fokusera på att förbättra 'code coverage'.
+</p>
+
+<h3>Förbättringar</h3>
+<p>
+    Hur man bör förbättra resultaten har till stor del diskuterats men att ptunkta upp skapar tydlighet.
+</p>
+
+<ul>
+    <li>Öka kodtäckning</li>
+    <li>Minska CRAP-score</li>
+    <li>Skriva tester för controllers</li>
+    <li>Exkludera testklasserna från rapporten</li>
+</ul>
+
+<p>
+    Dess punkter går egentligen i varandra och det finns en risk att det börjar bli tjatigt men efter att ha tittat närmare på rapporten så är det utan tvivel
+    'code coverage' som problemen kretsar kring. Bland punkterna så kan man se de två översta som vad som bör åtgärdas och den tredje punkten som ett
+    exempel på hur. Den fjärde och sista punkten är egentligen mer en parentes men också något som troligtvis kommer bidra till bättre kodtäckning.
+</p>
+
+<h3>Verkställ förbättringar</h3>
+<p>
+    Vid det här laget inser jag att den här analysen tydligt illustrerar vad verktygen menar med komplex och svårtestad kod. Jag trodde att det
+    skulle vara relativt smärtfritt att skriva enhetstester för kontrollerna men verktygen försökte helt klart berätta något för mig. Kontrollerna
+    består av klasser som sedan använder metoder för att rendera vyer och hantera värden som skickas via sessioner. Jag försöker skapa ett mock-objekt
+    för att isolera metoden jag vill testa mot andra beroenden. Jag försöker kolla så att metoden 'Game()' i min spel-Controller renderar startsidan för spelet
+    men jag lyckas inte formulera ett korrekt test. Det närmsta jag kommer är ett test som kollar att metoden returnerar ett \"Response\". Detta räcker inte för att
+    PHPunit-dokumentet som dokumenterar unittesterna ska godkänna testet. Ju mer jag försöker desto mer inser jag att det kommer vara komplicerat att skriva
+    tester för samtliga metoder i mina Controllers. Insikten av att det kanske inte ens är helt nödvändigt nås också. Behövs testerna? Vi vill ha testbar och
+    lättunderhållen kod men controller-sidornas huvudsakliga uppgift är ju faktiskt bara att rendera vyerna och hålla koll på värden via sessioner. Koden
+    bakom vyerna genereras med hjälp av de klasser och metoder som det redan finns enhetstester för. Går dessa tester igenom så kan vi vara ganska säkra på
+    att innehållet som vyerna renderar har framtagits på ett korrekt sätt. Är något fel med koden som renderar vyerna brukar det framgå tydligt i form av
+    något felmeddelande som Symfony, i det här fallet, visar upp för oss. Som en följd av detta görs istället valet att även exkludera Controller-vyerna från
+    verktygen som testar koden, tillsammans med själva testfilerna samt metoderna som tillhör ORM-hanteringen. Resultatet? Vi tittar.
+</p>
+
+<h4>PHPMetrics</h4>
+<img src=\"{{ asset('img/metricsfixed.png') }}\" alt=\"phpmetrics\">
+
+<h4>Scrutinizer</h4>
+<a href=\"https://scrutinizer-ci.com/g/elstarkov/mvc/?branch=main\">
+    <img src=\"https://scrutinizer-ci.com/g/elstarkov/mvc/badges/quality-score.png?b=main\" alt=\"quality\">
+</a>
+
+<a href=\"https://scrutinizer-ci.com/g/elstarkov/mvc/code-structure/main/code-coverage\">
+    <img src=\"https://scrutinizer-ci.com/g/elstarkov/mvc/badges/coverage.png?b=main\" alt=\"coverage\">
+</a>
+
+<a href=\"https://scrutinizer-ci.com/g/elstarkov/mvc/?branch=main\">
+    <img src=\"https://scrutinizer-ci.com/g/elstarkov/mvc/badges/build.png?b=main\" alt=\"build\">
+</a>
+
+<a href=\"https://scrutinizer-ci.com/g/elstarkov/mvc/?branch=main\">
+    <img src=\"https://scrutinizer-ci.com/g/elstarkov/mvc/badges/code-intelligence.svg?b=main\" alt=\"code intelligence\">
+</a>
+
+<p>
+    Nu ser koden helt plötsligt nästan felfri ut. Det känns inte helt bra att ta den lätta vägen ut och uppnå högre kodtäckning via exkludering.
+    Men i ärlighetens namn så borde samtliga filer förutom Controllers kanske redan ha varit exkluderade första gången som verktygen körde koden.
+    Då kördes testerna med baskonfiguering. Det känns både bra och dåligt att det inte fanns så mycket att justera. Det ger ett kvitto på att koden
+    kan bedömas som någorlunda lättförståelig och lätt att underhålla samtidigt som analysen hade blivit mer intressant om det funnits större saker
+    att åtgärda.
+</p>
+
+<h3>Diskussion</h3>
+
+<p>
+    Det börjar bli dags att avrunda. Analysen blev inte helt som förväntat. Jag är nöjd att grundbetyget höll hög standard men i en perfekt värld skulle såklart
+    lösningen för kontroller-sidorna varit att skriva nya tester snarare än att exkludera dem. Samtidigt känns det lite som överarbete och i grunden kan jag nog
+    känna mig nöjd med att de klasser och metoder som används för att skapa innehållet uppnådde en hög kodtäckning. Jag inser att man kanske måste välja
+    sitt fokus och skapa en balans. Hade den här webbplatsen varit ett arbete för en kund så kanske tidsramen gör att man till en början får fokusera på
+    att det som händer i bakgrunden fungerar, och felsöka routrar utifrån den information som genereras om man inte kan nå en rout. Om inte koden bakom
+    router-hanteringen fungerar så brukar det ofta framgå tydligt eftersom innehållet inte renderas alls eller bara till en viss del. Å andra sidan skulle
+    detta kunna leda till krascher vid senare tillfällen då inte all kod omfattas av testning och kan göra det svårt att upptäcka buggar i tid. Det leder
+    till vad jag i den här kursen har lärt mig kallas för \"technical debt\". Kort sammanfattat en teknisk skuld som kan innebära mer arbete i framtiden som
+    konsekvens av att man valt att förbise delar av sin kod i ett tidigare skede.
+</p>
+<p>
+    Arbetet med verktygen PHPMetrics och Scrutinizer verkar dock vara väldigt sunda hjälpmedel som kan göra livet mindre (eller mer) komplicerat för en grupp
+    med utvecklare. Speciellt då många säkerligen kommer från olika bakgrunder. Någon kanske är nyexaminerad medan en annan har 20 år av erfarenhet. Då är det
+    naturligt att man skriver på olika sätt. Verktygen kan hjälpa en mindre rutinerad utvecklare att ta nästa kliv samtidigt som någon med mer erfarenhet får
+    spetsa till sina kunskaper ytterligare. Verktygen kan få dessa två att mötas på vägen genom en gemensam kod-struktur som båda två kan förstå trots de olika
+    färdigheterna. Det är en trygghet att ha en hård och rättvis bedömare som kan ge ett kvitto på att koden gör vad den borde och i rätt utsträckning
+    samtidigt som det kan leda till mer arbete om man inte testar koden tillräckligt ofta medan den tas fram. På sikt så tror jag de flesta blir en bättre
+    utvecklare genom att använda linters och testverktyg för att kvalitetssäkra sin kod. Det tydligaste exemplet för egen räkning är hur ofta lintern påpekade
+    för mig att det i många fall var onödigt med en \"else\"-sats. Trots min skepsis följde jag förslagen och föga förvånande var det min kod som gick att förenkla
+    och inte lintern som hade fel. Who knew? Som tack för besväret fick min kod ett högre betyg av verktygen från analysen då den inte blev lika komplex. Jag tar
+    med mig att det enkla ofta är det bästa.
+</p>
+
+{% endblock %}", "metrics/metrics.html.twig", "/home/elstarkov/dbwebb-kurser/mvc/me/report/templates/metrics/metrics.html.twig");
+    }
+}

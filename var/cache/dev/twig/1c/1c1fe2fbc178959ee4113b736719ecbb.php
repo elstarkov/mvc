@@ -1,0 +1,525 @@
+<?php
+
+use Twig\Environment;
+use Twig\Error\LoaderError;
+use Twig\Error\RuntimeError;
+use Twig\Extension\SandboxExtension;
+use Twig\Markup;
+use Twig\Sandbox\SecurityError;
+use Twig\Sandbox\SecurityNotAllowedTagError;
+use Twig\Sandbox\SecurityNotAllowedFilterError;
+use Twig\Sandbox\SecurityNotAllowedFunctionError;
+use Twig\Source;
+use Twig\Template;
+
+/* proj/index.html.twig */
+class __TwigTemplate_02dba75afd7cc38717e3ca91bba238b6 extends Template
+{
+    private $source;
+    private $macros = [];
+
+    public function __construct(Environment $env)
+    {
+        parent::__construct($env);
+
+        $this->source = $this->getSourceContext();
+
+        $this->blocks = [
+            'title' => [$this, 'block_title'],
+            'body' => [$this, 'block_body'],
+        ];
+    }
+
+    protected function doGetParent(array $context)
+    {
+        // line 1
+        return "base.html.twig";
+    }
+
+    protected function doDisplay(array $context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "proj/index.html.twig"));
+
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "proj/index.html.twig"));
+
+        $this->parent = $this->loadTemplate("base.html.twig", "proj/index.html.twig", 1);
+        $this->parent->display($context, array_merge($this->blocks, $blocks));
+        
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
+
+        
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
+
+    }
+
+    // line 3
+    public function block_title($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
+
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
+
+        echo "Project";
+        
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
+
+        
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
+
+    }
+
+    // line 5
+    public function block_body($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
+
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
+
+        // line 6
+        echo "    <br>
+    <hr>
+    <nav>
+        <div class=\"routes\">
+            <a href=\"";
+        // line 10
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("proj_api");
+        echo "\">API (proj)</a>
+            <a href=\"";
+        // line 11
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("proj_about");
+        echo "\">About (proj)</a>
+        </div>
+    </nav>
+    <h2>
+        Hållbar utveckling
+    </h2>
+    <p>
+        Den här sidan representerar examinations-momentet för kursen MVC vt-2023.
+        Här kommer vi titta närmare på några av de mål inom \"Hållbar uteckling\" som FN satt
+        upp för 2030. Totalt finns 17 mål. Varje mål är komplext och består av mindre delmål.
+        I den här analysen kommer ett av delmålen för mål nummer tre, \"God hälsa och
+        välbefinnande\" samt mål nummer elva, \"Hållbara städer och samhällen\" att smalnas av
+        ytterligare och undersökas. Analysens mål är främst att vara informativ men även
+        inslag av författarens egna tankar kan förekomma. Källorna i arbetet bygger främst
+        på statistik från <a href=\"https://www.scb.se/\">SCB</a> och samtliga länkar finns
+        direkt där de används i texten.
+    </p>
+
+    <h3>Delmål 3.1 - Minska mödradödligheten</h3>
+    <p>
+        Att minska mödradödligheten finns med som ett delmål inom \"God hälsa och välbefinnande\".
+        Målet är att till 2030 minska den globala mödradödligheten till färre än 70 dödsfall
+        per 100 000 förlossningar med levande barn. Hur står sig då Sverige? Vi tittar.
+    </p>
+    <p>
+        Nedan finns ett diagram som visar mödradödlighet i Sverige mellan åren 2010-2020.
+        Staistiken är hämtad från <a href=
+        \"https://www.scb.se/hitta-statistik/temaomraden/agenda-2030/mal-3/\">SCB</a>.
+    </p>
+
+    ";
+        // line 41
+        echo $this->extensions['Symfony\UX\Chartjs\Twig\ChartExtension']->renderChart((isset($context["chart2"]) || array_key_exists("chart2", $context) ? $context["chart2"] : (function () { throw new RuntimeError('Variable "chart2" does not exist.', 41, $this->source); })()));
+        echo "
+
+    <p>
+        Som vi kan se ligger siffran långt under målet vilket är positivt. Vi kan också
+        se att utveckling inte följer något specifikt mönster utan varierar från år till
+        år. Det är dock noterbart att den högsta noteringen i tioårs-spannet var så sent
+        som 2020. Det gör att det hade varit intressant att se siffror för 2021 och 2022
+        men tyvärr sträckte sig inte statistiken längre.
+    </p>
+
+    <p>
+        I en artikel från <a href=
+        \"https://www.rfsu.se/vad-vi-gor/nara-dig/barnvagnsmarschen/modradodlighet-i-varlden/\"
+        >RFSU</a> så understryks det att mödradödligheten varierar stort mellan olika länder.
+        Även om vi har en låg siffra i Sverige så har exempelvis Sierra Leone en mödradödlighet
+        på långt över 1000 per 100 000 förlossningar. Generellt så är dödsfallen högre i
+        medelinkomstländer. Detta understryker vilka fatala konsekvenser avsaknaden av rätt
+        vård kan få. RFSU uppger också att i vissa låg- och medelinkomstländer så är det
+        endast 64% som får hjälp av utbildad personal vid förlossningar. Detta kan delvis
+        förklaras av brist på personal men andra faktorer som spelar in är fattigdom,
+        avstånd till vårdanläggningar samt informationsbrist. Till exempel så föder 58
+        procent av jordens gravida på landsbygden sina barn på vårdanläggningar medan
+        siffran för gravida i städer som föder på sjukhus eller liknande uppgår till 83
+        procent.
+    </p>
+    <p>
+        Artikeln tar också upp vikten av profesionell hjälp vid aborter. Om en abort
+        utförs av någon som saknar tillräckliga medicinska kunskaper, modern utrustning,
+        eller om det hyggieniska förhållandet är dåligt är aborten förknippat med livsfara.
+        Många är dock desperata och är beredda att gå långt för att \"bli av med\" graviditeten.
+        RFSU listar upp aktioner som att föra upp kvistar i underlivet, dricka blekmedel eller
+        äta krossat glas som några. Tiotusentals mister livet varje år och miljontals vårdas
+        på sjukhus.
+    </p>
+    <p>
+        Med den faktan i bakhuvudet är det inte så svårt att förstå varför mödradödlighet ingår
+        som ett delmål i FNs Agenda 2030(internationell överenkommelse med sjutton globala
+        mål). FN anser att detta är de bästa sätten för att minska mödradödligheten.
+
+        <ul>
+            <li>
+                Öka tillgång till preventivmedel så att man kan undvika oönskade graviditeter
+            </li>
+            <li>
+                Se till att det finns förlossningsvård av utbildad personal i en säker miljö
+            </li>
+            <li>
+                Ge akut sjukvård till de som drabbas av komplikationer i samband med sin förlossning
+            </li>
+        </ul>
+    </p>
+
+    <p>
+        Som avslutning på den första delen vill jag kommentera att samtliga tre uppmaningar är väldigt
+        bra i teorin men i praktiken är det nog inte lika lätt att genomföra. Många länder är fortfarande
+        extremt fattiga och kommer därmed ha svårt att arbeta med målen. Dessutom finns det också länder
+        som motarbetaraborträtten vilket även det försvårar arbetet. I Sverige talar vi öppet om
+        rätten till säkra aborter för att öka jämställdheten och minska mödradödlighet. Vi har därför ett
+        stort att ansvar understryka dessa rättigheter utåt så att andra länder öppnar sina ögon.
+    </p>
+
+    <h3>Delmål 11.1.2 - Trångboddhet</h3>
+    <p>
+        Trångboddhet är en del inom \"Hållbara städer och samhällen\". Enligt <a href=\"
+        https://www.scb.se/hitta-statistik/artiklar/2021/sverige-har-flest-trangbodda-i-norden
+        \">SCB</a> är det ett mått på boendestandard och människor som bor trångt kan sakna tillräckligt
+        med utrymme för att umgås, leka, göra läxor eller arbeta på ett bekvämt sätt. Det finns flera
+        faktorer som påverkar trångboddhet. Det kan vara ålder, inkomst och hur många som bor tillsammans.
+    </p>
+    <p>
+        I den här analysen kommer vi smalna av området ytterligare och titta närmare på trångboddhet i Sverige
+        jämfört med andra delar av Europa och Norden.
+    </p>
+    <p>
+        Till att börja med behöver vi definiera trångboddhet. \"Människor som bor trångt\" räcker inte långt.
+        EU har definierat ett mått som kort sagt innebär att de boende har för få rum i förhållande till
+        hur många som bor där. Som exempel behöver ett par som bor tillsammans ha minst ett sovrum och vardagsrum
+        utöver badrum och kök för att inte per definition kallas för trångbodda. Skaffar paret barn behöver de
+        ett sovrum till och när barnen blir äldre behöver de ytterligare ett sovrum så att barnen har varsitt.
+    </p>
+    <p>
+        Artikeln från SCB som det länkas till ovan tillhandahåller statistik för trångboddhet runtom i Europa.
+        Till exempel så framgår det att år 2019 så var Sverige det land i Norden där högst andel bor trångt, 16
+        procent. Jämfört med resten av EU ligger siffran på ungefär densamma, 17 procent. SCB förklarar också
+        att sedan 2011 så har trångboddheten i EU minskat medan den i Norden tvärtom har ökat. Det är
+        framförallt i länder som tidigare varit väldigt trångbodda som siffran har minskat. Ett exempel är Ungern
+        som 2011 låg på 46 procent men som 2019 hade sjunkit till 20 procent!
+    </p>
+    <p>
+        Detta leder oss in på Norden. Vi bryter ner statistiken ytterligare och delar upp den i två kategorier,
+        inrikes och utrikes födda. Siffrorna redovisas i diagrammet nedan och representerar andelen trångbodda
+        per land och övriga EU.
+    </p>
+
+    <h3>Andel trångbodda efter födelseland, 18 år och äldre, EU-27 och Norden - 2019</h3>
+
+        ";
+        // line 137
+        echo $this->extensions['Symfony\UX\Chartjs\Twig\ChartExtension']->renderChart((isset($context["chart1"]) || array_key_exists("chart1", $context) ? $context["chart1"] : (function () { throw new RuntimeError('Variable "chart1" does not exist.', 137, $this->source); })()));
+        echo "
+
+    <p>
+        Diagrammet visar en tydlig skillnad i trångboddhet mellan inrikes och utrikes födda för samtliga länder
+        i Norden och EU27. Det framgår också att utrikes födda i Sverige och Danmark ligger
+        över snittet för övriga EU-27. För inrikes födda är andelen trångbodda i hela Norden lägre än i
+        EU-27.
+    </p>
+
+    <p>
+        Vad beror då olikheterna på? I en artikel från Malmös Universitet
+        <a href=\"https://mau.se/nyheter/unik-kartlaggning-av-trangboddhet-i-malmo/\">(MAU)</a>
+        som är baserad på ett forskningsprojekt om trångboddhet i Malmö så är det framförallt
+        hushåll med lägre inkomster och lägre utbildningsnivåer som bor trångt. Här understryker
+        man också att trångboddheten är ännu mer förekommande bland människor födda utanför Europa,
+        precis som diagrammet också visade. Enligt rapporten är trångboddhet både en konsekvens och
+        en orsak till en generell ojämlikhet i samhället. Personerna bakom rapporten framhåller dock
+        att det kan vara svårt att dra slutsatser mellan trångboddhet och specifika konsekvenser:
+    </p>
+    <p>
+        \"Det är viktigt att understryka att det kan vara svårt att isolera direkta samband mellan
+        trångboddhet och specifika konsekvenser, då flera faktorer ofta samverkar. Trångboddhet bör
+        därför förstås som en del av de komplexa orsakssamband som bidrar till
+        social utsatthet\", säger Matilda Sandberg.
+    </p>
+    <p>
+        Avslutningsvis beskriver författarna att personerna som deltog i studien framhöll att
+        bristen på lugn, avskildhet och utrymme påverkar förmågan att återhämta sig. Matilda
+        Svanberg fortsätter:
+    </p>
+    <p>
+        \"Det övergripande handlar om bristen på eget utrymme. För att vardagslivet ska fungera
+        krävs det hänsynstagande och att kompromisser görs inom hushållet.
+        Bristen på utrymme och avskildhet i hemmet påverkar läxläsning och studier.
+        Flera beskriver hur trångboddheten gör att mer tid tillbringas utanför bostaden.\"
+    </p>
+    <p>
+        Eftersom trångboddhet är stressande i sig skapas lätt en ond cirkel som är svår att göra något
+        åt. Intervjupersonerna i studien framhöll därför även vikten av gemensamma utemiljöer såsom
+        grönområden, fritidsgårdar, lekplatser och skolgårdar.
+    </p>
+
+
+    ";
+        // line 217
+        echo "
+";
+        
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
+
+        
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
+
+    }
+
+    public function getTemplateName()
+    {
+        return "proj/index.html.twig";
+    }
+
+    public function isTraitable()
+    {
+        return false;
+    }
+
+    public function getDebugInfo()
+    {
+        return array (  276 => 217,  230 => 137,  131 => 41,  98 => 11,  94 => 10,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+    }
+
+    public function getSourceContext()
+    {
+        return new Source("{% extends 'base.html.twig' %}
+
+{% block title %}Project{% endblock %}
+
+{% block body %}
+    <br>
+    <hr>
+    <nav>
+        <div class=\"routes\">
+            <a href=\"{{ path('proj_api') }}\">API (proj)</a>
+            <a href=\"{{ path('proj_about') }}\">About (proj)</a>
+        </div>
+    </nav>
+    <h2>
+        Hållbar utveckling
+    </h2>
+    <p>
+        Den här sidan representerar examinations-momentet för kursen MVC vt-2023.
+        Här kommer vi titta närmare på några av de mål inom \"Hållbar uteckling\" som FN satt
+        upp för 2030. Totalt finns 17 mål. Varje mål är komplext och består av mindre delmål.
+        I den här analysen kommer ett av delmålen för mål nummer tre, \"God hälsa och
+        välbefinnande\" samt mål nummer elva, \"Hållbara städer och samhällen\" att smalnas av
+        ytterligare och undersökas. Analysens mål är främst att vara informativ men även
+        inslag av författarens egna tankar kan förekomma. Källorna i arbetet bygger främst
+        på statistik från <a href=\"https://www.scb.se/\">SCB</a> och samtliga länkar finns
+        direkt där de används i texten.
+    </p>
+
+    <h3>Delmål 3.1 - Minska mödradödligheten</h3>
+    <p>
+        Att minska mödradödligheten finns med som ett delmål inom \"God hälsa och välbefinnande\".
+        Målet är att till 2030 minska den globala mödradödligheten till färre än 70 dödsfall
+        per 100 000 förlossningar med levande barn. Hur står sig då Sverige? Vi tittar.
+    </p>
+    <p>
+        Nedan finns ett diagram som visar mödradödlighet i Sverige mellan åren 2010-2020.
+        Staistiken är hämtad från <a href=
+        \"https://www.scb.se/hitta-statistik/temaomraden/agenda-2030/mal-3/\">SCB</a>.
+    </p>
+
+    {{ render_chart(chart2) }}
+
+    <p>
+        Som vi kan se ligger siffran långt under målet vilket är positivt. Vi kan också
+        se att utveckling inte följer något specifikt mönster utan varierar från år till
+        år. Det är dock noterbart att den högsta noteringen i tioårs-spannet var så sent
+        som 2020. Det gör att det hade varit intressant att se siffror för 2021 och 2022
+        men tyvärr sträckte sig inte statistiken längre.
+    </p>
+
+    <p>
+        I en artikel från <a href=
+        \"https://www.rfsu.se/vad-vi-gor/nara-dig/barnvagnsmarschen/modradodlighet-i-varlden/\"
+        >RFSU</a> så understryks det att mödradödligheten varierar stort mellan olika länder.
+        Även om vi har en låg siffra i Sverige så har exempelvis Sierra Leone en mödradödlighet
+        på långt över 1000 per 100 000 förlossningar. Generellt så är dödsfallen högre i
+        medelinkomstländer. Detta understryker vilka fatala konsekvenser avsaknaden av rätt
+        vård kan få. RFSU uppger också att i vissa låg- och medelinkomstländer så är det
+        endast 64% som får hjälp av utbildad personal vid förlossningar. Detta kan delvis
+        förklaras av brist på personal men andra faktorer som spelar in är fattigdom,
+        avstånd till vårdanläggningar samt informationsbrist. Till exempel så föder 58
+        procent av jordens gravida på landsbygden sina barn på vårdanläggningar medan
+        siffran för gravida i städer som föder på sjukhus eller liknande uppgår till 83
+        procent.
+    </p>
+    <p>
+        Artikeln tar också upp vikten av profesionell hjälp vid aborter. Om en abort
+        utförs av någon som saknar tillräckliga medicinska kunskaper, modern utrustning,
+        eller om det hyggieniska förhållandet är dåligt är aborten förknippat med livsfara.
+        Många är dock desperata och är beredda att gå långt för att \"bli av med\" graviditeten.
+        RFSU listar upp aktioner som att föra upp kvistar i underlivet, dricka blekmedel eller
+        äta krossat glas som några. Tiotusentals mister livet varje år och miljontals vårdas
+        på sjukhus.
+    </p>
+    <p>
+        Med den faktan i bakhuvudet är det inte så svårt att förstå varför mödradödlighet ingår
+        som ett delmål i FNs Agenda 2030(internationell överenkommelse med sjutton globala
+        mål). FN anser att detta är de bästa sätten för att minska mödradödligheten.
+
+        <ul>
+            <li>
+                Öka tillgång till preventivmedel så att man kan undvika oönskade graviditeter
+            </li>
+            <li>
+                Se till att det finns förlossningsvård av utbildad personal i en säker miljö
+            </li>
+            <li>
+                Ge akut sjukvård till de som drabbas av komplikationer i samband med sin förlossning
+            </li>
+        </ul>
+    </p>
+
+    <p>
+        Som avslutning på den första delen vill jag kommentera att samtliga tre uppmaningar är väldigt
+        bra i teorin men i praktiken är det nog inte lika lätt att genomföra. Många länder är fortfarande
+        extremt fattiga och kommer därmed ha svårt att arbeta med målen. Dessutom finns det också länder
+        som motarbetaraborträtten vilket även det försvårar arbetet. I Sverige talar vi öppet om
+        rätten till säkra aborter för att öka jämställdheten och minska mödradödlighet. Vi har därför ett
+        stort att ansvar understryka dessa rättigheter utåt så att andra länder öppnar sina ögon.
+    </p>
+
+    <h3>Delmål 11.1.2 - Trångboddhet</h3>
+    <p>
+        Trångboddhet är en del inom \"Hållbara städer och samhällen\". Enligt <a href=\"
+        https://www.scb.se/hitta-statistik/artiklar/2021/sverige-har-flest-trangbodda-i-norden
+        \">SCB</a> är det ett mått på boendestandard och människor som bor trångt kan sakna tillräckligt
+        med utrymme för att umgås, leka, göra läxor eller arbeta på ett bekvämt sätt. Det finns flera
+        faktorer som påverkar trångboddhet. Det kan vara ålder, inkomst och hur många som bor tillsammans.
+    </p>
+    <p>
+        I den här analysen kommer vi smalna av området ytterligare och titta närmare på trångboddhet i Sverige
+        jämfört med andra delar av Europa och Norden.
+    </p>
+    <p>
+        Till att börja med behöver vi definiera trångboddhet. \"Människor som bor trångt\" räcker inte långt.
+        EU har definierat ett mått som kort sagt innebär att de boende har för få rum i förhållande till
+        hur många som bor där. Som exempel behöver ett par som bor tillsammans ha minst ett sovrum och vardagsrum
+        utöver badrum och kök för att inte per definition kallas för trångbodda. Skaffar paret barn behöver de
+        ett sovrum till och när barnen blir äldre behöver de ytterligare ett sovrum så att barnen har varsitt.
+    </p>
+    <p>
+        Artikeln från SCB som det länkas till ovan tillhandahåller statistik för trångboddhet runtom i Europa.
+        Till exempel så framgår det att år 2019 så var Sverige det land i Norden där högst andel bor trångt, 16
+        procent. Jämfört med resten av EU ligger siffran på ungefär densamma, 17 procent. SCB förklarar också
+        att sedan 2011 så har trångboddheten i EU minskat medan den i Norden tvärtom har ökat. Det är
+        framförallt i länder som tidigare varit väldigt trångbodda som siffran har minskat. Ett exempel är Ungern
+        som 2011 låg på 46 procent men som 2019 hade sjunkit till 20 procent!
+    </p>
+    <p>
+        Detta leder oss in på Norden. Vi bryter ner statistiken ytterligare och delar upp den i två kategorier,
+        inrikes och utrikes födda. Siffrorna redovisas i diagrammet nedan och representerar andelen trångbodda
+        per land och övriga EU.
+    </p>
+
+    <h3>Andel trångbodda efter födelseland, 18 år och äldre, EU-27 och Norden - 2019</h3>
+
+        {{ render_chart(chart1) }}
+
+    <p>
+        Diagrammet visar en tydlig skillnad i trångboddhet mellan inrikes och utrikes födda för samtliga länder
+        i Norden och EU27. Det framgår också att utrikes födda i Sverige och Danmark ligger
+        över snittet för övriga EU-27. För inrikes födda är andelen trångbodda i hela Norden lägre än i
+        EU-27.
+    </p>
+
+    <p>
+        Vad beror då olikheterna på? I en artikel från Malmös Universitet
+        <a href=\"https://mau.se/nyheter/unik-kartlaggning-av-trangboddhet-i-malmo/\">(MAU)</a>
+        som är baserad på ett forskningsprojekt om trångboddhet i Malmö så är det framförallt
+        hushåll med lägre inkomster och lägre utbildningsnivåer som bor trångt. Här understryker
+        man också att trångboddheten är ännu mer förekommande bland människor födda utanför Europa,
+        precis som diagrammet också visade. Enligt rapporten är trångboddhet både en konsekvens och
+        en orsak till en generell ojämlikhet i samhället. Personerna bakom rapporten framhåller dock
+        att det kan vara svårt att dra slutsatser mellan trångboddhet och specifika konsekvenser:
+    </p>
+    <p>
+        \"Det är viktigt att understryka att det kan vara svårt att isolera direkta samband mellan
+        trångboddhet och specifika konsekvenser, då flera faktorer ofta samverkar. Trångboddhet bör
+        därför förstås som en del av de komplexa orsakssamband som bidrar till
+        social utsatthet\", säger Matilda Sandberg.
+    </p>
+    <p>
+        Avslutningsvis beskriver författarna att personerna som deltog i studien framhöll att
+        bristen på lugn, avskildhet och utrymme påverkar förmågan att återhämta sig. Matilda
+        Svanberg fortsätter:
+    </p>
+    <p>
+        \"Det övergripande handlar om bristen på eget utrymme. För att vardagslivet ska fungera
+        krävs det hänsynstagande och att kompromisser görs inom hushållet.
+        Bristen på utrymme och avskildhet i hemmet påverkar läxläsning och studier.
+        Flera beskriver hur trångboddheten gör att mer tid tillbringas utanför bostaden.\"
+    </p>
+    <p>
+        Eftersom trångboddhet är stressande i sig skapas lätt en ond cirkel som är svår att göra något
+        åt. Intervjupersonerna i studien framhöll därför även vikten av gemensamma utemiljöer såsom
+        grönområden, fritidsgårdar, lekplatser och skolgårdar.
+    </p>
+
+
+    {# <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Land</th>
+                <th>Grupp</th>
+                <th>Andel</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for info in overcrowded %}
+                <td>{{ info.id }}</td>
+                <td>{{ info.country }}</td>
+                <td>{{ info.category }}</td>
+                <td>{{ info.amount }}%</td>
+                <tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>År</th>
+                <th>Andel</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for info in mortality %}
+                <td>{{ info.id }}</td>
+                <td>{{ info.year }}</td>
+                <td>{{ info.rate }}%</td>
+                <tr>
+            {% endfor %}
+        </tbody>
+    </table> #}
+
+{% endblock %}
+
+{# använd för att jämföra resultat https://www.scb.se/hitta-statistik/artiklar/2021/sverige-har-flest-trangbodda-i-norden/ #}
+", "proj/index.html.twig", "/home/elstarkov/dbwebb-kurser/mvc/me/report/templates/proj/index.html.twig");
+    }
+}
