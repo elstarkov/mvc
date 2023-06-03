@@ -8,9 +8,26 @@ This is the Scrutinizer badges. They show how well each part is performing. The 
 because all parts of the website is not tested. I have focused on the ones relevant to the card game and show of
 statistics. I found them most important. Click any of the badges for more info.
 
-
-
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/elstarkov/mvc/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/elstarkov/mvc/?branch=main)
 [![Code Coverage](https://scrutinizer-ci.com/g/elstarkov/mvc/badges/coverage.png?b=main)](https://scrutinizer-ci.com/g/elstarkov/mvc/?branch=main)
 [![Build Status](https://scrutinizer-ci.com/g/elstarkov/mvc/badges/build.png?b=main)](https://scrutinizer-ci.com/g/elstarkov/mvc/build-status/main)
 [![Code Intelligence Status](https://scrutinizer-ci.com/g/elstarkov/mvc/badges/code-intelligence.svg?b=main)](https://scrutinizer-ci.com/code-intelligence)
+
+
+To clone this repo:
+
+Open a terminal.
+
+Navigate to an empty folder or any folder where you want to clone the repo.
+
+Type "git clone https://github.com/elstarkov/mvc.git" in the terminal.
+
+Then type "cd mvc"
+
+Run "composer install" and "npm install" to include all packages.
+
+To open the website locally:
+
+Run "php -S localhost:8888 -t public" and open open your browser with the url "localhost:8888".
+
+You are now good to go.
