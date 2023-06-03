@@ -60,7 +60,7 @@ class OvercrowdedController extends AbstractController
             );
         }
 
-        $overcrowdedRepository->remove($info, true);
+        //$overcrowdedRepository->remove($info, true);
 
         return new Response(
             'Deleted info$info with id'.$info->getId()

@@ -48,7 +48,7 @@ class MaternalMortalityController extends AbstractController
             );
         }
 
-        $maternalMortalityRepository->remove($info, true);
+        //$maternalMortalityRepository->remove($info, true);
 
         return new Response(
             'Deleted info$info with id'.$info->getId()

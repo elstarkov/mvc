@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1685723309">
-  <project timestamp="1685723309">
+<coverage generated="1685787116">
+  <project timestamp="1685787116">
     <file name="/home/elstarkov/dbwebb-kurser/mvc/me/report/src/Card/Card.php">
       <class name="App\Card\Card" namespace="global">
         <metrics complexity="4" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="7" elements="11" coveredelements="11"/>
@@ -552,7 +552,7 @@
     </file>
     <file name="/home/elstarkov/dbwebb-kurser/mvc/me/report/src/Controller/MaternalMortalityController.php">
       <class name="App\Controller\MaternalMortalityController" namespace="global">
-        <metrics complexity="3" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="15" coveredstatements="0" elements="17" coveredelements="0"/>
+        <metrics complexity="3" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="0" elements="16" coveredelements="0"/>
       </class>
       <line num="15" type="method" name="create" visibility="public" complexity="1" crap="2" count="0"/>
       <line num="21" type="stmt" count="0"/>
@@ -567,11 +567,10 @@
       <line num="46" type="stmt" count="0"/>
       <line num="47" type="stmt" count="0"/>
       <line num="48" type="stmt" count="0"/>
-      <line num="51" type="stmt" count="0"/>
       <line num="53" type="stmt" count="0"/>
       <line num="54" type="stmt" count="0"/>
       <line num="55" type="stmt" count="0"/>
-      <metrics loc="58" ncloc="53" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="15" coveredstatements="0" elements="17" coveredelements="0"/>
+      <metrics loc="58" ncloc="52" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="0" elements="16" coveredelements="0"/>
     </file>
     <file name="/home/elstarkov/dbwebb-kurser/mvc/me/report/src/Controller/MetricsController.php">
       <class name="App\Controller\MetricsController" namespace="global">
@@ -583,7 +582,7 @@
     </file>
     <file name="/home/elstarkov/dbwebb-kurser/mvc/me/report/src/Controller/OvercrowdedController.php">
       <class name="App\Controller\OvercrowdedController" namespace="global">
-        <metrics complexity="9" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="88" coveredstatements="0" elements="91" coveredelements="0"/>
+        <metrics complexity="9" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="87" coveredstatements="0" elements="90" coveredelements="0"/>
       </class>
       <line num="23" type="method" name="create" visibility="public" complexity="1" crap="2" count="0"/>
       <line num="29" type="stmt" count="0"/>
@@ -599,7 +598,6 @@
       <line num="58" type="stmt" count="0"/>
       <line num="59" type="stmt" count="0"/>
       <line num="60" type="stmt" count="0"/>
-      <line num="63" type="stmt" count="0"/>
       <line num="65" type="stmt" count="0"/>
       <line num="66" type="stmt" count="0"/>
       <line num="67" type="stmt" count="0"/>
@@ -676,7 +674,7 @@
       <line num="168" type="stmt" count="0"/>
       <line num="169" type="stmt" count="0"/>
       <line num="171" type="stmt" count="0"/>
-      <metrics loc="174" ncloc="167" classes="1" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="88" coveredstatements="0" elements="91" coveredelements="0"/>
+      <metrics loc="174" ncloc="166" classes="1" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="87" coveredstatements="0" elements="90" coveredelements="0"/>
     </file>
     <file name="/home/elstarkov/dbwebb-kurser/mvc/me/report/src/Controller/ProductController.php">
       <class name="App\Controller\ProductController" namespace="global">
@@ -990,6 +988,6 @@
       <line num="38" type="stmt" count="0"/>
       <metrics loc="67" ncloc="36" classes="1" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="0" elements="10" coveredelements="0"/>
     </file>
-    <metrics files="23" loc="2409" ncloc="2151" classes="22" methods="115" coveredmethods="30" conditionals="0" coveredconditionals="0" statements="736" coveredstatements="50" elements="851" coveredelements="80"/>
+    <metrics files="23" loc="2409" ncloc="2149" classes="22" methods="115" coveredmethods="30" conditionals="0" coveredconditionals="0" statements="734" coveredstatements="50" elements="849" coveredelements="80"/>
   </project>
 </coverage>
